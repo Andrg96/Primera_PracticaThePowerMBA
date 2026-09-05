@@ -15,8 +15,8 @@
   --l-456:#00713A; --l-nqrw:#9A7500; --l-l:#5F636B;
   --bul-ink:#FFFFFF;
   --lift:0 1px 1px rgba(18,20,26,.04),0 10px 30px -22px rgba(18,20,26,.45);
-  --maxw:70ch;
-  --nav-h:52px;
+  --maxw:68ch;
+  --nav-h:60px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#0C0E12; --surface:#15181D; --surface-2:#1C2027; --surface-3:#242931;
@@ -50,16 +50,16 @@ html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 10px)}
 body{
   background:var(--paper); color:var(--ink);
   font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
-  font-size:17.5px; line-height:1.64; margin:0;
+  font-size:19px; line-height:1.62; margin:0;
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
   overflow-wrap:break-word;
 }
-.wrap{max-width:1000px;margin:0 auto;padding:0 24px 110px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 26px 120px}
 h1,h2,h3,h4,h5,.ui,.mono{font-family:Archivo,"Helvetica Neue",Helvetica,Arial,sans-serif}
 .mono,.hr,.kicker,.num,.dd,.cost,.meta,.tag,dt,caption,th,.when,.idx,.chip{font-family:"IBM Plex Mono",ui-monospace,monospace}
-h2{font-size:clamp(1.6rem,3.6vw,2.1rem);line-height:1.1;letter-spacing:-.025em;font-weight:700;text-wrap:balance;margin:0}
-h3{font-size:1.25rem;line-height:1.2;letter-spacing:-.015em;font-weight:600;text-wrap:balance;margin:0}
-h4{font-size:.97rem;line-height:1.3;font-weight:600;margin:0}
+h2{font-size:clamp(1.75rem,3.8vw,2.3rem);line-height:1.1;letter-spacing:-.025em;font-weight:700;text-wrap:balance;margin:0}
+h3{font-size:1.388rem;line-height:1.2;letter-spacing:-.015em;font-weight:600;text-wrap:balance;margin:0}
+h4{font-size:1.077rem;line-height:1.3;font-weight:600;margin:0}
 p{margin:0 0 .8em;max-width:var(--maxw)}
 p:last-child{margin-bottom:0}
 a{color:var(--accent);text-underline-offset:2px;text-decoration-thickness:1px}
@@ -72,33 +72,34 @@ em.q{font-style:italic;font-family:inherit}
 /* skip link */
 .skip{position:absolute;left:16px;top:-70px;z-index:99;background:var(--surface);color:var(--ink);
   border:2px solid var(--accent);padding:11px 18px;border-radius:6px;font-family:Archivo,sans-serif;
-  font-weight:600;font-size:.9rem;text-decoration:none;transition:top .15s}
+  font-weight:600;font-size:0.999rem;text-decoration:none;transition:top .15s}
 .skip:focus{top:12px}
 
 /* ---------- masthead ---------- */
 .mast{padding:52px 0 26px;border-bottom:2.5px solid var(--ink)}
-.kicker{font-size:.7rem;letter-spacing:.17em;text-transform:uppercase;color:var(--ink-faint);display:block}
-.mast h1{font-size:clamp(2.7rem,8.2vw,5rem);line-height:.92;letter-spacing:-.04em;font-weight:700;margin:.16em 0 0;text-wrap:balance}
+.kicker{font-size:0.777rem;letter-spacing:.17em;text-transform:uppercase;color:var(--ink-faint);display:block}
+.mast h1{font-size:clamp(2.9rem,8.4vw,5.2rem);line-height:.92;letter-spacing:-.04em;font-weight:700;margin:.16em 0 0;text-wrap:balance}
 .mast h1 .l2{color:var(--ink-faint)}
 .crew{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:20px 0 0}
-.crew .who{font-family:Archivo,sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.01em;
+.crew .who{font-family:Archivo,sans-serif;font-size:0.91rem;font-weight:600;letter-spacing:.01em;
   background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:5px 13px}
-.crew .sep{color:var(--ink-faint);font-size:.82rem}
-.mast .sub{font-size:1.09rem;color:var(--ink-soft);max-width:58ch;margin:18px 0 0}
+.crew .sep{color:var(--ink-faint);font-size:0.91rem}
+.mast .sub{font-size:1.21rem;color:var(--ink-soft);max-width:58ch;margin:18px 0 0}
 .mastgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--rule);
   border:1px solid var(--rule);margin-top:28px}
 .mastgrid > div{background:var(--paper);padding:12px 14px}
-.mastgrid dt{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 4px}
-.mastgrid dd{font-family:Archivo,sans-serif;font-size:.96rem;font-weight:600;margin:0;line-height:1.28}
+.mastgrid dt{font-size:0.688rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 4px}
+.mastgrid dd{font-family:Archivo,sans-serif;font-size:1.066rem;font-weight:600;margin:0;line-height:1.28}
 
 /* ---------- sticky nav ---------- */
 .navwrap{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--rule)}
 .navwrap::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:var(--read,0%);
   background:var(--accent);transition:width .1s linear}
 .toc{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
-.toc ul{display:flex;gap:4px;list-style:none;margin:0;padding:8px 0;white-space:nowrap;width:max-content}
-.toc a{display:block;font-family:Archivo,sans-serif;font-size:.79rem;font-weight:500;text-decoration:none;
-  color:var(--ink-soft);padding:8px 13px;border:1px solid transparent;border-radius:999px;min-height:36px;line-height:20px}
+.toc ul{display:flex;gap:5px;list-style:none;margin:0;padding:9px 0;white-space:nowrap;width:max-content;scroll-snap-type:x proximity}
+.toc a{display:block;font-family:Archivo,sans-serif;font-size:0.877rem;font-weight:500;text-decoration:none;
+  color:var(--ink-soft);padding:11px 17px;border:1px solid transparent;border-radius:999px;min-height:44px;
+  line-height:21px;scroll-snap-align:center}
 .toc a:hover{color:var(--ink);background:var(--surface-2)}
 .toc a[aria-current="true"]{color:var(--paper);background:var(--ink);border-color:var(--ink)}
 
@@ -108,9 +109,9 @@ section{padding:56px 0 0;scroll-margin-top:calc(var(--nav-h) + 8px)}
 .itin{scroll-margin-top:calc(var(--nav-h) + 8px)}
 .day{scroll-margin-top:calc(var(--nav-h) + 8px)}
 .eyebrow{display:flex;align-items:center;gap:13px;margin-bottom:15px}
-.eyebrow .num{font-size:.69rem;letter-spacing:.14em;color:var(--ink-faint);text-transform:uppercase;flex:none}
+.eyebrow .num{font-size:0.766rem;letter-spacing:.14em;color:var(--ink-faint);text-transform:uppercase;flex:none}
 .eyebrow .line{flex:1;height:1px;background:var(--rule)}
-.lede{font-size:1.05rem;color:var(--ink-soft);max-width:64ch;margin:.65em 0 0}
+.lede{font-size:1.166rem;color:var(--ink-soft);max-width:64ch;margin:.65em 0 0}
 
 /* ---------- callouts ---------- */
 .note{border-left:3px solid var(--rule);background:var(--surface);padding:14px 18px;margin:22px 0;max-width:var(--maxw)}
@@ -118,43 +119,43 @@ section{padding:56px 0 0;scroll-margin-top:calc(var(--nav-h) + 8px)}
 .note.warn{border-color:var(--warn);background:var(--warn-bg)}
 .note.good{border-color:var(--good);background:var(--good-bg)}
 .note.info{border-color:var(--accent);background:var(--accent-bg)}
-.note .tag{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;display:block;margin-bottom:6px}
+.note .tag{font-size:0.733rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;display:block;margin-bottom:6px}
 .note.alert .tag{color:var(--alert)} .note.warn .tag{color:var(--warn)}
 .note.good .tag{color:var(--good)} .note.info .tag{color:var(--accent)}
-.note p{font-size:.95rem}
+.note p{font-size:1.054rem}
 
 /* ---------- correcciones ---------- */
 .fixes{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:24px}
 .fix{background:var(--surface);padding:17px 19px;display:grid;grid-template-columns:30px 1fr;gap:15px;align-items:start}
-.fix .mk{font-family:Archivo,sans-serif;font-size:1.1rem;font-weight:700;line-height:1.35;text-align:center}
+.fix .mk{font-family:Archivo,sans-serif;font-size:1.221rem;font-weight:700;line-height:1.35;text-align:center}
 .fix.bad .mk{color:var(--alert)} .fix.new .mk{color:var(--good)} .fix.adj .mk{color:var(--warn)}
 .fix h4{margin-bottom:6px}
-.fix p{font-size:.94rem;color:var(--ink-soft);margin:0}
+.fix p{font-size:1.043rem;color:var(--ink-soft);margin:0}
 .fix p + p{margin-top:.55em}
-.fix .was{font-size:.74rem;color:var(--ink-faint);display:block;margin-top:9px;padding-left:11px;
+.fix .was{font-size:0.821rem;color:var(--ink-faint);display:block;margin-top:9px;padding-left:11px;
   border-left:2px solid var(--rule);font-style:italic;font-family:"Source Serif 4",serif}
 
 /* ---------- checklist ---------- */
 .check{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);counter-reset:c}
 .check li{background:var(--surface);padding:15px 19px;display:grid;grid-template-columns:auto 1fr auto;gap:7px 14px;align-items:baseline}
-.check li::before{counter-increment:c;content:counter(c);font-family:"IBM Plex Mono",monospace;font-size:.74rem;
+.check li::before{counter-increment:c;content:counter(c);font-family:"IBM Plex Mono",monospace;font-size:0.821rem;
   font-weight:600;color:var(--ink-faint);grid-row:1}
-.check .what{font-family:Archivo,sans-serif;font-weight:600;font-size:1rem}
-.check .when{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:4px;
+.check .what{font-family:Archivo,sans-serif;font-weight:600;font-size:1.11rem}
+.check .when{font-size:0.733rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:4px;
   white-space:nowrap;font-weight:600}
 .when.now{background:var(--alert-bg);color:var(--alert);box-shadow:inset 0 0 0 1px currentColor}
 .when.soon{background:var(--warn-bg);color:var(--warn);box-shadow:inset 0 0 0 1px currentColor}
 .when.easy{background:var(--good-bg);color:var(--good);box-shadow:inset 0 0 0 1px currentColor}
-.check .how{grid-column:2/-1;font-size:.93rem;color:var(--ink-soft);margin:0;overflow-wrap:anywhere}
+.check .how{grid-column:2/-1;font-size:1.032rem;color:var(--ink-soft);margin:0;overflow-wrap:anywhere}
 
 /* ---------- tablas ---------- */
 .tw{overflow-x:auto;margin:24px 0;border:1px solid var(--rule);background:var(--surface)}
-table{border-collapse:collapse;width:100%;min-width:540px;font-size:.9rem}
-caption{text-align:left;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);padding:12px 15px 2px}
-th{font-family:Archivo,sans-serif;font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;font-weight:600;
+table{border-collapse:collapse;width:100%;min-width:540px;font-size:0.999rem}
+caption{text-align:left;font-size:0.733rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);padding:12px 15px 2px}
+th{font-family:Archivo,sans-serif;font-size:0.777rem;letter-spacing:.09em;text-transform:uppercase;font-weight:600;
   text-align:left;padding:11px 15px;border-bottom:2px solid var(--ink);color:var(--ink);white-space:nowrap;
   background:var(--surface)}
-td{padding:10px 15px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+td{padding:12px 16px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
 tbody tr:nth-child(even) td{background:var(--surface-2)}
 tr:last-child td{border-bottom:0}
 td.n,th.n{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -172,81 +173,81 @@ td.n,th.n{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-nu
 .pickcard{background:var(--surface);border:1px solid var(--rule);border-top:5px solid var(--ln,var(--accent));
   padding:16px 17px;display:flex;flex-direction:column;gap:9px;box-shadow:var(--lift)}
 .pickcard .top{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
-.pickcard .no{font-family:Archivo,sans-serif;font-size:1.5rem;font-weight:700;line-height:1;color:var(--ln,var(--accent));letter-spacing:-.03em}
-.pickcard h4{font-size:1.06rem;letter-spacing:-.01em}
-.pickcard .for{font-size:.93rem;color:var(--ink-soft);margin:0;flex:1}
+.pickcard .no{font-family:Archivo,sans-serif;font-size:1.665rem;font-weight:700;line-height:1;color:var(--ln,var(--accent));letter-spacing:-.03em}
+.pickcard h4{font-size:1.177rem;letter-spacing:-.01em}
+.pickcard .for{font-size:1.032rem;color:var(--ink-soft);margin:0;flex:1}
 .pickcard .facts{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
-.pickcard .f{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.03em;background:var(--surface-2);
+.pickcard .f{font-family:"IBM Plex Mono",monospace;font-size:0.755rem;letter-spacing:.03em;background:var(--surface-2);
   border:1px solid var(--rule);border-radius:4px;padding:3px 7px;color:var(--ink-soft);white-space:nowrap}
-.pickcard .go{font-family:Archivo,sans-serif;font-size:.83rem;font-weight:600;text-decoration:none;
-  color:var(--ln,var(--accent));align-self:flex-start;padding:5px 0}
+.pickcard .go{font-family:Archivo,sans-serif;font-size:0.921rem;font-weight:600;text-decoration:none;
+  color:var(--ln,var(--accent));align-self:flex-start;padding:11px 0 5px;min-height:40px;display:inline-flex;align-items:center}
 .pickcard .go::after{content:" →"}
 .pickcard.reco{box-shadow:0 0 0 2px var(--ln),var(--lift)}
-.pickcard .rb{font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;
+.pickcard .rb{font-family:"IBM Plex Mono",monospace;font-size:0.666rem;letter-spacing:.13em;text-transform:uppercase;
   font-weight:600;color:var(--paper);background:var(--ln);padding:3px 7px;border-radius:3px;margin-left:auto}
 
 /* ---------- itinerarios ---------- */
 .itin{border:1px solid var(--rule);background:var(--surface);margin:34px 0 0;box-shadow:var(--lift)}
 .itin > header{padding:24px 26px 22px;border-bottom:1px solid var(--rule);border-top:6px solid var(--ln,var(--accent))}
-.itin .idx{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ln,var(--accent));
+.itin .idx{font-size:0.755rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ln,var(--accent));
   font-weight:600;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
-.itin h3{font-size:clamp(1.5rem,3.4vw,1.95rem);margin:.24em 0 .34em;letter-spacing:-.025em}
-.itin .thesis{font-size:1rem;color:var(--ink-soft);max-width:62ch;margin:0}
+.itin h3{font-size:clamp(1.62rem,3.6vw,2.1rem);margin:.24em 0 .34em;letter-spacing:-.025em}
+.itin .thesis{font-size:1.11rem;color:var(--ink-soft);max-width:62ch;margin:0}
 .specs{display:flex;flex-wrap:wrap;gap:1px;margin-top:20px;background:var(--rule);border:1px solid var(--rule)}
 .specs > div{flex:1 1 118px;padding:10px 13px;background:var(--surface)}
-.specs dt{font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 3px}
-.specs dd{font-family:Archivo,sans-serif;font-size:.9rem;font-weight:600;margin:0;line-height:1.3}
+.specs dt{font-size:0.666rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 3px}
+.specs dd{font-family:Archivo,sans-serif;font-size:0.999rem;font-weight:600;margin:0;line-height:1.3}
 .hop{display:flex;flex-wrap:wrap;gap:6px;padding:13px 26px;background:var(--surface-2);border-bottom:1px solid var(--rule)}
-.hop .lbl{font-family:"IBM Plex Mono",monospace;font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;
+.hop .lbl{font-family:"IBM Plex Mono",monospace;font-size:0.699rem;letter-spacing:.13em;text-transform:uppercase;
   color:var(--ink-faint);align-self:center;margin-right:3px}
-.chip{font-size:.72rem;font-weight:600;letter-spacing:.02em;text-decoration:none;color:var(--ink-soft);
-  background:var(--surface);border:1px solid var(--rule);border-radius:5px;padding:6px 10px;min-height:32px;
+.chip{font-size:0.799rem;font-weight:600;letter-spacing:.02em;text-decoration:none;color:var(--ink-soft);
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:9px 13px;min-height:42px;
   display:inline-flex;align-items:center}
 .chip:hover{color:var(--ln,var(--accent));border-color:var(--ln,var(--accent))}
 
 .day{border-bottom:1px solid var(--rule)}
 .day:last-child{border-bottom:0}
-.day > h4{padding:16px 26px 13px;font-size:1rem;display:flex;flex-wrap:wrap;gap:5px 12px;align-items:baseline;
+.day > h4{padding:16px 26px 13px;font-size:1.11rem;display:flex;flex-wrap:wrap;gap:5px 12px;align-items:baseline;
   background:var(--surface-2);border-bottom:1px solid var(--rule-soft);margin:0}
-.day > h4 .dd{font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
+.day > h4 .dd{font-size:0.777rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-faint);font-weight:600}
 .day > h4 .tt{flex:1 1 200px}
-.day > h4 .cost{font-size:.77rem;font-weight:600;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.day > h4 .cost{font-size:0.855rem;font-weight:600;color:var(--ink-soft);font-variant-numeric:tabular-nums}
 
-.tl{list-style:none;margin:0;padding:16px 26px 18px;position:relative}
-.tl li{display:grid;grid-template-columns:58px 1fr;gap:0 18px;padding:9px 0;position:relative}
+.tl{list-style:none;margin:0;padding:18px 28px 20px;position:relative}
+.tl li{display:grid;grid-template-columns:64px 1fr;gap:0 20px;padding:11px 0;position:relative}
 .tl li + li{border-top:1px solid var(--rule-soft)}
-.tl .hr{font-size:.79rem;font-weight:600;color:var(--ink-faint);font-variant-numeric:tabular-nums;padding-top:.2em}
-.tl .ev{font-size:.95rem}
-.tl .ev b{font-family:Archivo,sans-serif;font-weight:600;font-size:.97rem;display:block;margin-bottom:2px;letter-spacing:-.005em}
-.tl .ev > span{color:var(--ink-soft);font-size:.93rem;display:block;max-width:64ch}
+.tl .hr{font-size:0.877rem;font-weight:600;color:var(--ink-faint);font-variant-numeric:tabular-nums;padding-top:.2em}
+.tl .ev{font-size:1.054rem}
+.tl .ev b{font-family:Archivo,sans-serif;font-weight:600;font-size:1.077rem;display:block;margin-bottom:2px;letter-spacing:-.005em}
+.tl .ev > span{color:var(--ink-soft);font-size:1.032rem;display:block;max-width:64ch}
 .tl li.hi .hr{color:var(--ln,var(--accent))}
 .tl li.hi .ev b{color:var(--ln,var(--accent))}
 
 .dayfoot{padding:2px 26px 20px;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(232px,1fr))}
 .dayfoot > div{border-top:2px solid var(--rule);padding-top:10px}
-.dayfoot h5{font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 6px;font-weight:600}
-.dayfoot p{font-size:.9rem;color:var(--ink-soft);margin:0;max-width:none}
+.dayfoot h5{font-size:0.699rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 6px;font-weight:600}
+.dayfoot p{font-size:0.999rem;color:var(--ink-soft);margin:0;max-width:none}
 
 /* ---------- bloques ---------- */
 .grid2{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));margin-top:24px}
 .blk{border-top:2.5px solid var(--ink);padding-top:12px}
 .blk h4{margin-bottom:6px}
-.blk p{font-size:.94rem;color:var(--ink-soft);margin:0}
+.blk p{font-size:1.043rem;color:var(--ink-soft);margin:0}
 .blk p + p{margin-top:.55em}
-.blk .meta{font-size:.7rem;letter-spacing:.05em;color:var(--ink-faint);display:block;margin-top:8px}
+.blk .meta{font-size:0.777rem;letter-spacing:.05em;color:var(--ink-faint);display:block;margin-top:8px}
 
 ul.plain{margin:14px 0;padding-left:1.15em;max-width:var(--maxw)}
 ul.plain li{margin-bottom:.42em}
 ul.plain li::marker{color:var(--ink-faint)}
 
 /* ---------- volver arriba ---------- */
-.gotop{position:fixed;right:18px;bottom:18px;z-index:45;width:46px;height:46px;border-radius:50%;
-  background:var(--ink);color:var(--paper);border:0;cursor:pointer;font-size:1.1rem;line-height:1;
+.gotop{position:fixed;right:20px;bottom:20px;z-index:45;width:54px;height:54px;border-radius:50%;
+  background:var(--ink);color:var(--paper);border:0;cursor:pointer;font-size:1.221rem;line-height:1;
   box-shadow:0 6px 20px -6px rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;
   transform:translateY(8px);display:grid;place-items:center}
 .gotop.on{opacity:1;pointer-events:auto;transform:none}
 
-footer.end{margin-top:70px;border-top:2.5px solid var(--ink);padding-top:22px;font-size:.9rem;color:var(--ink-soft)}
+footer.end{margin-top:70px;border-top:2.5px solid var(--ink);padding-top:22px;font-size:0.999rem;color:var(--ink-soft)}
 footer.end p{max-width:74ch}
 
 
@@ -260,13 +261,13 @@ footer.end p{max-width:74ch}
   table[data-stack] tr{background:var(--surface);border:1px solid var(--rule);
     border-left:5px solid var(--dc,var(--rule));padding:13px 15px;margin-bottom:-1px}
   table[data-stack] tbody tr:nth-child(even) td{background:transparent}
-  table[data-stack] td{border:0;padding:7px 0 0;display:block;font-size:.93rem}
+  table[data-stack] td{border:0;padding:7px 0 0;display:block;font-size:1.032rem}
   table[data-stack] td::before{content:attr(data-l);display:block;font-family:"IBM Plex Mono",monospace;
-    font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px}
-  table[data-stack] td:first-child{display:block;font-size:1.04rem;padding:0 0 7px;
+    font-size:0.666rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px}
+  table[data-stack] td:first-child{display:block;font-size:1.154rem;padding:0 0 7px;
     border-bottom:1px solid var(--rule-soft);margin-bottom:4px}
   table[data-stack] td:first-child::before{display:none}
-  table[data-stack] td.n{text-align:left;font-size:.98rem;font-weight:600}
+  table[data-stack] td.n{text-align:left;font-size:1.088rem;font-weight:600}
   table[data-stack] caption{display:block;padding:0 0 10px;white-space:normal}
   .scale{padding:6px 0 0!important}
   .cal td:first-child{border-left:0}
@@ -276,28 +277,28 @@ footer.end p{max-width:74ch}
 /* ---------- filtros del directorio ---------- */
 .filters{margin:22px 0 0;display:grid;gap:9px}
 .frow{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.flab{font-family:"IBM Plex Mono",monospace;font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;
+.flab{font-family:"IBM Plex Mono",monospace;font-size:0.699rem;letter-spacing:.14em;text-transform:uppercase;
   color:var(--ink-faint);width:66px;flex:none}
-.fb{font-family:Archivo,sans-serif;font-size:.79rem;font-weight:500;color:var(--ink-soft);background:var(--surface);
-  border:1px solid var(--rule);border-radius:999px;padding:7px 13px;min-height:34px;cursor:pointer;
+.fb{font-family:Archivo,sans-serif;font-size:0.877rem;font-weight:500;color:var(--ink-soft);background:var(--surface);
+  border:1px solid var(--rule);border-radius:999px;padding:10px 16px;min-height:44px;cursor:pointer;
   transition:background .12s,color .12s,border-color .12s}
 .fb:hover{border-color:var(--ink-faint);color:var(--ink)}
 .fb[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink);font-weight:600}
-#buscar{font-family:"Source Serif 4",serif;font-size:.92rem;padding:7px 13px;min-height:34px;flex:1;min-width:180px;
+#buscar{font-family:"Source Serif 4",serif;font-size:1.06rem;padding:10px 16px;min-height:44px;flex:1;min-width:190px;
   max-width:320px;border:1px solid var(--rule);border-radius:999px;background:var(--surface);color:var(--ink)}
 #buscar::placeholder{color:var(--ink-faint)}
-.fcount{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.08em;color:var(--ink-faint);margin:2px 0 0}
+.fcount{font-family:"IBM Plex Mono",monospace;font-size:0.799rem;letter-spacing:.08em;color:var(--ink-faint);margin:2px 0 0}
 .canon{color:var(--l-nqrw);font-size:.86em}
-.nores{padding:22px 15px;color:var(--ink-soft);font-size:.93rem;margin:0}
+.nores{padding:22px 15px;color:var(--ink-soft);font-size:1.032rem;margin:0}
 
 /* ---------- figura ---------- */
 .fig{margin:26px 0 0;padding:0}
 .fig svg{display:block;width:100%;max-width:100%;height:auto;color:var(--ink);
   background:var(--surface);border:1px solid var(--rule);padding:14px 10px}
-.sm{font-size:.82rem;color:var(--ink-faint);display:inline-block;margin-top:2px}
+.sm{font-size:0.91rem;color:var(--ink-faint);display:inline-block;margin-top:2px}
 .fig .tall{display:none}
 @media (max-width:640px){.fig .wide{display:none}.fig .tall{display:block}}
-.fig figcaption{font-size:.87rem;color:var(--ink-soft);margin-top:9px;max-width:66ch}
+.fig figcaption{font-size:0.966rem;color:var(--ink-soft);margin-top:9px;max-width:66ch}
 
 /* ---------- franja de los seis días ---------- */
 .strip{padding:26px 0 0}
@@ -308,21 +309,21 @@ footer.end p{max-width:74ch}
   background:var(--surface);border:1px solid var(--rule);border-left:5px solid var(--dc,var(--rule));
   padding:11px 13px;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
 .days6 a:hover{transform:translateY(-2px);box-shadow:var(--lift);border-color:var(--dc,var(--rule))}
-.days6 .dnum{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.13em;
+.days6 .dnum{font-family:"IBM Plex Mono",monospace;font-size:0.755rem;letter-spacing:.13em;
   text-transform:uppercase;color:var(--dc,var(--ink-faint));font-weight:600}
-.days6 .dttl{font-family:Archivo,sans-serif;font-size:.94rem;font-weight:600;line-height:1.22;letter-spacing:-.01em}
-.days6 .dmeta{font-size:.79rem;color:var(--ink-soft);line-height:1.3}
-.days6 .kind{font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;
+.days6 .dttl{font-family:Archivo,sans-serif;font-size:1.043rem;font-weight:600;line-height:1.22;letter-spacing:-.01em}
+.days6 .dmeta{font-size:0.877rem;color:var(--ink-soft);line-height:1.3}
+.days6 .kind{font-family:"IBM Plex Mono",monospace;font-size:0.666rem;letter-spacing:.11em;text-transform:uppercase;
   color:var(--ink-faint);margin-top:3px}
 .days6 li.today a{background:var(--dc);border-color:var(--dc)}
 .days6 li.today .dnum,.days6 li.today .dttl,.days6 li.today .dmeta,.days6 li.today .kind{color:var(--paper)}
 .days6 .now{display:none}
-.days6 li.today .now{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.58rem;
+.days6 li.today .now{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:0.644rem;
   letter-spacing:.14em;text-transform:uppercase;font-weight:600;background:var(--paper);color:var(--dc);
   padding:2px 6px;border-radius:3px;align-self:flex-start;margin-top:4px}
-.countdown{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+.countdown{font-family:"IBM Plex Mono",monospace;font-size:0.799rem;letter-spacing:.1em;text-transform:uppercase;
   color:var(--ink-faint);margin:12px 0 0;display:block}
-.countdown b{color:var(--accent);font-size:1.05rem;letter-spacing:0}
+.countdown b{color:var(--accent);font-size:1.166rem;letter-spacing:0}
 
 /* ---------- regla de las siete líneas ---------- */
 .seven{display:flex;height:6px;margin:24px 0 0;gap:2px}
@@ -340,7 +341,7 @@ footer.end p{max-width:74ch}
 .pickcard{background:var(--surface);background:color-mix(in oklab,var(--ln) 5%,var(--surface))}
 
 /* ---------- espina de la cronología ---------- */
-.tl{--spine:67px}
+.tl{--spine:74px}
 .tl::before{content:"";position:absolute;left:calc(26px + var(--spine));top:24px;bottom:24px;width:2px;
   background:var(--rule-soft);border-radius:1px}
 .tl li::after{content:"";position:absolute;left:calc(var(--spine) - 3px);top:1.15em;width:8px;height:8px;
@@ -356,34 +357,34 @@ footer.end p{max-width:74ch}
 .bar.reco{box-shadow:inset 0 0 0 1.5px var(--accent)}
 .bar::before,.bar::after{content:"";position:absolute;top:0;bottom:0;width:1px;background:var(--rule)}
 .bar::before{left:50%} .bar::after{left:99%}
-.scale{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:.62rem;
+.scale{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:0.688rem;
   color:var(--ink-faint);letter-spacing:.06em;margin-top:5px}
-td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--ink-soft);
+td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:0.799rem;color:var(--ink-soft);
   display:block;margin-top:4px;font-variant-numeric:tabular-nums}
 
 /* ---------- calendario con color ---------- */
 .cal td:first-child{border-left:5px solid var(--dc,var(--rule));font-weight:600}
 .cal tr.today td{background:var(--accent-bg)}
-.cal tr.today td:first-child::after{content:" · hoy";font-family:"IBM Plex Mono",monospace;font-size:.6rem;
+.cal tr.today td:first-child::after{content:" · hoy";font-family:"IBM Plex Mono",monospace;font-size:0.666rem;
   letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
 
 @media (max-width:600px){
-  .tl{--spine:57px}
-  .tl::before{left:calc(16px + var(--spine))}
+  .tl{--spine:61px}
+  .tl::before{left:calc(17px + var(--spine))}
   .hop{position:static}
 }
 
 @media (max-width:600px){
-  body{font-size:16.5px}
-  .wrap{padding:0 16px 110px}
-  .tl li{grid-template-columns:48px 1fr;gap:0 20px}
-  .itin > header,.tl,.dayfoot,.day > h4,.hop{padding-left:16px;padding-right:16px}
+  body{font-size:17.5px}
+  .wrap{padding:0 17px 120px}
+  .tl li{grid-template-columns:52px 1fr;gap:0 20px}
+  .itin > header,.tl,.dayfoot,.day > h4,.hop{padding-left:17px;padding-right:17px}
   .mastgrid{grid-template-columns:repeat(2,1fr)}
   .check li{grid-template-columns:auto 1fr}
   .check li > *,.check li::before{min-width:0}
   .tl li > *{min-width:0}
   table[data-stack] td > *{min-width:0}
-  .check .when{grid-column:2;justify-self:start;margin-top:3px}
+  .check .when{grid-column:2;justify-self:start;margin-top:4px;white-space:normal}
   .check .how{grid-column:2}
   .flab{width:100%}
   .pickcard .rb{margin-left:0}
@@ -434,7 +435,7 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
       <span class="dmeta">High Line, Chelsea y un sótano de jazz para cerrar.</span>
       <span class="kind">Día completo</span><span class="now">Hoy</span></a></li>
     <li data-fecha="2026-09-11" style="--dc:var(--l-123)"><a href="#calendario">
-      <span class="dnum">Vie 11</span><span class="dttl">25º aniversario</span>
+      <span class="dnum">Vie 11</span><span class="dttl">25.º aniversario</span>
       <span class="dmeta">La plaza abierta hasta medianoche y el Tribute in Light.</span>
       <span class="kind">Irrepetible</span><span class="now">Hoy</span></a></li>
     <li data-fecha="2026-09-12" style="--dc:var(--accent)"><a href="#calendario">
@@ -488,8 +489,8 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
     <div class="fix new">
       <span class="mk">★</span>
       <div>
-        <h4>Viernes 11: el 25º aniversario del 11-S, y la plaza abierta de noche</h4>
-        <p>La ceremonia de la mañana es solo para familiares: empieza a las 8:30, con el primer minuto de silencio a las 8:46 y, este año, un séptimo minuto añadido por los muertos posteriores. El recinto del Memorial está cerrado al público desde las 22:00 del jueves <strong>hasta las 15:00 del viernes</strong>, y el museo abre solo para familias. Todo el Financial District va con seguridad reforzada esa mañana.</p>
+        <h4>Viernes 11: el 25.º aniversario del 11-S, y la plaza abierta de noche</h4>
+        <p>La ceremonia de la mañana es solo para familiares: empieza a las 8:30, con el primer minuto de silencio a las 8:46 y, este año, un séptimo minuto añadido en memoria de quienes murieron después por las enfermedades del World Trade Center. El recinto del Memorial está cerrado al público desde las 22:00 del jueves <strong>hasta las 15:00 del viernes</strong>, y el museo abre solo para familias. Todo el Financial District va con seguridad reforzada esa mañana.</p>
         <p><strong>Y aquí está lo irrepetible:</strong> por primera vez, la plaza se queda abierta esa noche, <strong>de 15:00 a medianoche</strong>. El <strong>Tribute in Light</strong> —dos columnas de luz azul de ochenta y ocho focos de 7.000 vatios, con la forma y la orientación exactas de las torres— se enciende al anochecer y sigue hasta el amanecer. Se ven desde noventa kilómetros. Estar debajo, sobre la huella de las torres, con los nombres en bronce y el agua tapando el ruido, es otra cosa.</p>
         <p>Consecuencia para el plan: <strong>el sur de la isla se hace el viernes por la tarde-noche, no por la mañana.</strong> Los siete itinerarios de esta guía respetan eso.</p>
       </div>
@@ -518,8 +519,8 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
       <span class="mk">△</span>
       <div>
         <h4>El US Open está en su segunda semana</h4>
-        <p>Final femenina el sábado 12, masculina el domingo 13, en Flushing Meadows, línea <span class="bul b-7">7</span>. En segunda semana ya no hay <em class="q">grounds pass</em> barato: solo entradas de pista, y para finales la reventa está en tres cifras altas. Realistamente no es vuestro plan.</p>
-        <p><strong>Pero condiciona tres cosas:</strong> el <span class="bul b-7">7</span> hacia Queens va a ir a reventar esos días; el <strong>Queens Night Market está cerrado hasta el 19 de septiembre</strong> precisamente por el torneo, así que no lo busquéis; y el ambiente de bar deportivo esos dos días es excelente y no cuesta nada. Ver una final de Grand Slam en un bar del East Village o en una tasca griega de Astoria, rodeados de gente gritando, es un plan de verdad.</p>
+        <p>Final femenina el sábado 12, masculina el domingo 13, en Flushing Meadows, línea <span class="bul b-7">7</span>. En segunda semana ya no hay <em class="q">grounds pass</em> barato: solo entradas de pista, y para finales la reventa está en tres cifras altas. Siendo realistas, no es vuestro plan.</p>
+        <p><strong>Pero condiciona tres cosas:</strong> el <span class="bul b-7">7</span> hacia Queens va a ir hasta arriba esos días; el <strong>Queens Night Market está cerrado hasta el 19 de septiembre</strong> precisamente por el torneo, así que no lo busquéis; y el ambiente de bar deportivo esos dos días es excelente y no cuesta nada. Ver una final de Grand Slam en un bar del East Village o en una tasca griega de Astoria, rodeados de gente gritando, es un plan de verdad.</p>
       </div>
     </div>
 
@@ -536,7 +537,7 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
       <span class="mk">✕</span>
       <div>
         <h4>La Feast of San Gennaro no cae en vuestras fechas</h4>
-        <p>La fiesta de Little Italy es del <strong>jueves 17 al domingo 27</strong>, y este año es la del centenario. Voláis el lunes 14: os la perdéis por tres días. Los últimos días veréis Mulberry Street en obras de montaje, no en fiesta.</p>
+        <p>La fiesta de Little Italy es del <strong>jueves 17 al domingo 27</strong>, y este año es la del centenario. Voláis el lunes 14: os la perdéis por tres días. Vuestros últimos días veréis Mulberry Street en obras de montaje, no en fiesta.</p>
         <p>Así que Little Italy es lo que es el resto del año: <strong>tres manzanas de restaurantes para turistas por las que se pasa andando y no se come.</strong> La excepción es Rubirosa, que técnicamente está en Nolita y es otra cosa.</p>
       </div>
     </div>
@@ -546,7 +547,7 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
       <div>
         <h4>El MoMA gratis del viernes no es para vosotros</h4>
         <p>Las UNIQLO Friday Nights son los viernes de 17:30 a 20:30, pero la entrada gratuita está reservada a <strong>residentes del estado de Nueva York</strong>, con reserva previa y acreditación al escanear la entrada. Vosotros pagaríais tarifa completa, unos 30 $.</p>
-        <p><strong>Lo que sí podéis aprovechar:</strong> el <strong>Whitney</strong> hace <em class="q">pay-what-you-wish</em> los viernes de 19:00 a 22:00 —las entradas salen los lunes a las 10:00 de Nueva York, las 16:00 en España— y además <strong>es gratis el domingo 13</strong>, que es segundo domingo de mes. Y para cualquiera de 25 años o menos, el Whitney es gratis siempre, cualquier día, presentando el DNI.</p>
+        <p><strong>Lo que sí podéis aprovechar:</strong> el <strong>Whitney</strong> hace <em class="q">pay-what-you-wish</em> los viernes de 19:00 a 22:00 —las entradas salen los lunes a las 10:00 de Nueva York, las 16:00 en España— y además <strong>es gratis el domingo 13</strong>, que es el segundo domingo del mes. Y para cualquiera de 25 años o menos, el Whitney es gratis siempre, cualquier día, presentando el DNI.</p>
       </div>
     </div>
 
@@ -563,7 +564,7 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
 
   <div class="note good">
     <span class="tag">Y dos fechas que sí os cuadran</span>
-    <p><strong>Smorgasburg</strong>, el mercado de comida callejera al aire libre más grande del país, se celebra el <strong>sábado 12 de 11:00 a 18:00</strong> en Marsha P. Johnson State Park, 90 Kent Avenue, Williamsburg, con unos setenta puestos. Y <strong>Governors Island</strong> sigue abierta: pasó a horario de otoño el 8 de septiembre, así que confirmad la hora de cierre el mismo día. El ferry son 5 $ ida y vuelta, y gratis los fines de semana antes de las 11:00.</p>
+    <p><strong>Smorgasburg</strong>, el mercado de comida callejera al aire libre más grande del país, se celebra el <strong>sábado 12 de 11:00 a 18:00</strong> en Marsha P. Johnson State Park, 90 Kent Avenue, Williamsburg, con unos setenta puestos. Y <strong>Governors Island</strong> sigue abierta: pasó a horario de otoño el 8 de septiembre, así que confirmad la hora de cierre el mismo día. El ferry cuesta 5 $ ida y vuelta, y es gratis los fines de semana antes de las 11:00.</p>
   </div>
 </section>
 
@@ -851,7 +852,7 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
         </tr>
         <tr data-fecha="2026-09-11" style="--dc:var(--l-123)">
           <td><strong>Vie 11</strong></td>
-          <td data-l="Lo que condiciona"><strong>25º aniversario del 11-S.</strong> Financial District cerrado y con seguridad reforzada hasta las 15:00. Museo solo familiares.</td>
+          <td data-l="Lo que condiciona"><strong>25.º aniversario del 11-S.</strong> Financial District cerrado y con seguridad reforzada hasta las 15:00. Museo solo familiares.</td>
           <td data-l="Oportunidad del día">Plaza abierta 15:00 → medianoche. <strong>Tribute in Light</strong> del anochecer al amanecer. Whitney PWYW 19:00-22:00. Yankees–Mets 19:05.</td>
           <td class="n" data-l="Ocaso">19:13</td>
         </tr>
@@ -1026,7 +1027,7 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
         <li><span class="hr">14:30</span><span class="ev"><b>Central Park sur</b><span>Entráis por Grand Army Plaza. The Pond, Gapstow Bridge, The Mall (la avenida de olmos americanos más grande del país), Bethesda Terrace, Bow Bridge y Strawberry Fields. Bajo la arcada de Bethesda suele haber músicos y la acústica es extraordinaria: parad a escuchar aunque no os apetezca. Dos horas largas.</span></span></li>
         <li><span class="hr">16:30</span><span class="ev"><b>Bajada al sur</b><span>Metro desde Columbus Circle o la 59. Cuarenta minutos hasta el Financial District. La plaza del Memorial abre al público a las 15:00, así que a esta hora ya se puede entrar, pero conviene llegar con la tarde caída.</span></span></li>
         <li><span class="hr">17:15</span><span class="ev"><b>Oculus, Wall Street y Stone Street</b><span>El intercambiador de Calatrava: entrad, mirad hacia arriba, salid. Luego Trinity Church y su cementerio (aquí está enterrado Alexander Hamilton), Federal Hall, donde juró Washington, y <strong>Stone Street</strong>, callejuela adoquinada del XVII llena de mesas al aire libre. Cena temprana aquí, sobre las 18:00.</span></span></li>
-        <li class="hi"><span class="hr">19:30</span><span class="ev"><b>La plaza del Memorial, al anochecer</b><span>Las dos piscinas cuadradas sobre la huella exacta de las torres, con los nombres grabados en bronce. El sonido del agua tapa el ruido de la ciudad. Es gratis, y esta noche, la del 25º aniversario, la plaza se queda abierta hasta medianoche por primera vez. Habrá flores en los nombres y mucha gente en silencio. Id con eso en la cabeza.</span></span></li>
+        <li class="hi"><span class="hr">19:30</span><span class="ev"><b>La plaza del Memorial, al anochecer</b><span>Las dos piscinas cuadradas sobre la huella exacta de las torres, con los nombres grabados en bronce. El sonido del agua tapa el ruido de la ciudad. Es gratis, y esta noche, la del 25.º aniversario, la plaza se queda abierta hasta medianoche por primera vez. Habrá flores en los nombres y mucha gente en silencio. Id con eso en la cabeza.</span></span></li>
         <li class="hi"><span class="hr">20:15</span><span class="ev"><b>Tribute in Light</b><span>Dos columnas de luz azul que se encienden al anochecer y suben cuatro millas: ochenta y ocho focos de 7.000 vatios en dos cuadrados de quince metros, con la forma y la orientación de las torres. Están hasta el amanecer. Se ven desde noventa kilómetros a la redonda, pero estar debajo, en la plaza, es otra cosa. Si preferís verlas enteras y de lejos, cruzad al <strong>Brooklyn Heights Promenade</strong> o al <strong>Pier 1</strong> de DUMBO: media hora de metro y la mejor perspectiva que existe.</span></span></li>
         <li><span class="hr">22:00</span><span class="ev"><b>Vuelta andando al hotel</b><span>Son veinticinco minutos por Church Street y West Broadway hacia el norte, atravesando Tribeca. Vale la pena hacerlo a pie y en silencio.</span></span></li>
       </ul>
@@ -1163,7 +1164,7 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
         <li><span class="hr">11:30</span><span class="ev"><b>Yankee Stadium por fuera</b><span>Calle 161. Aunque no entréis, la explanada, el Bronx alrededor y los bares de la 161 son un plan en sí mismos. Si hay tour ese día, son unos 30 $.</span></span></li>
         <li class="hi"><span class="hr">12:45</span><span class="ev"><b>Arthur Avenue</b><span><span class="bul b-bdfm">B</span><span class="bul b-bdfm">D</span> a Fordham Rd y autobús 12 hacia el este. Esta es la Little Italy de verdad, la que Manhattan perdió: charcuterías con jamones colgando, panaderías, pasta fresca, un tipo liando puros a mano dentro del mercado. Comed en el <strong>Arthur Avenue Retail Market</strong> o en Mike’s Deli. 15-20 $ y salís llenos.</span></span></li>
         <li><span class="hr">15:00</span><span class="ev"><b>New York Botanical Garden</b><span>Al lado. 250 hectáreas y el último bosque virgen que queda en la ciudad, con árboles anteriores a la llegada de los europeos. Unos 20-35 $ según acceso. Si preferís gratis, cambiadlo por un paseo por Belmont y volved antes.</span></span></li>
-        <li class="hi"><span class="hr">17:30</span><span class="ev"><b>Bajada a Lower Manhattan</b><span>Cincuenta minutos de metro. El plan del 25º aniversario es el mismo en todos los itinerarios porque es innegociable: Oculus, Stone Street, cena temprana, y a las 19:30 la <strong>plaza del Memorial</strong>, abierta hasta medianoche, con el <strong>Tribute in Light</strong> encendido desde el anochecer.</span></span></li>
+        <li class="hi"><span class="hr">17:30</span><span class="ev"><b>Bajada a Lower Manhattan</b><span>Cincuenta minutos de metro. El plan del 25.º aniversario es el mismo en todos los itinerarios porque es innegociable: Oculus, Stone Street, cena temprana, y a las 19:30 la <strong>plaza del Memorial</strong>, abierta hasta medianoche, con el <strong>Tribute in Light</strong> encendido desde el anochecer.</span></span></li>
       </ul>
       <div class="dayfoot">
         <div><h5>Dónde comer</h5><p>Arthur Avenue Retail Market · Mike’s Deli · Zero Otto Nove (pizza napolitana, 20 $) · Stone Street por la noche · y comprad <em class="q">cannoli</em> en Madonia Brothers para el camino.</p></div>
@@ -1272,7 +1273,7 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
     </div>
 
     <div class="day" id="it3-d3">
-      <h4><span class="dd">Día 3 · Vie 11</span><span class="tt">La noche del 25º aniversario</span><span class="cost">80 – 130 $</span></h4>
+      <h4><span class="dd">Día 3 · Vie 11</span><span class="tt">La noche del 25.º aniversario</span><span class="cost">80 – 130 $</span></h4>
       <ul class="tl">
         <li><span class="hr">10:00</span><span class="ev"><b>Mañana lenta en el Village</b><span>Washington Square, Bleecker, Faicco’s. Hoy no se madruga porque la noche es larga y emocionalmente densa.</span></span></li>
         <li><span class="hr">13:00</span><span class="ev"><b>High Line y Little Island</b><span>De Gansevoort hacia el norte. Hora y media.</span></span></li>
@@ -1283,7 +1284,7 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
       </ul>
       <div class="dayfoot">
         <div><h5>Dónde comer</h5><p>Faicco’s · Los Tacos No. 1 (Chelsea Market) · Stone Street · si queréis gastar bien una vez, <strong>Frenchette</strong> en Tribeca, 60-70 $ por cabeza y merece cada dólar.</p></div>
-        <div><h5>Nota</h5><p>Alternativa de esa noche: Yankees–Mets a las 19:05. Es incompatible con la plaza. Mi consejo es claro: el Subway Series se repite tres veces este fin de semana y la plaza del 25º aniversario abierta de noche ocurre una vez.</p></div>
+        <div><h5>Nota</h5><p>Alternativa de esa noche: Yankees–Mets a las 19:05. Es incompatible con la plaza. Mi consejo es claro: el Subway Series se repite tres veces este fin de semana y la plaza del 25.º aniversario abierta de noche ocurre una vez.</p></div>
       </div>
     </div>
 
@@ -2016,7 +2017,7 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
             <td class="n" data-l="Precio">30 $</td><td data-l="Veredicto">Es más arquitectura que museo. Cuarenta minutos</td></tr>
         <tr><td><strong>Brooklyn Museum</strong><br><span class="sm">Prospect Heights</span></td>
             <td data-l="Cuándo sale gratis o más barato">Sin franja fija. Combinado con el Jardín Botánico.</td>
-            <td class="n" data-l="Precio">20 $</td><td data-l="Veredicto">Egipcio de primer nivel y nunca hay cola</td></tr>
+            <td class="n" data-l="Precio">20 $</td><td data-l="Veredicto">Arte egipcio de primer nivel y nunca hay cola</td></tr>
         <tr><td><strong>Hispanic Society</strong><br><span class="sm">Washington Heights</span></td>
             <td data-l="Cuándo sale gratis o más barato"><strong>Gratis siempre.</strong></td>
             <td class="n" data-l="Precio">0 $</td><td data-l="Veredicto">Velázquez y Goya sin cola y sin pagar. No va nadie</td></tr>
@@ -2031,13 +2032,13 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
             <td class="n" data-l="Precio">40 $</td><td data-l="Veredicto">El mejor de los miradores: desde aquí sí se ve el Empire State</td></tr>
         <tr><td><strong>Summit One Vanderbilt</strong><br><span class="sm">Junto a Grand Central</span></td>
             <td data-l="Cuándo sale gratis o más barato">—</td>
-            <td class="n" data-l="Precio">49 $</td><td data-l="Veredicto">El más espectacular y el más instagrameado</td></tr>
-        <tr><td><strong>Broadway con Broadway Week</strong></td>
+            <td class="n" data-l="Precio">49 $</td><td data-l="Veredicto">El más espectacular y el más fotografiado</td></tr>
+        <tr><td><strong>Broadway con el 2×1 de Broadway Week</strong></td>
             <td data-l="Cuándo sale gratis o más barato"><strong>2×1 hasta el 20 de septiembre</strong> con el código 241BWSHOW.</td>
             <td class="n" data-l="Precio">55-85 $</td><td data-l="Veredicto">La mejor relación calidad-precio del viaje</td></tr>
         <tr><td><strong>Broadway por lotería o rush</strong></td>
             <td data-l="Cuándo sale gratis o más barato">broadwaydirect.com/lottery, luckyseat.com, TodayTix a las 9:00.</td>
-            <td class="n" data-l="Precio">39-55 $</td><td data-l="Veredicto">Gratis apuntarse. Hacedlo igual todos los días</td></tr>
+            <td class="n" data-l="Precio">39-55 $</td><td data-l="Veredicto">Apuntarse es gratis. Hacedlo igual todos los días</td></tr>
         <tr><td><strong>Yankees – Rockies</strong> (mié 9 o jue 10)</td>
             <td data-l="Cuándo sale gratis o más barato">Entre semana y rival flojo: es cuando está barato.</td>
             <td class="n" data-l="Precio">30-60 $</td><td data-l="Veredicto">La experiencia del estadio sin pagar el derbi</td></tr>
@@ -2045,10 +2046,10 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
             <td data-l="Cuándo sale gratis o más barato">Solo reventa. Sube cada día que pasa.</td>
             <td class="n" data-l="Precio">70-200 $</td><td data-l="Veredicto">El mejor ambiente deportivo de la semana</td></tr>
         <tr><td><strong>Club de jazz</strong><br><span class="sm">Smalls · Mezzrow · Village Vanguard</span></td>
-            <td data-l="Cuándo sale gratis o más barato">Arturo’s toca gratis con la cena. El segundo pase suele estar menos lleno.</td>
+            <td data-l="Cuándo sale gratis o más barato">En Arturo’s tocan gratis con la cena. El segundo pase suele estar menos lleno.</td>
             <td class="n" data-l="Precio">25-40 $</td><td data-l="Veredicto">Imprescindible una noche</td></tr>
         <tr><td><strong>Comedy Cellar</strong><br><span class="sm">MacDougal Street</span></td>
-            <td data-l="Cuándo sale gratis o más barato">Más consumición mínima de dos bebidas.</td>
+            <td data-l="Cuándo sale gratis o más barato">Hay que sumar la consumición mínima de dos bebidas.</td>
             <td class="n" data-l="Precio">24-30 $</td><td data-l="Veredicto">Solo si vuestro inglés va rápido</td></tr>
         <tr><td><strong>House of Yes</strong><br><span class="sm">Bushwick</span></td>
             <td data-l="Cuándo sale gratis o más barato">Bastante más caro en taquilla que online.</td>
@@ -2141,7 +2142,7 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
     </div>
     <div class="blk">
       <h4>Las cuatro cosas que no se pueden repetir</h4>
-      <p><strong>Viernes 11, 19:30:</strong> la plaza del Memorial abierta de noche en el 25º aniversario, con el Tribute in Light encendido. <strong>Sábado 12, 12:00:</strong> Smorgasburg. <strong>Domingo 13, 10:15:</strong> el góspel en Harlem. <strong>Cualquier día, 07:00:</strong> el puente de Brooklyn vacío al amanecer. Todo lo demás se puede cambiar de sitio.</p>
+      <p><strong>Viernes 11, 19:30:</strong> la plaza del Memorial abierta de noche en el 25.º aniversario, con el Tribute in Light encendido. <strong>Sábado 12, 12:00:</strong> Smorgasburg. <strong>Domingo 13, 10:15:</strong> el góspel en Harlem. <strong>Cualquier día, 07:00:</strong> el puente de Brooklyn vacío al amanecer. Todo lo demás se puede cambiar de sitio.</p>
     </div>
   </div>
 
