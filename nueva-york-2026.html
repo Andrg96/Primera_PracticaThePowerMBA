@@ -1,0 +1,1572 @@
+<title>Nueva York, siete maneras</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+:root{
+  --paper:#F4F4F1; --surface:#FFFFFF; --surface-2:#EDEDE8;
+  --ink:#14161A; --ink-soft:#4E535B; --ink-faint:#7C828B;
+  --rule:#D8D8D2; --rule-soft:#E6E6E1;
+  --accent:#0039A6; --accent-ink:#0039A6;
+  --alert:#C8102E; --warn:#D2560A; --good:#00753A;
+  --alert-bg:#FBEDEF; --warn-bg:#FCF1E8; --good-bg:#EAF4EE; --accent-bg:#EAEFF9;
+  --l-ace:#0039A6; --l-7:#B933AD; --l-123:#D42B23; --l-bdfm:#E8590C;
+  --l-456:#00753A; --l-nqrw:#B58900; --l-l:#6E7075;
+  --shadow:0 1px 2px rgba(20,22,26,.06),0 8px 24px -18px rgba(20,22,26,.35);
+  --maxw:74ch;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1013; --surface:#171A1F; --surface-2:#1E2229;
+    --ink:#E8E8E4; --ink-soft:#A7ADB6; --ink-faint:#7A818B;
+    --rule:#2B2F36; --rule-soft:#22262C;
+    --accent:#7FA8FF; --accent-ink:#7FA8FF;
+    --alert:#FF7B8A; --warn:#FFA35C; --good:#5FD394;
+    --alert-bg:#2A171B; --warn-bg:#2A1E12; --good-bg:#122419; --accent-bg:#141C2C;
+    --l-ace:#5B8CE8; --l-7:#D06FCB; --l-123:#F0645C; --l-bdfm:#FF9147;
+    --l-456:#4FBE83; --l-nqrw:#E0B93C; --l-l:#9A9FA8;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1013; --surface:#171A1F; --surface-2:#1E2229;
+  --ink:#E8E8E4; --ink-soft:#A7ADB6; --ink-faint:#7A818B;
+  --rule:#2B2F36; --rule-soft:#22262C;
+  --accent:#7FA8FF; --accent-ink:#7FA8FF;
+  --alert:#FF7B8A; --warn:#FFA35C; --good:#5FD394;
+  --alert-bg:#2A171B; --warn-bg:#2A1E12; --good-bg:#122419; --accent-bg:#141C2C;
+  --l-ace:#5B8CE8; --l-7:#D06FCB; --l-123:#F0645C; --l-bdfm:#FF9147;
+  --l-456:#4FBE83; --l-nqrw:#E0B93C; --l-l:#9A9FA8;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -18px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
+  font-size:17px; line-height:1.62; margin:0;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:980px;margin:0 auto;padding:0 22px 96px}
+h1,h2,h3,h4,.ui{font-family:Archivo,"Helvetica Neue",Helvetica,Arial,sans-serif}
+h2{font-size:1.72rem;line-height:1.15;letter-spacing:-.02em;font-weight:700;text-wrap:balance;margin:0}
+h3{font-size:1.24rem;line-height:1.22;letter-spacing:-.01em;font-weight:600;text-wrap:balance;margin:0}
+h4{font-size:.95rem;line-height:1.3;font-weight:600;margin:0}
+p{margin:0 0 .85em;max-width:var(--maxw)}
+p:last-child{margin-bottom:0}
+a{color:var(--accent-ink);text-underline-offset:2px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+strong{font-weight:600}
+em.q{font-style:normal;font-family:Archivo,sans-serif;font-size:.86em;letter-spacing:.02em}
+
+/* ---- masthead ---- */
+.mast{border-bottom:2px solid var(--ink);padding:44px 0 22px;margin-bottom:0}
+.kicker{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+.mast h1{font-size:clamp(2.6rem,7.4vw,4.6rem);line-height:.94;letter-spacing:-.035em;font-weight:700;margin:.18em 0 .1em;text-wrap:balance}
+.mast .sub{font-size:1.08rem;color:var(--ink-soft);max-width:60ch;margin:0}
+.mastgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:26px}
+.mastgrid div{background:var(--paper);padding:11px 13px}
+.mastgrid dt{font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 3px}
+.mastgrid dd{font-family:Archivo,sans-serif;font-size:.95rem;font-weight:600;margin:0;line-height:1.25}
+
+/* ---- nav ---- */
+nav.toc{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--rule);
+  padding:9px 0;margin-bottom:0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+nav.toc ul{display:flex;gap:5px;list-style:none;margin:0;padding:0;white-space:nowrap;width:max-content}
+nav.toc a{font-family:Archivo,sans-serif;font-size:.76rem;font-weight:500;letter-spacing:.01em;
+  text-decoration:none;color:var(--ink-soft);padding:5px 11px;border:1px solid var(--rule);border-radius:999px;display:block}
+nav.toc a:hover{color:var(--ink);border-color:var(--ink-faint);background:var(--surface)}
+
+/* ---- section ---- */
+section{padding:52px 0 0;scroll-margin-top:58px}
+.itin{scroll-margin-top:58px}
+.eyebrow{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}
+.eyebrow .num{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.13em;color:var(--ink-faint);text-transform:uppercase}
+.eyebrow .line{flex:1;height:1px;background:var(--rule)}
+.lede{font-size:1.06rem;color:var(--ink-soft);max-width:66ch;margin:.7em 0 0}
+
+/* ---- callouts ---- */
+.note{border-left:3px solid var(--rule);padding:2px 0 2px 16px;margin:20px 0;max-width:var(--maxw)}
+.note.alert{border-color:var(--alert)} .note.warn{border-color:var(--warn)}
+.note.good{border-color:var(--good)} .note.info{border-color:var(--accent)}
+.note .tag{font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;font-weight:600;display:block;margin-bottom:4px}
+.note.alert .tag{color:var(--alert)} .note.warn .tag{color:var(--warn)}
+.note.good .tag{color:var(--good)} .note.info .tag{color:var(--accent-ink)}
+.note p{font-size:.96rem}
+
+/* ---- fix cards ---- */
+.fixes{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:22px}
+.fix{background:var(--surface);padding:16px 18px;display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start}
+.fix .mk{font-family:"IBM Plex Mono",monospace;font-size:1.05rem;font-weight:600;line-height:1.4;text-align:center}
+.fix.bad .mk{color:var(--alert)} .fix.new .mk{color:var(--good)} .fix.adj .mk{color:var(--warn)}
+.fix h4{margin-bottom:5px}
+.fix p{font-size:.94rem;color:var(--ink-soft);margin:0}
+.fix p + p{margin-top:.5em}
+.fix .was{font-family:"IBM Plex Mono",monospace;font-size:.74rem;color:var(--ink-faint);display:block;margin-top:7px;letter-spacing:.01em}
+
+/* ---- checklist ---- */
+.check{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.check li{background:var(--surface);padding:14px 18px;display:grid;grid-template-columns:1fr auto;gap:8px 18px;align-items:baseline}
+.check .what{font-family:Archivo,sans-serif;font-weight:600;font-size:.98rem}
+.check .when{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;
+  padding:3px 8px;border-radius:3px;white-space:nowrap;font-weight:600}
+.when.now{background:var(--alert-bg);color:var(--alert)}
+.when.soon{background:var(--warn-bg);color:var(--warn)}
+.when.easy{background:var(--good-bg);color:var(--good)}
+.check .how{grid-column:1/-1;font-size:.93rem;color:var(--ink-soft);margin:0}
+
+/* ---- tables ---- */
+.tw{overflow-x:auto;margin:22px 0;border:1px solid var(--rule);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.9rem}
+caption{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ink-faint);padding:11px 14px 0}
+th{font-family:Archivo,sans-serif;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+  text-align:left;padding:10px 14px;border-bottom:1.5px solid var(--ink);color:var(--ink);white-space:nowrap}
+td{padding:9px 14px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.n,th.n{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+tfoot td{font-weight:600;border-top:1.5px solid var(--ink);border-bottom:0;background:var(--surface-2)}
+
+/* ---- subway bullet ---- */
+.bul{display:inline-flex;align-items:center;justify-content:center;width:1.32em;height:1.32em;border-radius:50%;
+  font-family:Archivo,sans-serif;font-weight:700;font-size:.72em;color:#fff;vertical-align:.06em;margin:0 .1em;line-height:1}
+.b-ace{background:var(--l-ace)} .b-7{background:var(--l-7)} .b-123{background:var(--l-123)}
+.b-bdfm{background:var(--l-bdfm)} .b-456{background:var(--l-456)} .b-nqrw{background:var(--l-nqrw)}
+.b-l{background:var(--l-l)}
+:root[data-theme="dark"] .bul,:root:not([data-theme="light"]) .bul{color:#0E1013}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .bul{color:#fff}}
+:root[data-theme="light"] .bul{color:#fff}
+
+/* ---- itinerary ---- */
+.itin{border:1px solid var(--rule);background:var(--surface);margin:30px 0 0;box-shadow:var(--shadow)}
+.itin > header{padding:22px 24px 20px;border-bottom:1px solid var(--rule);border-top:5px solid var(--ln,var(--accent))}
+.itin .idx{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ln,var(--accent));font-weight:600}
+.itin h3{font-size:1.6rem;margin:.22em 0 .3em;letter-spacing:-.02em}
+.itin .thesis{font-size:1rem;color:var(--ink-soft);max-width:64ch;margin:0}
+.specs{display:flex;flex-wrap:wrap;gap:0;margin-top:18px;border:1px solid var(--rule)}
+.specs div{flex:1 1 118px;padding:9px 12px;border-right:1px solid var(--rule)}
+.specs div:last-child{border-right:0}
+.specs dt{font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 2px}
+.specs dd{font-family:Archivo,sans-serif;font-size:.9rem;font-weight:600;margin:0;line-height:1.3}
+.days{padding:0}
+.day{border-bottom:1px solid var(--rule)}
+.day:last-child{border-bottom:0}
+.day > h4{padding:15px 24px 12px;font-size:.98rem;display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;
+  background:var(--surface-2);border-bottom:1px solid var(--rule-soft);margin:0}
+.day > h4 .dd{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-faint);font-weight:600}
+.day > h4 .tt{flex:1;min-width:180px}
+.day > h4 .cost{font-family:"IBM Plex Mono",monospace;font-size:.76rem;font-weight:600;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.tl{list-style:none;margin:0;padding:14px 24px 16px}
+.tl li{display:grid;grid-template-columns:62px 1fr;gap:0 16px;padding:7px 0;border-bottom:1px dotted var(--rule-soft)}
+.tl li:last-child{border-bottom:0}
+.tl .hr{font-family:"IBM Plex Mono",monospace;font-size:.8rem;font-weight:600;color:var(--ink-faint);
+  font-variant-numeric:tabular-nums;padding-top:.16em}
+.tl .ev{font-size:.95rem}
+.tl .ev b{font-family:Archivo,sans-serif;font-weight:600;font-size:.96rem;display:block;margin-bottom:1px}
+.tl .ev > span{color:var(--ink-soft);font-size:.93rem}
+.tl li.hi .ev b{color:var(--ln,var(--accent))}
+.dayfoot{padding:0 24px 18px;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.dayfoot div{border-top:2px solid var(--rule);padding-top:9px}
+.dayfoot h5{font-family:"IBM Plex Mono",monospace;font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-faint);margin:0 0 5px;font-weight:600}
+.dayfoot p{font-size:.9rem;color:var(--ink-soft);margin:0;max-width:none}
+
+/* ---- generic grid of blocks ---- */
+.grid2{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));margin-top:22px}
+.blk{border-top:2px solid var(--ink);padding-top:11px}
+.blk h4{margin-bottom:5px}
+.blk p{font-size:.94rem;color:var(--ink-soft);margin:0}
+.blk p + p{margin-top:.55em}
+.blk .meta{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.06em;color:var(--ink-faint);display:block;margin-top:6px}
+
+ul.plain{margin:14px 0;padding-left:1.1em;max-width:var(--maxw)}
+ul.plain li{margin-bottom:.42em}
+ul.plain li::marker{color:var(--ink-faint)}
+
+.rule{height:1px;background:var(--rule);margin:0}
+footer.end{margin-top:64px;border-top:2px solid var(--ink);padding-top:20px;font-size:.9rem;color:var(--ink-soft)}
+@media (max-width:560px){
+  body{font-size:16px}
+  .tl li{grid-template-columns:54px 1fr;gap:0 12px}
+  .itin > header,.tl,.dayfoot,.day > h4{padding-left:15px;padding-right:15px}
+  .mast h1{letter-spacing:-.03em}
+}
+@media print{nav.toc{display:none}body{background:#fff}.itin{break-inside:auto;box-shadow:none}.day{break-inside:avoid}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="kicker">Guía de viaje · preparada el 5 de septiembre de 2026</div>
+  <h1>Nueva York,<br>siete maneras</h1>
+  <p class="sub">Miércoles 9 – lunes 14 de septiembre de 2026. Tres viajeros, cinco noches en SoHo, un plan maestro y seis maneras alternativas de recorrer la misma ciudad. Elegid una, o robadle días a cada una.</p>
+  <dl class="mastgrid">
+    <div><dt>Entrada</dt><dd>Mié 9 · 12:00<br>en el hotel</dd></div>
+    <div><dt>Salida</dt><dd>Lun 14 · 20:00<br>JFK</dd></div>
+    <div><dt>Días útiles</dt><dd>5 completos<br>+ 2 medios</dd></div>
+    <div><dt>Base</dt><dd>SoHo<br>sin cambios</dd></div>
+    <div><dt>Metro</dt><dd>3,00 $<br>tope 35 $/sem</dd></div>
+    <div><dt>Objetivo</dt><dd>85 – 120 $<br>persona y día</dd></div>
+  </dl>
+</header>
+
+<nav class="toc" aria-label="Índice">
+  <ul>
+    <li><a href="#cambios">Lo que cambia</a></li>
+    <li><a href="#reservar">Reservar ya</a></li>
+    <li><a href="#briefing">Briefing</a></li>
+    <li><a href="#calendario">Los 6 días reales</a></li>
+    <li><a href="#it1">1 · A pie</a></li>
+    <li><a href="#it2">2 · Distritos</a></li>
+    <li><a href="#it3">3 · Espectáculo</a></li>
+    <li><a href="#it4">4 · Rodado aquí</a></li>
+    <li><a href="#it5">5 · Agua</a></li>
+    <li><a href="#it6">6 · Comer</a></li>
+    <li><a href="#it7">7 · Bajo techo</a></li>
+    <li><a href="#modulos">Módulos</a></li>
+    <li><a href="#comer">Directorio</a></li>
+    <li><a href="#dinero">Dinero</a></li>
+    <li><a href="#chuleta">Chuleta</a></li>
+  </ul>
+</nav>
+
+<section id="cambios">
+  <div class="eyebrow"><span class="num">01</span><span class="line"></span><span class="num">Correcciones</span></div>
+  <h2>Lo que cambia respecto a vuestra guía</h2>
+  <p class="lede">Vuestro documento está bien construido y le he respetado el esqueleto. Pero se escribió sin mirar el calendario real de esos seis días concretos, y hay ocho cosas que lo mueven todo. Dos son errores de bulto, cuatro son oportunidades que no aparecían, y dos son precios desactualizados. Empezad por aquí.</p>
+
+  <div class="fixes">
+    <div class="fix bad">
+      <span class="mk">✕</span>
+      <div>
+        <h4>La Feast of San Gennaro NO cae en vuestras fechas</h4>
+        <p>La fiesta de Little Italy es del <strong>jueves 17 al domingo 27 de septiembre</strong>. Voláis el lunes 14. Os la perdéis por tres días, y encima es la edición del centenario. Mulberry Street estará en obras de montaje esos últimos días, no en fiesta.</p>
+        <p><strong>Qué hacer con eso:</strong> borrad la reserva mental de una noche para el festival y dejad de esperar puestos de comida en Mulberry. Little Italy vuelve a ser lo que es el resto del año: tres manzanas de restaurantes para turistas por las que se pasa andando y no se come. La excepción sigue siendo Rubirosa, que está en Nolita y es otra cosa.</p>
+        <span class="was">Vuestra guía decía: «suele caer a mediados de septiembre y muy probablemente pilla vuestras fechas»</span>
+      </div>
+    </div>
+
+    <div class="fix bad">
+      <span class="mk">✕</span>
+      <div>
+        <h4>El MoMA gratis del viernes es solo para residentes de Nueva York</h4>
+        <p>Las UNIQLO Friday Nights son los viernes de 17:30 a 20:30, pero la entrada gratuita está reservada a residentes del estado de Nueva York, con reserva previa y acreditación al escanear. Vosotros pagaríais tarifa completa (unos 30 $). Es un plan que no existe para vosotros.</p>
+        <p><strong>Lo que sí existe ese viernes:</strong> el Whitney hace <em class="q">pay-what-you-wish</em> los viernes de 19:00 a 22:00, y las entradas salen online los lunes a las 10:00 hora de Nueva York. Además el Whitney es gratis para cualquiera de 25 años o menos, siempre. Si alguno de los tres entra en esa franja, entra gratis cualquier día.</p>
+        <span class="was">Vuestra guía decía: «los viernes por la tarde suele haber acceso gratuito patrocinado con entradas liberadas online»</span>
+      </div>
+    </div>
+
+    <div class="fix adj">
+      <span class="mk">△</span>
+      <div>
+        <h4>El 11-S: la plaza abre a las 15:00 y se queda abierta hasta medianoche</h4>
+        <p>Confirmado para el 25º aniversario: el recinto del Memorial cierra al público desde las 22:00 del jueves 10 hasta las <strong>15:00 del viernes 11</strong>. La ceremonia de la mañana (empieza a las 8:30, primer minuto de silencio a las 8:46, este año con un séptimo minuto de silencio añadido) es solo para familiares. El museo, ese día, también solo para familiares.</p>
+        <p><strong>Y aquí está la oportunidad:</strong> por primera vez, la plaza se queda abierta esa noche, de 15:00 a medianoche, para poder ver el <strong>Tribute in Light</strong> desde el sitio exacto. Dos columnas de luz desde el suelo del que salen. Vuestra guía os mandaba a mirarlas desde una calle de SoHo. Es infinitamente mejor estar debajo.</p>
+        <p>Consecuencia de calendario: la decisión de no ir al sur el viernes por la mañana era correcta. La que cambio es la del lunes: el viernes por la tarde-noche hacéis el Financial District entero, y el lunes queda libre para agua, ferry y última comida sin prisa.</p>
+      </div>
+    </div>
+
+    <div class="fix new">
+      <span class="mk">+</span>
+      <div>
+        <h4>Broadway Week: 2×1 del 8 al 20 de septiembre</h4>
+        <p>Esto lo cambia todo respecto al «la lotería es la única vía real». <strong>NYC Broadway Week Fall 2026</strong> ofrece entradas 2×1 en 25 espectáculos, exactamente durante vuestra estancia. Código <strong>241BWSHOW</strong> en nyctourism.com/broadway-week. Mínimo dos entradas por pedido, máximo ocho.</p>
+        <p><strong>La cuenta para tres personas:</strong> compráis cuatro entradas pagando dos. A 120 $ la butaca de patio, son 240 $ entre tres = <strong>80 $ cada uno por una butaca buena</strong>, con una entrada de sobra que podéis revender o regalar. O compráis un lote de dos (uno paga 120 y otro va gratis) y el tercero saca lotería. Sigue siendo mejor que la lotería para asientos decentes.</p>
+        <p>En cartel esos días, entre otros: <em>Wicked</em>, <em>Hadestown</em>, <em>The Lion King</em>, <em>Oh, Mary!</em>, <em>Operation Mincemeat</em>, <em>Maybe Happy Ending</em>, <em>Stranger Things: The First Shadow</em>, <em>SIX</em>, <em>MJ</em>, <em>The Outsiders</em>, <em>The Book of Mormon</em>, <em>Titaníque</em>, <em>Chicago</em>, <em>Buena Vista Social Club</em>. Hay fechas bloqueadas por espectáculo: mirad el calendario de cada uno antes de decidir.</p>
+      </div>
+    </div>
+
+    <div class="fix new">
+      <span class="mk">+</span>
+      <div>
+        <h4>Subway Series en el Bronx: Yankees–Mets, viernes 11, sábado 12 y domingo 13</h4>
+        <p>El derbi de la ciudad, en el Yankee Stadium, los tres días de vuestro fin de semana. Viernes a las 19:05, sábado y domingo a las 13:35. Es el mejor ambiente de béisbol que se puede ver en Nueva York y la ciudad se parte en dos ese fin de semana.</p>
+        <p><strong>La versión barata:</strong> martes y miércoles los Yankees reciben a los Rockies (miércoles 9 y jueves 10, ambos a las 19:05). Rival flojo, entre semana, gradas altas mucho más asequibles. Si lo que queréis es la experiencia del estadio y no el partidazo, el <strong>jueves 10 contra los Rockies</strong> es vuestro billete. Si queréis el derbi, mirad reventa para las gradas altas del sábado o el domingo y compradlo esta semana.</p>
+      </div>
+    </div>
+
+    <div class="fix new">
+      <span class="mk">+</span>
+      <div>
+        <h4>El US Open está en su segunda semana: final femenina el sábado 12, masculina el domingo 13</h4>
+        <p>Flushing Meadows, Queens, línea <span class="bul b-7">7</span>. En segunda semana ya no hay <em class="q">grounds pass</em> barato: solo entradas de pista, y para finales los precios de reventa son de tres cifras altas. Realistamente no es vuestro plan.</p>
+        <p><strong>Pero tiene tres consecuencias prácticas:</strong> el <span class="bul b-7">7</span> va a ir a reventar esos días hacia Queens; el <strong>Queens Night Market está cerrado</strong> hasta el 19 de septiembre precisamente por el US Open, así que no lo pongáis en ningún plan; y el ambiente de bar deportivo en la ciudad esos dos días es excelente y gratis. Ver la final de un Grand Slam en un bar de Queens o del Village rodeado de gente gritando es un plan de verdad.</p>
+      </div>
+    </div>
+
+    <div class="fix adj">
+      <span class="mk">△</span>
+      <div>
+        <h4>El metro ya no cuesta 2,90 $</h4>
+        <p>Desde el 4 de enero de 2026 el billete sencillo es <strong>3,00 $</strong>. El tope semanal (7 días móviles, 12 viajes y el resto gratis) es de <strong>35 $</strong>. El <em class="q">single ride</em> en máquina son 3,50 $, así que ni lo miréis: móvil o tarjeta contactless contra el lector, siempre el mismo dispositivo por persona.</p>
+        <p>Al aeropuerto: AirTrain de JFK <strong>8,75 $</strong> más metro 3,00 $ = <strong>11,75 $</strong> por cabeza. El teleférico de Roosevelt Island también son 3,00 $ y cuenta para el tope semanal.</p>
+        <p><strong>Ojo con la semana de tarifa:</strong> el tope va de lunes a domingo. Vuestra ventana buena es <strong>miércoles 9 → domingo 13</strong>. El lunes 14 arranca semana nueva y esos dos o tres viajes al aeropuerto se pagan sueltos.</p>
+        <span class="was">Vuestra guía decía: 2,90 $ por viaje, tope 34 $, AirTrain 11,40 $</span>
+      </div>
+    </div>
+
+    <div class="fix adj">
+      <span class="mk">△</span>
+      <div>
+        <h4>Llegáis al hotel a las 12:00, no a Penn Station</h4>
+        <p>Eso os regala una hora larga respecto al plan original, que gastaba el mediodía en el traslado. El miércoles empieza de verdad a las 12:30 con las maletas ya dejadas en recepción. La regla de oro sigue en pie: <strong>no os sentéis</strong>. El check-in es a las 15:00; hasta entonces, a la calle.</p>
+        <p>Y la vuelta ya está cerrada: <strong>JFK, lunes, 20:00</strong>. Mostrador a las 17:00, salida del hotel entre las 15:30 y las 15:45. Con AirTrain son 70-85 minutos puerta a puerta; en taxi, 45-70 según tráfico, y un lunes por la tarde el tráfico hacia Queens es malo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="note info">
+    <span class="tag">Dos cosas más, menores</span>
+    <p><strong>Smorgasburg</strong> sigue en pie el sábado 12, pero la dirección de vuestra guía no está: es en <strong>Marsha P. Johnson State Park, 90 Kent Ave</strong>, Williamsburg, de 11:00 a 18:00, unos 70 puestos. <strong>Governors Island</strong> pasó a horario de otoño el 8 de septiembre, así que ya no cierra a las 22:00: comprobad la hora de cierre el mismo día. El ferry son 5 $ ida y vuelta y es gratis los fines de semana antes de las 11:00.</p>
+  </div>
+
+  <div class="note warn">
+    <span class="tag">Y un aviso de bolsillo</span>
+    <p><strong>New York Fashion Week es del 10 al 15 de septiembre</strong>, y el <strong>domingo 13 hay Giants–Cowboys en el MetLife a las 20:20</strong>, apertura de temporada de la NFL en horario estelar. Ninguna de las dos cosas es un plan para vosotros, pero las dos llenan la ciudad: reservad restaurante con más antelación de la que os parece necesaria el jueves, el viernes y el sábado por la noche, y contad con que los bares deportivos estén imposibles el domingo por la noche.</p>
+  </div>
+</section>
+
+<section id="reservar">
+  <div class="eyebrow"><span class="num">02</span><span class="line"></span><span class="num">Hoy es sábado 5 · quedan 4 días</span></div>
+  <h2>Lo que hay que hacer esta semana</h2>
+  <p class="lede">Ordenado por urgencia real, no por importancia. Lo de arriba se agota o se encarece; lo de abajo se puede hacer desde el avión.</p>
+
+  <ol class="check">
+    <li>
+      <span class="what">Entradas de Broadway con el código 241BWSHOW</span>
+      <span class="when now">Hoy o mañana</span>
+      <p class="how">Es lo único de esta lista que tiene inventario limitado y precio creciente. Entrad en nyctourism.com/broadway-week, elegid dos o tres candidatos y mirad qué funciones de vuestros días no están bloqueadas. Recomendación para tres tíos que no vienen a ver teatro: <em>Oh, Mary!</em> (75 minutos, comedia negra, muy neoyorquina), <em>Operation Mincemeat</em> (comedia musical británica, ritmo endiablado) o <em>Stranger Things: The First Shadow</em> (espectáculo puro, efectos, no hace falta saber inglés fino). <em>Wicked</em> y <em>El Rey León</em> son la apuesta segura si preferís lo grande.</p>
+    </li>
+    <li>
+      <span class="what">Béisbol: decidir qué partido y comprar</span>
+      <span class="when now">Hoy o mañana</span>
+      <p class="how">Jueves 10 contra Rockies (19:05) es la opción barata y sin agobio. Sábado 12 o domingo 13 contra los Mets (13:35) es el partidazo, y el precio sube cada día que pasa. Comprad en mlb.com o en reventa (SeatGeek, StubHub, Gametime) y mirad siempre el precio <em>con</em> gastos, que aquí suman mucho. Gradas altas detrás del <em class="q">home plate</em> antes que primera fila del <em class="q">outfield</em>.</p>
+    </li>
+    <li>
+      <span class="what">Rubirosa, y una cena más</span>
+      <span class="when soon">Esta semana</span>
+      <p class="how">Rubirosa (Nolita, pizza de masa fina y vodka sauce) por Resy, y con Fashion Week encima conviene no dejarlo. Segunda reserva recomendable: una noche de jazz. <strong>Smalls</strong> o <strong>Mezzrow</strong> (25-35 $, están enfrente el uno del otro en la calle 10 Oeste) o el <strong>Village Vanguard</strong> (~40 $, el templo). Se reserva online y se llega pronto.</p>
+    </li>
+    <li>
+      <span class="what">Whitney: entradas pay-what-you-wish del viernes</span>
+      <span class="when soon">Lunes 7 a las 16:00 hora española</span>
+      <p class="how">Salen los lunes a las 10:00 de Nueva York, es decir las 16:00 en España, para el viernes siguiente. Vuelan. Alarma en el móvil. Y si alguno de los tres tiene 25 años o menos, que lleve el DNI: entra gratis cualquier día sin sorteo.</p>
+    </li>
+    <li>
+      <span class="what">Apuntarse a las loterías de Broadway</span>
+      <span class="when soon">Empezar ya, todos los días</span>
+      <p class="how">Aunque compréis Broadway Week, apuntaos igual: entrar es gratis y puede salir una segunda función por 40 $. broadwaydirect.com/lottery, luckyseat.com y el <em class="q">rush</em> digital de TodayTix (39 $, a las 9:00 del día de la función). Los tres, a varios espectáculos, cada día.</p>
+    </li>
+    <li>
+      <span class="what">Iglesia de góspel del domingo</span>
+      <span class="when soon">Esta semana</span>
+      <p class="how">Comprobad la política de visitantes de la que elijáis, porque cambia. Abyssinian Baptist es la famosa y por eso la más restrictiva. Con menos cola y la misma calidad: <strong>First Corinthian</strong>, <strong>Mount Neboh</strong> y <strong>Convent Avenue Baptist</strong>. Se llega una hora antes, hay fila específica para visitantes y el aforo es limitado.</p>
+    </li>
+    <li>
+      <span class="what">Apps, pagos y móvil</span>
+      <span class="when easy">Cualquier momento</span>
+      <p class="how">Citymapper (mejor que Google Maps para el metro de Nueva York), Resy, TodayTix. Tarjeta contactless añadida al móvil para OMNY, y <strong>cada uno con la suya</strong>: el tope semanal va por dispositivo, si compartís tarjeta perdéis los tres el descuento. Avisad al banco. Comprobad la ESTA. Descargad el mapa de Manhattan sin conexión.</p>
+    </li>
+    <li>
+      <span class="what">Zapatillas</span>
+      <span class="when easy">Antes de hacer la maleta</span>
+      <p class="how">No es una broma, es la línea del presupuesto que más se subestima. Vais a andar entre 18 y 25 km diarios cinco días seguidos sobre hormigón. Zapatillas ya rodadas, nunca estrenadas, y un segundo par para alternar. Calcetines técnicos. Y una capa fina en la mochila todos los días: la calle está a 27 °C y el metro y los restaurantes a 19 °C.</p>
+    </li>
+  </ol>
+</section>
+
+<section id="briefing">
+  <div class="eyebrow"><span class="num">03</span><span class="line"></span><span class="num">Briefing</span></div>
+  <h2>Lo operativo, en una página</h2>
+
+  <div class="grid2">
+    <div class="blk">
+      <h4>El metro, en cuatro reglas</h4>
+      <p><strong>1.</strong> No compréis tarjeta: móvil o contactless contra el lector, 3,00 $. <strong>2.</strong> A partir del viaje 12 en la misma semana lunes-domingo, el resto es gratis; tope 35 $. <strong>3.</strong> Cada uno, siempre el mismo dispositivo. <strong>4.</strong> Mirad si el tren es <em class="q">local</em> o <em class="q">express</em> antes de subir: el express se salta paradas y os planta cuarenta manzanas más arriba.</p>
+      <span class="meta">Error nº1 del visitante. Citymapper avisa siempre.</span>
+    </div>
+    <div class="blk">
+      <h4>Orientarse</h4>
+      <p>Las <em class="q">streets</em> van este-oeste y numeran de sur a norte. Las avenidas van norte-sur. La Quinta parte la isla: a su izquierda todo es West, a su derecha East. Veinte manzanas norte-sur son una milla, unos veinte minutos. Las manzanas este-oeste son mucho más largas: cruzar la isla a pie son treinta minutos largos.</p>
+      <span class="meta">Vuestro SoHo está bajo la calle 14, donde la cuadrícula se rompe.</span>
+    </div>
+    <div class="blk">
+      <h4>La regla del 30 %</h4>
+      <p>Al precio de la carta se le suma el 8,875 % de impuestos y luego la propina. Un plato de 20 $ acaba en 26 $. Propina: 18-20 % con camarero, 1-2 $ por copa en barra, nada en mostradores, carritos ni autoservicio, 15 % en taxi. Sumad un 30 % mental a todo lo que veáis escrito y no habrá sustos el segundo día.</p>
+      <span class="meta">Se paga con tarjeta en todo, incluidos los carritos.</span>
+    </div>
+    <div class="blk">
+      <h4>Clima de esa semana</h4>
+      <p>Mediados de septiembre: máximas de 24-27 °C, mínimas de 16-18 °C, humedad alta y seis días de lluvia de media en todo el mes. Lo típico es una tormenta corta y violenta a media tarde que descarga en cuarenta minutos y se va. Chubasquero plegable, no paraguas grande. Y capa fina para el aire acondicionado, que es glacial.</p>
+      <span class="meta">Mirad el parte real el domingo 7: aún cambia.</span>
+    </div>
+    <div class="blk">
+      <h4>Dónde estáis</h4>
+      <p>SoHo es una de las tres mejores bases posibles de Manhattan. Andando tenéis Nolita, Little Italy, Chinatown, el Lower East Side, Tribeca, el West Village y Washington Square. En metro directo: <span class="bul b-ace">A</span><span class="bul b-ace">C</span><span class="bul b-ace">E</span> por la 8ª/Canal, <span class="bul b-123">1</span> por Varick, <span class="bul b-nqrw">N</span><span class="bul b-nqrw">R</span><span class="bul b-nqrw">W</span> por Prince/Canal, <span class="bul b-bdfm">B</span><span class="bul b-bdfm">D</span><span class="bul b-bdfm">F</span><span class="bul b-bdfm">M</span> por Broadway-Lafayette y <span class="bul b-456">6</span> por Spring.</p>
+      <span class="meta">Casi todos los itinerarios de aquí salen y vuelven andando.</span>
+    </div>
+    <div class="blk">
+      <h4>El lunes, hora a hora</h4>
+      <p>Check-out por la mañana y maletas en recepción sin coste (o consigna tipo Bounce / Radical Storage, 7-10 $ el bulto). Volvéis al hotel a las 15:20, recogéis y salís a las 15:40. <span class="bul b-ace">A</span> hasta Howard Beach o <span class="bul b-ace">E</span> hasta Jamaica, AirTrain, terminal. Mostrador a las 17:00. Comprad agua y comida antes de entrar: dentro cuesta el triple.</p>
+      <span class="meta">Tres horas de colchón. No lo apuréis: el tráfico a Queens es imprevisible.</span>
+    </div>
+    <div class="blk">
+      <h4>Seguridad, con proporción</h4>
+      <p>Todas las zonas de estos itinerarios son seguras a cualquier hora a la que vayáis a estar en ellas. Cuidado normal de gran ciudad: el móvil en la mano en Times Square y en el andén, atención en el metro de madrugada, y nada de riñoneras a la espalda. Los neoyorquinos no son bordes, son rápidos: preguntad y contestan.</p>
+      <span class="meta">Emergencias: 911. Agua del grifo: potable y gratis.</span>
+    </div>
+    <div class="blk">
+      <h4>Cómo ahorrar de verdad</h4>
+      <p>Desayunar en <em class="q">bodega</em> o supermercado (6-8 $ frente a 20 $). Comer fuerte a mediodía aprovechando los <em class="q">lunch specials</em>, que valen la mitad que la misma carta de noche. Compartir platos: las raciones americanas son para dos. Pedir agua del grifo. Y no pagar por vistas: entre el ferry de Staten Island, el puente de Brooklyn, la Promenade, Gantry Plaza y el teleférico tenéis cinco panorámicas por 0-3 $.</p>
+      <span class="meta">Ahí están los 40 $ diarios de diferencia.</span>
+    </div>
+  </div>
+</section>
+
+<section id="calendario">
+  <div class="eyebrow"><span class="num">04</span><span class="line"></span><span class="num">Contexto</span></div>
+  <h2>Qué está pasando en la ciudad esos seis días</h2>
+  <p class="lede">Esto es lo fijo: no depende del itinerario que elijáis, y cualquier plan que hagáis tiene que respetarlo. Es la rejilla sobre la que están construidos los siete itinerarios de más abajo.</p>
+
+  <div class="tw">
+    <table>
+      <caption>Rejilla fija · 9 – 14 de septiembre de 2026</caption>
+      <thead><tr><th>Día</th><th>Lo que condiciona</th><th>Oportunidad del día</th><th class="n">Ocaso</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Mié 9</strong></td>
+          <td>Llegada 12:00. Medio día útil. Jet lag.</td>
+          <td>Yankees–Rockies 19:05 si llegáis enteros. Barrio propio a pie.</td>
+          <td class="n">19:15</td>
+        </tr>
+        <tr>
+          <td><strong>Jue 10</strong></td>
+          <td>Arranca Fashion Week. Cenas más llenas.</td>
+          <td>Yankees–Rockies 19:05, el partido barato. Jazz en el Village.</td>
+          <td class="n">19:13</td>
+        </tr>
+        <tr>
+          <td><strong>Vie 11</strong></td>
+          <td><strong>25º aniversario del 11-S.</strong> Financial District cerrado y con seguridad reforzada hasta las 15:00. Museo solo familiares.</td>
+          <td>Plaza abierta 15:00 → medianoche. <strong>Tribute in Light</strong> del anochecer al amanecer. Whitney PWYW 19:00-22:00. Yankees–Mets 19:05.</td>
+          <td class="n">19:11</td>
+        </tr>
+        <tr>
+          <td><strong>Sáb 12</strong></td>
+          <td>Sábado de septiembre: la ciudad entera en la calle. Final femenina del US Open.</td>
+          <td><strong>Smorgasburg</strong> 11:00-18:00. Yankees–Mets 13:35. Mercadillos de Williamsburg.</td>
+          <td class="n">19:09</td>
+        </tr>
+        <tr>
+          <td><strong>Dom 13</strong></td>
+          <td>Final masculina del US Open. Giants–Cowboys 20:20 en el MetLife: bares deportivos imposibles de noche.</td>
+          <td><strong>Whitney gratis</strong> (segundo domingo). Guggenheim PWYW 16:00-17:30. Góspel en Harlem. Yankees–Mets 13:35.</td>
+          <td class="n">19:07</td>
+        </tr>
+        <tr>
+          <td><strong>Lun 14</strong></td>
+          <td>Salida del hotel 15:40. Vuelo JFK 20:00. Semana nueva de tarifa de metro.</td>
+          <td>Mañana entera libre. Ferry gratis, Governors Island, última comida en Chinatown.</td>
+          <td class="n">19:05</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note good">
+    <span class="tag">Lo que esto significa</span>
+    <p>Tenéis <strong>una noche irrepetible (viernes)</strong>, <strong>un sábado de mercado y barrio</strong>, <strong>un domingo de góspel y museo gratis</strong> y <strong>dos medios días de bisagra</strong>. Cualquier itinerario que ignore esas cuatro cosas está desaprovechando la semana. Los siete de abajo las respetan todos; lo que cambia entre ellos es lo demás.</p>
+  </div>
+</section>
+
+<section id="itinerarios">
+  <div class="eyebrow"><span class="num">05</span><span class="line"></span><span class="num">Siete recorridos completos</span></div>
+  <h2>Los itinerarios</h2>
+  <p class="lede">Siete maneras enteras de hacer los mismos seis días. El primero es el que os recomiendo y va desarrollado hora a hora; los otros seis son alternativas completas, cada una con una tesis distinta sobre qué es Nueva York. No hace falta elegir uno y casarse: lo normal es coger el 1 de base y robarle dos o tres días a los demás. Cada itinerario lleva su línea de metro como identidad, y en las cabeceras de día veréis el coste estimado por persona.</p>
+</section>
+
+<article class="itin" id="it1" style="--ln:var(--l-ace)">
+  <header>
+    <div class="idx">Itinerario 1 <span class="bul b-ace">A</span><span class="bul b-ace">C</span><span class="bul b-ace">E</span> · Recomendado</div>
+    <h3>La ciudad a pie</h3>
+    <p class="thesis">El plan maestro. Nueva York entendida como una sucesión de barrios que se recorren andando, no como una lista de monumentos que se visitan. Es vuestra guía original, recolocada alrededor del viernes 11 y con el domingo aprovechado de otra manera. Si solo leéis un itinerario de este documento, que sea este.</p>
+    <dl class="specs">
+      <div><dt>Coste 6 días</dt><dd>440 – 620 $</dd></div>
+      <div><dt>Kilómetros/día</dt><dd>18 – 24 km</dd></div>
+      <div><dt>Gratis</dt><dd>~60 % del plan</dd></div>
+      <div><dt>Para quién</dt><dd>Primera vez, los tres</dd></div>
+      <div><dt>Punto fuerte</dt><dd>Viernes noche</dd></div>
+    </dl>
+  </header>
+
+  <div class="days">
+
+    <div class="day">
+      <h4><span class="dd">Día 1 · Mié 9</span><span class="tt">Aterrizaje en vuestro propio barrio</span><span class="cost">55 – 75 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">12:00</span><span class="ev"><b>Hotel: maletas y a la calle</b><span>Dejáis el equipaje en recepción, os laváis la cara y salís. Nada de sentarse ni de probar la cama: es la única regla innegociable del día. El check-in es a las 15:00 y volveréis luego.</span></span></li>
+        <li><span class="hr">12:30</span><span class="ev"><b>Primera comida de pie</b><span>Porción cuadrada de pepperoni en <strong>Prince Street Pizza</strong> (5 $, cola de 20 minutos que merece la pena) o la ventanilla de tacos de <strong>La Esquina</strong> en Kenmare St (4-5 $ la unidad, pedid tres). Se come andando.</span></span></li>
+        <li><span class="hr">13:15</span><span class="ev"><b>SoHo: la ruta del hierro fundido</b><span>Broome → Greene → Prince → West Broadway. La mayor concentración de fachadas de hierro fundido del mundo. El truco: todo el interés está por encima del primer piso. Columnas, cornisas, escaleras de incendios. Adoquines originales en Mercer y Wooster.</span></span></li>
+        <li><span class="hr">14:45</span><span class="ev"><b>Nolita</b><span>Elizabeth, Mott y Mulberry hacia el norte. Parada obligatoria en el <strong>Elizabeth Street Garden</strong>, un jardín de esculturas escondido y gratuito, y en <strong>St. Patrick's Old Cathedral</strong> (1815), la catedral original de la ciudad, con su muro de ladrillo alrededor.</span></span></li>
+        <li><span class="hr">15:45</span><span class="ev"><b>Check-in y ducha, 45 minutos</b><span>Volvéis, subís, os cambiáis, dejáis la mochila ligera. Es el único descanso del día y tiene hora de salida.</span></span></li>
+        <li><span class="hr">16:45</span><span class="ev"><b>Little Italy y Chinatown</b><span>Bajáis Mulberry hasta Canal. Recordad: San Gennaro es la semana siguiente, aquí no hay fiesta. Little Italy se cruza, no se come. Y en Canal Street cambia el barrio de golpe, en una sola manzana: pescaderías, fruta, ruido. Buscad <strong>Doyers Street</strong>, la callejuela curva, y <strong>Columbus Park</strong>, donde los mayores juegan al mahjong al aire libre.</span></span></li>
+        <li><span class="hr">18:15</span><span class="ev"><b>Lower East Side</b><span>Orchard, Ludlow y Rivington. <strong>Economy Candy</strong> (1937) es una chuchería que funciona como museo, y <strong>Essex Market</strong> reúne puestos de medio mundo. Es el barrio con más vida a esta hora de toda la zona sur.</span></span></li>
+        <li class="hi"><span class="hr">19:45</span><span class="ev"><b>Cena en Chinatown</b><span><strong>Great NY Noodletown</strong> (pato asado, calamares al ajo, abierto hasta muy tarde, 20-25 $) o <strong>Wo Hop</strong>, en el sótano del 17 de Mott, chino-americano desde 1938. Feo, barato y buenísimo. Es la primera lección de la ciudad y conviene aprenderla el primer día.</span></span></li>
+        <li><span class="hr">21:15</span><span class="ev"><b>Una cerveza en Ludlow, y a dormir</b><span>Cualquier bar de Ludlow u Orchard. Si podéis, aguantad hasta las 22:30 hora local antes de caer: es lo que mejor arregla el desfase de seis horas. Si no podéis, no pasa nada: mañana empieza pronto.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Prince Street Pizza · La Esquina · Great NY Noodletown · Wo Hop · Vanessa's Dumpling House (5-8 $) · cualquier <em class="q">bodega</em> de esquina para el <em class="q">bacon, egg &amp; cheese</em> de 6 $ de mañana.</p></div>
+        <div><h5>Si llueve</h5><p>Chinatown y el LES funcionan igual bajo paraguas. Essex Market y el <em class="q">food hall</em> de Canal Street son refugios cubiertos. Y el <strong>Tenement Museum</strong> (30 $, solo con visita guiada) es el museo que mejor explica de dónde sale esta ciudad: si pagáis uno solo en todo el viaje, que sea este.</p></div>
+        <div><h5>Variantes</h5><p><strong>Si llegáis fundidos:</strong> SoHo + Nolita, cena en Rubirosa y a dormir. <strong>Si llegáis con energía:</strong> añadid Tribeca al final de la tarde, la zona más elegante y silenciosa del sur. <strong>Si os apetece béisbol:</strong> Yankees–Rockies a las 19:05, pero sabiendo que salís del estadio a las 22:15 con seis horas de jet lag encima.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 2 · Jue 10</span><span class="tt">El Village, la High Line y el jazz</span><span class="cost">80 – 115 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">08:30</span><span class="ev"><b>Bagel</b><span>Con <em class="q">cream cheese</em>, 5-7 $, en cualquier <em class="q">bagel shop</em> del camino. Llena hasta las dos de la tarde sin discusión.</span></span></li>
+        <li><span class="hr">09:15</span><span class="ev"><b>Washington Square Park</b><span>Quince minutos andando desde SoHo. El arco, la fuente, los ajedrecistas, el piano callejero que alguien arrastra hasta allí. Es el mejor sitio de la ciudad para entender cómo funciona la vida pública en Nueva York: músicos, estudiantes de NYU, perros y gente durmiendo la siesta, todo a la vez y sin conflicto. Sentaos veinte minutos sin hacer nada. Va en serio.</span></span></li>
+        <li><span class="hr">10:00</span><span class="ev"><b>Greenwich Village a pie</b><span>MacDougal → Bleecker → Cornelia → Bedford. Casas bajas de ladrillo, escaleras de entrada, árboles. Aquí se rodó media historia del cine urbano americano. En Bedford con Grove está la casa más estrecha de Nueva York, y en la esquina de Jones con Bleecker se hizo la foto de la portada de <em>The Freewheelin' Bob Dylan</em>.</span></span></li>
+        <li><span class="hr">11:15</span><span class="ev"><b>West Village</b><span>Grove con Bedford (la fachada de <em>Friends</em>), el <strong>Stonewall Inn</strong> y el Christopher Park de enfrente, Monumento Nacional desde 2016: aquí empezó el movimiento LGTB moderno en junio de 1969, y se ve en cinco minutos, pero conviene saber qué se está mirando. Luego White Horse Tavern y la Jefferson Market Library.</span></span></li>
+        <li><span class="hr">12:30</span><span class="ev"><b>Comida de barrio</b><span>Bocadillo italiano descomunal en <strong>Faicco's</strong> (Bleecker, 12 $) o la porción canónica de <strong>Joe's Pizza</strong> (Carmine, 4 $). Se come en la calle o de vuelta en el parque.</span></span></li>
+        <li><span class="hr">13:45</span><span class="ev"><b>Hacia Chelsea bordeando el río</b><span>Veinte minutos por Hudson Street. Pasáis por delante de la casa de <strong>Jane Jacobs</strong>, la mujer que impidió que derribaran todo este barrio para meter una autopista en los sesenta. Estáis paseando literalmente por su victoria.</span></span></li>
+        <li><span class="hr">14:15</span><span class="ev"><b>Chelsea Market</b><span>Antigua fábrica de galletas Nabisco. Muy turístico, pero el edificio merece la parada y <strong>Los Tacos No. 1</strong> está dentro. Media hora, no más.</span></span></li>
+        <li class="hi"><span class="hr">15:15</span><span class="ev"><b>The High Line</b><span>1,6 km de vía elevada de 1934, abandonada veinticinco años y convertida en parque en 2009. Entrad por Gansevoort St y subid hacia el norte. Jardines silvestres, vistas de la calle a media altura, bancos de madera. Es gratis y es el mejor paseo urbano de la ciudad. Hora y media sin prisa.</span></span></li>
+        <li><span class="hr">16:45</span><span class="ev"><b>Little Island</b><span>Parque flotante sobre pilares de hormigón en el Hudson, entrada por la calle 13. Comprobad por la mañana si ese día pide reserva gratuita por franjas horarias, que cambia según la temporada.</span></span></li>
+        <li><span class="hr">17:30</span><span class="ev"><b>Atardecer en el Hudson</b><span>Hudson River Park: los pantalanes de madera mirando a Nueva Jersey. La mejor puesta de sol gratuita de Manhattan, y ese día el sol se pone a las 19:13, así que tenéis margen para quedaros tirados un rato largo.</span></span></li>
+        <li><span class="hr">19:30</span><span class="ev"><b>Cena en el Village</b><span><strong>John's of Bleecker Street</strong>: pizza de horno de carbón desde 1929, no venden porciones, se pide entera y se comparte. Unos 22 $ entre tres. Alternativa con más carne: <strong>Corner Bistro</strong> en Jane St, hamburguesa histórica de 12 $.</span></span></li>
+        <li class="hi"><span class="hr">21:30</span><span class="ev"><b>Noche de jazz</b><span><strong>Smalls</strong> (25-35 $, sótano diminuto, el ambiente más auténtico) o <strong>Mezzrow</strong> (25 $, piano y contrabajo), que están enfrente el uno del otro. El <strong>Village Vanguard</strong> son 40 $ y es el templo donde grabó Coltrane. Y la versión gratis: <strong>Arturo's</strong>, una pizzería de Houston St con banda en directo y sin entrada.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Faicco's · Joe's Pizza · Mamoun's Falafel (6 $ desde 1971) · Los Tacos No. 1 · John's of Bleecker · Corner Bistro · y si os sobra dinero, Via Carota, que no acepta reservas y hay que hacer cola.</p></div>
+        <div><h5>Si llueve</h5><p>Chelsea Market entero y de ahí a las <strong>galerías de Chelsea</strong>: calles 24 y 25 entre la 10ª y la 11ª avenida, arte contemporáneo de primer nivel, salas enormes y entrada libre. Se encadenan diez en dos horas sin gastar un dólar. Cierre bajo techo: <strong>Comedy Cellar</strong> en MacDougal, con reserva.</p></div>
+        <div><h5>Variantes</h5><p><strong>Larga:</strong> añadid el Meatpacking y subid la High Line entera hasta Hudson Yards. <strong>Espectáculo:</strong> esta es la mejor noche para gastar el 2×1 de Broadway; cenad temprano en el Village y subid a Midtown. <strong>Béisbol:</strong> Yankees–Rockies 19:05, el partido barato de la semana; el Village espera.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 3 · Vie 11</span><span class="tt">Midtown de día, Ground Zero de noche</span><span class="cost">70 – 115 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">08:00</span><span class="ev"><b>Grand Central Terminal</b><span>Línea <span class="bul b-456">6</span> desde Spring St. Id pronto: a esta hora la luz entra en diagonal por los ventanales y los oficinistas cruzan la sala a toda velocidad. Tres cosas que buscar: el techo del zodiaco está pintado <em>al revés</em> (error de 1913); hay un rectángulo sin limpiar en una esquina para que se vea cómo estaba de sucio; y la <strong>Whispering Gallery</strong>, junto a la Oyster Bar, transmite susurros de esquina a esquina en diagonal. Funciona de verdad, probadlo. Desayuno en el mercado de abajo.</span></span></li>
+        <li><span class="hr">09:30</span><span class="ev"><b>New York Public Library</b><span>Dos manzanas al oeste. Subid a la <strong>Rose Main Reading Room</strong>: noventa metros de sala con el techo pintado y lámparas de bronce. Entrada libre y casi nadie sabe que se puede pasar.</span></span></li>
+        <li><span class="hr">10:15</span><span class="ev"><b>Bryant Park</b><span>Justo detrás, sobre el solar del antiguo embalse de la ciudad. Sillas verdes, mesas de ajedrez, café. La mejor pausa gratuita de Midtown. <em>Aviso:</em> con Fashion Week en marcha puede haber montajes y zonas valladas.</span></span></li>
+        <li><span class="hr">11:00</span><span class="ev"><b>Rockefeller Center y la Quinta</b><span>Lo mejor está a pie de calle y es gratis: los relieves Art Déco, el Atlas de la Quinta Avenida y los murales del vestíbulo del 30 Rock. Entrad, mirad y salid. Luego St. Patrick's Cathedral, enfrente.</span></span></li>
+        <li class="hi"><span class="hr">12:15</span><span class="ev"><b>Teleférico de Roosevelt Island</b><span>Desde la 59 con 2ª Avenida. Cuesta 3,00 $ con la misma tarjeta del metro y cuenta para el tope semanal. Sube sobre el East River y es, con diferencia, la mejor vista barata de la ciudad. Arriba, caminad hasta el <strong>Four Freedoms Park</strong>, en la punta sur de la isla: vista frontal de Midtown, granito de Kahn y prácticamente vacío.</span></span></li>
+        <li><span class="hr">13:30</span><span class="ev"><b>Comida de carrito</b><span><strong>The Halal Guys</strong>, 53 con 6ª Avenida, el carrito original: plato de pollo con arroz por 10 $. Salsa blanca sí; la roja, con mucho cuidado y en pequeñas dosis.</span></span></li>
+        <li><span class="hr">14:30</span><span class="ev"><b>Central Park sur</b><span>Entráis por Grand Army Plaza. The Pond, Gapstow Bridge, The Mall (la avenida de olmos americanos más grande del país), Bethesda Terrace, Bow Bridge y Strawberry Fields. Bajo la arcada de Bethesda suele haber músicos y la acústica es extraordinaria: parad a escuchar aunque no os apetezca. Dos horas largas.</span></span></li>
+        <li><span class="hr">16:30</span><span class="ev"><b>Bajada al sur</b><span>Metro desde Columbus Circle o la 59. Cuarenta minutos hasta el Financial District. La plaza del Memorial abre al público a las 15:00, así que a esta hora ya se puede entrar, pero conviene llegar con la tarde caída.</span></span></li>
+        <li><span class="hr">17:15</span><span class="ev"><b>Oculus, Wall Street y Stone Street</b><span>El intercambiador de Calatrava: entrad, mirad hacia arriba, salid. Luego Trinity Church y su cementerio (aquí está enterrado Alexander Hamilton), Federal Hall, donde juró Washington, y <strong>Stone Street</strong>, callejuela adoquinada del XVII llena de mesas al aire libre. Cena temprana aquí, sobre las 18:00.</span></span></li>
+        <li class="hi"><span class="hr">19:30</span><span class="ev"><b>La plaza del Memorial, al anochecer</b><span>Las dos piscinas cuadradas sobre la huella exacta de las torres, con los nombres grabados en bronce. El sonido del agua tapa el ruido de la ciudad. Es gratis, y esta noche, la del 25º aniversario, la plaza se queda abierta hasta medianoche por primera vez. Habrá flores en los nombres y mucha gente en silencio. Id con eso en la cabeza.</span></span></li>
+        <li class="hi"><span class="hr">20:15</span><span class="ev"><b>Tribute in Light</b><span>Dos columnas de luz azul que se encienden al anochecer y suben cuatro millas: ochenta y ocho focos de 7.000 vatios en dos cuadrados de quince metros, con la forma y la orientación de las torres. Están hasta el amanecer. Se ven desde noventa kilómetros a la redonda, pero estar debajo, en la plaza, es otra cosa. Si preferís verlas enteras y de lejos, cruzad al <strong>Brooklyn Heights Promenade</strong> o al <strong>Pier 1</strong> de DUMBO: media hora de metro y la mejor perspectiva que existe.</span></span></li>
+        <li><span class="hr">22:00</span><span class="ev"><b>Vuelta andando a SoHo</b><span>Son cuarenta minutos por Broadway hacia el norte, atravesando Tribeca. Vale la pena hacerlo a pie y en silencio.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Grand Central Market (desayuno) · The Halal Guys (10 $) · Stone Street, cualquiera de las terrazas · Los Tacos No. 1 en Times Square si pasáis por ahí. <strong>Regla absoluta:</strong> nada de restaurantes en Times Square.</p></div>
+        <div><h5>Si llueve</h5><p>Grand Central + Biblioteca + vestíbulo del Rockefeller + Koreatown, encadenados casi sin salir a la intemperie. La <strong>Morgan Library</strong> (calle 36) es pequeña, preciosa y casi siempre vacía. Por la noche, el Oculus y Brookfield Place cubren la espera hasta que se encienden las luces, que se ven igual con nubes bajas y quedan aún más impresionantes.</p></div>
+        <div><h5>Variantes</h5><p><strong>Si queréis un mirador de pago:</strong> Top of the Rock (~40 $) es el mejor de los tres porque desde ahí sí se ve el Empire State; Summit One Vanderbilt (~49 $) es el más espectacular. Subid cuarenta y cinco minutos antes del ocaso y quedaos para la vista nocturna. <strong>Si preferís teatro:</strong> Broadway a las 20:00 y bajáis al sur después; las luces siguen encendidas hasta el amanecer. <strong>Whitney:</strong> <em class="q">pay-what-you-wish</em> de 19:00 a 22:00, si conseguisteis las entradas el lunes.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 4 · Sáb 12</span><span class="tt">Brooklyn de punta a punta</span><span class="cost">85 – 125 $</span></h4>
+      <ul class="tl">
+        <li class="hi"><span class="hr">07:00</span><span class="ev"><b>Puente de Brooklyn</b><span>Sí, a las siete. Es la única forma de cruzarlo sin ir en manada y con la luz buena. Metro <span class="bul b-456">4</span><span class="bul b-456">5</span><span class="bul b-456">6</span> hasta Brooklyn Bridge–City Hall. Inaugurado en 1883, fue veinte años el puente colgante más largo del mundo, y la pasarela peatonal va por encima del tráfico.</span></span></li>
+        <li><span class="hr">07:30</span><span class="ev"><b>La travesía</b><span>Veinticinco o treinta y cinco minutos con Manhattan a la espalda. Cruzad de Manhattan a Brooklyn: la vista buena la tenéis girándoos, y así el skyline os crece por detrás en vez de encogerse por delante.</span></span></li>
+        <li><span class="hr">08:15</span><span class="ev"><b>DUMBO</b><span><em>Down Under the Manhattan Bridge Overpass.</em> La esquina de Washington con Water es la foto: el puente de Manhattan encajado entre dos hileras de almacenes de ladrillo, y al fondo el Empire State. A esta hora la tenéis casi para vosotros; a las once hay veinte personas haciendo cola para la misma foto.</span></span></li>
+        <li><span class="hr">09:00</span><span class="ev"><b>Brooklyn Bridge Park</b><span>Bajad a los muelles. El <strong>Pier 1</strong> tiene la vista de postal del skyline y el Pier 6 los columpios. <strong>Jane's Carousel</strong> (1922, dentro de una caja de cristal) por 5 $ si os apetece la tontería, que os apetece.</span></span></li>
+        <li><span class="hr">09:45</span><span class="ev"><b>Brooklyn Heights Promenade</b><span>Paseo elevado por encima de la autopista, con la mejor vista frontal de Lower Manhattan que existe. Y detrás, el barrio: <strong>Brooklyn Heights</strong> fue el primer suburbio residencial de Estados Unidos. Casas de arenisca del XIX, calles arboladas, silencio absoluto. Pasead por Willow, Cranberry y Orange. Casi ningún turista llega hasta aquí y es incomprensible.</span></span></li>
+        <li><span class="hr">11:15</span><span class="ev"><b>Metro a Williamsburg</b><span>Veinticinco o treinta minutos. Alternativa mucho mejor si hace bueno: el <strong>NYC Ferry</strong> desde DUMBO hasta North Williamsburg, 4,50 $, veinte minutos por el East River con la ciudad de perfil.</span></span></li>
+        <li class="hi"><span class="hr">12:00</span><span class="ev"><b>Smorgasburg</b><span>Marsha P. Johnson State Park, 90 Kent Avenue, de 11:00 a 18:00. Unos setenta puestos de comida callejera al aire libre junto al río, el mercado de este tipo más grande del país. <strong>Estrategia:</strong> dad una vuelta completa antes de comprar nada, y luego cada uno pide un plato distinto de 10-15 $ y se comparte todo. Coméis de maravilla por 20-25 $ y probáis seis cosas en vez de una.</span></span></li>
+        <li><span class="hr">14:00</span><span class="ev"><b>Williamsburg</b><span>Bedford Avenue es la calle principal. Aquí es donde de verdad se compra barato en Nueva York: ropa de segunda mano, discos, Artists &amp; Fleas. Y <strong>Domino Park</strong>, sobre una antigua refinería de azúcar, con las grúas y los tanques conservados y la vista de Manhattan desde el agua.</span></span></li>
+        <li><span class="hr">16:00</span><span class="ev"><b>Bushwick Collective</b><span>Línea <span class="bul b-l">L</span> hasta Jefferson St. Manzanas enteras de naves industriales cubiertas de murales gigantes, una iniciativa vecinal de 2012 que acabó siendo un muestrario de arte urbano internacional. Se recorre sin rumbo, mirando paredes. No cuesta nada.</span></span></li>
+        <li><span class="hr">18:00</span><span class="ev"><b>Cerveza</b><span><strong>Radegast Hall</strong> en Williamsburg: cervecería austríaca con mesas corridas, salchichas y banda en directo. O, como capricho, <strong>Westlight</strong>, la azotea del Wythe Hotel, 20-24 $ el cóctel con la mejor vista de la ciudad desde el otro lado.</span></span></li>
+        <li><span class="hr">20:00</span><span class="ev"><b>Cena en Bushwick</b><span><strong>Roberta's</strong>: pizza de horno de leña en un almacén con patio, caravanas y luces. Unos 20 $. Es de esos sitios que explican una ciudad entera.</span></span></li>
+        <li><span class="hr">22:30</span><span class="ev"><b>Noche</b><span><strong>House of Yes</strong> en Bushwick: club-cabaré con performance, trapecistas y código de vestimenta según la noche, 20-30 $ comprando online. O bares en Grand Street y Metropolitan Avenue, que es la opción sin plan.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Smorgasburg (10-15 $ el plato) · Roberta's (~20 $) · Radegast Hall · Bernie's en Greenpoint, comida americana de tasca con raciones enormes · Westlight, capricho de 22 $ · <strong>Peter Luger</strong>: el chuletón mítico, más de 100 $ por cabeza, descartadlo conscientemente y sin pena.</p></div>
+        <div><h5>Si llueve</h5><p>Cambiad el puente por metro directo a DUMBO y refugiaos en el <strong>Time Out Market</strong>, que tiene la misma vista desde dentro. El <strong>Brooklyn Museum</strong> y el Jardín Botánico de Prospect Park son medio día excelente. Y las naves de Bushwick se ven igual con chubasquero, que es como se ven mejor.</p></div>
+        <div><h5>Variantes</h5><p><strong>Relajada:</strong> puente + DUMBO + Heights por la mañana y vuelta a Manhattan a comer. <strong>Prospect Park:</strong> cambiad Bushwick por Park Slope y Prospect Park, el parque hermano de Central Park, con la mitad de gente y el doble de vecinos. <strong>Béisbol:</strong> Yankees–Mets a las 13:35; eso os come Smorgasburg y Williamsburg, así que haríais puente + DUMBO + Heights, subiríais al Bronx y bajaríais a Bushwick de noche.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 5 · Dom 13</span><span class="tt">Harlem, góspel y Central Park entero</span><span class="cost">60 – 95 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">08:45</span><span class="ev"><b>Metro a Harlem</b><span><span class="bul b-ace">A</span><span class="bul b-ace">C</span> o <span class="bul b-bdfm">B</span><span class="bul b-bdfm">D</span> hasta la calle 125. Veinticinco minutos desde SoHo. Desayuno rápido de <em class="q">bodega</em> por el camino, porque después vais a estar dos horas sentados.</span></span></li>
+        <li class="hi"><span class="hr">09:20</span><span class="ev"><b>Cola de la iglesia</b><span>Hay que llegar entre cuarenta y cinco y sesenta minutos antes. Existe una fila específica para visitantes y el aforo es limitado. <strong>El protocolo:</strong> vestid decentemente, sin pantalón corto ni gorra; no se hacen fotos ni vídeos; si entráis, os quedáis hasta el final; dejad 5-10 $ en la colecta.</span></span></li>
+        <li><span class="hr">10:15</span><span class="ev"><b>Servicio de góspel</b><span>Entre hora y media y dos horas. No es un espectáculo: es la misa de alguien y vosotros vais como invitados. Dicho eso, es probablemente lo más emocionante que vais a hacer en seis días. Abyssinian Baptist es la famosa y la más restrictiva con visitantes; First Corinthian, Mount Neboh y Convent Avenue Baptist tienen menos cola y la misma calidad.</span></span></li>
+        <li><span class="hr">12:15</span><span class="ev"><b>La calle 125</b><span>La arteria del barrio. El <strong>Apollo Theater</strong> lleva desde 1934 con su noche de aficionados; ahí debutaron Ella Fitzgerald, James Brown y Michael Jackson. Si os interesa el Renacimiento de Harlem, el <strong>Schomburg Center</strong> (calle 135) es gratuito y magnífico.</span></span></li>
+        <li><span class="hr">13:00</span><span class="ev"><b>Strivers' Row</b><span>Calles 138 y 139 entre la 7ª y la 8ª: hileras de casas señoriales de 1891, diseñadas por tres estudios distintos. Se llamó así porque a principios del XX se mudaron aquí los profesionales negros que prosperaban. Un remanso precioso y desconocido, a dos manzanas del ruido.</span></span></li>
+        <li><span class="hr">13:45</span><span class="ev"><b>Soul food</b><span><strong>Amy Ruth's</strong> (pollo con gofre, 22 $, los platos llevan nombres de personalidades del barrio), <strong>Sylvia's</strong> desde 1962, con brunch dominical y góspel en directo, o <strong>Charles' Country Pan Fried Chicken</strong>, sin florituras y perfecto. Vais a salir rodando y está previsto.</span></span></li>
+        <li><span class="hr">15:15</span><span class="ev"><b>Central Park por el norte</b><span>Entráis por <strong>Harlem Meer</strong>. El parque desde arriba es otro parque: rocas, agua, gente del barrio pescando y cero turistas. A doscientos metros, el <strong>Conservatory Garden</strong> (calle 105 con la Quinta), jardín formal con tres estilos y el rincón más bonito y menos conocido de las 340 hectáreas.</span></span></li>
+        <li><span class="hr">16:30</span><span class="ev"><b>Reservoir y The Ramble</b><span>La pista de tierra que rodea el embalse, con el skyline reflejado en el agua, y luego el bosque laberíntico del Ramble, donde perderse es exactamente la gracia. Salís por Bow Bridge.</span></span></li>
+        <li><span class="hr">17:30</span><span class="ev"><b>Bethesda y Sheep Meadow</b><span>Domingo por la tarde de septiembre: cientos de neoyorquinos con mantas, altavoces y cerveza en vaso de plástico. Sentaos y quedaos un rato largo. Esto es la ciudad, no el decorado.</span></span></li>
+        <li><span class="hr">18:30</span><span class="ev"><b>Upper West Side</b><span>Salís por la 72: el <strong>Dakota</strong> (1884), donde vivía y fue asesinado John Lennon, con Strawberry Fields justo enfrente dentro del parque. Luego la galleta de 170 gramos de <strong>Levain Bakery</strong> (6 $, pedid una entre dos), el colmado judío <strong>Zabar's</strong> (1934, entrad aunque no compréis) y <strong>Gray's Papaya</strong> en la 72 con Broadway, perrito legendario a 2-3 $.</span></span></li>
+        <li><span class="hr">20:00</span><span class="ev"><b>Lincoln Center</b><span>Cena barata en Amsterdam Avenue y paseo por la plaza del Lincoln Center: la fuente iluminada, los ventanales de la ópera, gratis y muy cinematográfico. <em>Aviso:</em> esta noche hay Giants–Cowboys a las 20:20, así que los bares deportivos estarán a reventar. Si queréis el ambiente, buscadlo; si no, evitadlos.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Amy Ruth's · Sylvia's · Charles' Country Pan Fried Chicken · Levain Bakery · Gray's Papaya · Zabar's · Absolute Bagels o Barney Greengrass si queréis el desayuno judío del Upper West hecho bien.</p></div>
+        <div><h5>Si llueve</h5><p>El góspel es bajo techo, así que ese plan no se cae. Después: <strong>Whitney gratis</strong> (segundo domingo del mes, y el 13 lo es), Museo de Historia Natural, o la <strong>Hispanic Society</strong> en Washington Heights, que es gratis, tiene Velázquez y Goya y no va nadie. El Guggenheim hace <em class="q">pay-what-you-wish</em> de 16:00 a 17:30 los domingos.</p></div>
+        <div><h5>Variantes</h5><p><strong>Sin góspel:</strong> empezad a las 11:00 con brunch en Harlem y dedicad la tarde entera al parque. <strong>Deportiva:</strong> barca de remos en el Loeb Boathouse, 20-25 $ la hora por barca entre tres. <strong>Museo:</strong> el Whitney es gratis hoy para todo el mundo; cambiad el Upper West por el Meatpacking y entrad a las 17:00.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 6 · Lun 14</span><span class="tt">Agua, despedida y JFK</span><span class="cost">50 – 80 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">08:00</span><span class="ev"><b>Check-out y maletas</b><span>El hotel os las guarda sin coste. Alternativa si preferís no volver: consigna Bounce o Radical Storage, 7-10 $ por bulto, con puntos por todo el centro. Hoy es semana nueva de tarifa: contad tres viajes sueltos a 3 $.</span></span></li>
+        <li><span class="hr">08:45</span><span class="ev"><b>Desayuno de despedida</b><span>El bueno de verdad: <strong>Russ &amp; Daughters</strong> en Houston St (salmón, <em class="q">bagel</em>, desde 1914, unos 18 $) o el clásico <em class="q">bacon, egg &amp; cheese</em> de <em class="q">bodega</em> por 6 $. Elegid según lo que os quede en la cartera.</span></span></li>
+        <li class="hi"><span class="hr">09:30</span><span class="ev"><b>Staten Island Ferry</b><span>Línea <span class="bul b-123">1</span> hasta South Ferry. Gratis, sale cada treinta minutos y pasa a quinientos metros de la Estatua de la Libertad. Poneos a estribor a la ida. Los tours a la Estatua cuestan 25-30 $ y no dan mucho más que esto. Al llegar a Staten Island hay que salir de la terminal y volver a entrar; a la vuelta, al fondo, mirando cómo crece Manhattan.</span></span></li>
+        <li><span class="hr">10:45</span><span class="ev"><b>Battery Park y el Charging Bull</b><span>Al bajar, el parque de la punta: el monolito de la marina mercante, el globo dañado del World Trade Center y el toro de Wall Street, que está aquí y no en Wall Street y siempre tiene cola.</span></span></li>
+        <li><span class="hr">11:15</span><span class="ev"><b>Governors Island</b><span>Ferry desde el Battery Maritime Building, 5 $ ida y vuelta, ocho minutos. Isla peatonal sin coches: praderas, hamacas, colinas artificiales con vistas de 360°, cuarteles del XIX y el silencio más raro que vais a oír en seis días. Comprobad la hora de cierre, que desde el 8 de septiembre está en horario de otoño. <em>Si no os apetece isla:</em> saltáoslo y alargad Tribeca.</span></span></li>
+        <li><span class="hr">13:15</span><span class="ev"><b>Última comida en Chinatown</b><span><strong>Xi'an Famous Foods</strong> (fideos de cordero al comino, 12 $, pican de verdad) o <strong>Nom Wah Tea Parlor</strong> en Doyers Street, dim sum desde 1920, unos 20 $. Si preferís cerrar con lo más grande: <strong>Katz's Delicatessen</strong>, pastrami a 28 $ pero enorme, pedid dos entre tres.</span></span></li>
+        <li><span class="hr">14:30</span><span class="ev"><b>Tribeca y SoHo, sin plan</b><span>Vuelta andando hacia el norte por Tribeca: adoquines, almacenes de ladrillo y la zona más silenciosa del sur de la isla. Últimas compras y veinte minutos sentados en una escalinata sin hacer nada, que es la mejor manera de despedirse de esta ciudad.</span></span></li>
+        <li><span class="hr">15:20</span><span class="ev"><b>Recoger maletas</b><span>Vuelta al hotel, baño, reorganizar el equipaje, comprar agua y algo de comer para el avión.</span></span></li>
+        <li class="hi"><span class="hr">15:40</span><span class="ev"><b>Salida a JFK</b><span><span class="bul b-ace">A</span> hasta Howard Beach o <span class="bul b-ace">E</span> hasta Jamaica, y AirTrain hasta la terminal. 11,75 $ por cabeza, 70-85 minutos puerta a puerta. En taxi son 45-70 minutos y unos 75-95 $ el coche entre tres, más peajes y propina: si vais los tres con maleta grande, sale parecido y os quita una hora de estrés. Objetivo: mostrador a las 17:00.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Russ &amp; Daughters · Xi'an Famous Foods · Nom Wah Tea Parlor · Katz's · Lombardi's en Spring St, la primera pizzería con licencia de Estados Unidos (1905), si queréis cerrar el círculo pizzero.</p></div>
+        <div><h5>Si llueve</h5><p>El ferry funciona igual, pero la cubierta exterior no compensa. Cambiadlo por el <strong>Museo del 9/11</strong> (21-33 $, magnífico y muy duro) o por Brookfield Place y el Oculus. Governors Island con lluvia no tiene sentido: cancelad sin pena.</p></div>
+        <div><h5>Variantes</h5><p><strong>Corta:</strong> ferry + Battery + Chinatown y vuelta a SoHo al mediodía a comprar y descansar. <strong>Sentimental:</strong> saltaos todo esto y dedicad la mañana a repetir vuestro barrio favorito de los cinco días. Suele ser la mejor decisión del viaje.</p></div>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<article class="itin" id="it2" style="--ln:var(--l-7)">
+  <header>
+    <div class="idx">Itinerario 2 <span class="bul b-7">7</span> · Alternativa completa</div>
+    <h3>Los otros cuatro distritos</h3>
+    <p class="thesis">Manhattan es la postal; la ciudad vive en Queens, el Bronx, Brooklyn profundo y Washington Heights. Este itinerario da por hecho que el skyline lo vais a ver de todas formas y dedica los seis días a los barrios donde vive la gente que hace funcionar la isla. Es el más barato de los siete, el que menos turistas cruza y el que mejor se come. Si volvéis a Nueva York alguna vez, este es el viaje que os va a dar más envidia no haber hecho.</p>
+    <dl class="specs">
+      <div><dt>Coste 6 días</dt><dd>360 – 500 $</dd></div>
+      <div><dt>Kilómetros/día</dt><dd>14 – 20 km</dd></div>
+      <div><dt>Metro/día</dt><dd>4 – 6 viajes</dd></div>
+      <div><dt>Para quién</dt><dd>Los que odian las colas</dd></div>
+      <div><dt>Punto fuerte</dt><dd>Jueves en Queens</dd></div>
+    </dl>
+  </header>
+  <div class="days">
+
+    <div class="day">
+      <h4><span class="dd">Día 1 · Mié 9</span><span class="tt">El sur de la isla, que también es un barrio</span><span class="cost">50 – 70 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">12:30</span><span class="ev"><b>Comida en Chinatown, directamente</b><span>Sin escalas turísticas. <strong>Vanessa's Dumpling House</strong>, 5-8 $, o <strong>Great NY Noodletown</strong>. Estáis a diez minutos andando.</span></span></li>
+        <li><span class="hr">13:30</span><span class="ev"><b>Chinatown de verdad</b><span>No la parte de los souvenirs. Bajad por Mott y East Broadway hacia el este, donde está el Chinatown fuzhounés: supermercados, hierbas, peluquerías, gente. <strong>Columbus Park</strong> a media tarde, con el mahjong y los músicos de ópera cantonesa.</span></span></li>
+        <li><span class="hr">15:00</span><span class="ev"><b>Check-in exprés</b><span>Cuarenta y cinco minutos y fuera.</span></span></li>
+        <li><span class="hr">16:00</span><span class="ev"><b>Lower East Side y East Village</b><span>Orchard, Ludlow, Rivington. Subís a la calle 7 y a <strong>Tompkins Square Park</strong>. En la calle 7 con 3ª Avenida, <strong>McSorley's Old Ale House</strong> (1854): solo sirven cerveza clara u oscura, en pareja de vasos pequeños, y llevan siglo y medio haciéndolo bien. Suelo de serrín.</span></span></li>
+        <li><span class="hr">18:00</span><span class="ev"><b>Little Ukraine y Curry Row</b><span>La calle 6 entre la 1ª y la 2ª fue la calle india de Nueva York durante décadas. Queda poco, pero la Veselka ucraniana de la 2ª con la 9 sigue abierta 24 horas desde 1954: <em class="q">pierogi</em> y sopa de remolacha por 15 $.</span></span></li>
+        <li><span class="hr">20:00</span><span class="ev"><b>Cena y cerveza en Alphabet City</b><span>Avenidas A, B y C. Es el barrio de bares más honesto de Manhattan bajo la calle 14.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Vanessa's · Noodletown · Veselka · Superiority Burger (calle 9, vegetariano y buenísimo) · Russ &amp; Daughters para mañana.</p></div>
+        <div><h5>Nota</h5><p>Este día es casi idéntico en todos los itinerarios porque llegáis a mediodía y no da tiempo a más. Lo que cambia es que aquí se evita Little Italy por completo, que es lo correcto la semana que no hay San Gennaro.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 2 · Jue 10</span><span class="tt">Queens: el sitio con más idiomas del mundo</span><span class="cost">55 – 80 $</span></h4>
+      <ul class="tl">
+        <li class="hi"><span class="hr">09:00</span><span class="ev"><b>Long Island City</b><span><span class="bul b-7">7</span> hasta Vernon-Jackson. <strong>Gantry Plaza State Park</strong>: sin discusión, la mejor vista gratuita del skyline de Midtown, con los carteles de Pepsi-Cola y Long Island en primer plano y los muelles de madera. A esta hora no hay nadie.</span></span></li>
+        <li><span class="hr">10:15</span><span class="ev"><b>MoMA PS1</b><span>Antigua escuela pública convertida en el laboratorio del MoMA. Arte contemporáneo difícil en aulas con azulejos. Unos 10 $ y una hora larga. Si no os va, saltáoslo y alargad el paseo del río hasta Hunters Point.</span></span></li>
+        <li><span class="hr">11:45</span><span class="ev"><b>Astoria</b><span><span class="bul b-nqrw">N</span><span class="bul b-nqrw">W</span> hasta Broadway o 30 Av. Grecia en Nueva York: pescaderías, <em class="q">souvlaki</em>, pastelerías de <em class="q">galaktoboureko</em>. Comed en <strong>Taverna Kyclades</strong> (pescado a la brasa, 25 $) o de pie en cualquier ventanilla por 8 $.</span></span></li>
+        <li><span class="hr">13:30</span><span class="ev"><b>Museum of the Moving Image</b><span>En Astoria, en los antiguos estudios Kaufman. Historia del cine y la televisión, con la colección de máscaras y prótesis y una sala de videojuegos de los ochenta. 20 $ y es de los museos más divertidos de la ciudad.</span></span></li>
+        <li class="hi"><span class="hr">15:30</span><span class="ev"><b>Jackson Heights</b><span><span class="bul b-7">7</span> o <span class="bul b-bdfm">E</span><span class="bul b-bdfm">F</span><span class="bul b-bdfm">M</span> a Roosevelt Av. India, Nepal, Tíbet, Colombia, Ecuador y México en seis manzanas. La calle 74 para lo indio (dulces, saris, oro), Roosevelt Avenue para lo latino bajo las vías del tren elevado. <em class="q">Momos</em> nepalíes a 8 $, arepas, <em class="q">dosas</em>, tamales oaxaqueños. Merendad de puesto en puesto.</span></span></li>
+        <li><span class="hr">17:30</span><span class="ev"><b>Flushing</b><span><span class="bul b-7">7</span> hasta el final. El Chinatown de verdad, mucho más grande y auténtico que el de Manhattan. Bajad al <em class="q">food court</em> del <strong>New World Mall</strong>: veinte puestos regionales chinos con platos de 8-12 $. Pedid entre los tres de cuatro puestos distintos.</span></span></li>
+        <li><span class="hr">19:30</span><span class="ev"><b>Bohemian Hall, Astoria</b><span>La cervecería al aire libre más antigua de la ciudad, abierta desde 1910, con mesas de madera bajo los árboles y salchicha checa. Cerrad el día aquí.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Taverna Kyclades · New World Mall food court · Lhasa Fast Food (Jackson Heights, momos tibetanos escondidos detrás de una tienda de móviles) · Casa Enrique (LIC, mexicano con estrella y precio razonable a mediodía) · Bohemian Hall.</p></div>
+        <div><h5>Nota</h5><p>El <span class="bul b-7">7</span> va cargadísimo esos días por el US Open. Salid pronto y evitad la franja de 17:00 a 19:00 hacia Flushing. El <strong>Queens Night Market está cerrado</strong> hasta el 19: no lo busquéis.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 3 · Vie 11</span><span class="tt">El Bronx de día, Ground Zero de noche</span><span class="cost">65 – 95 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:00</span><span class="ev"><b>Grand Concourse</b><span><span class="bul b-bdfm">B</span><span class="bul b-bdfm">D</span> hasta 167 St. El Bulevar de los sueños de los años treinta: una avenida de doce carriles bordeada de edificios Art Déco que casi nadie visita. Bajad andando hasta la 161. En el 1150 está el <strong>Andrew Freedman Home</strong>, un palacio italianizante que fue residencia para millonarios arruinados.</span></span></li>
+        <li><span class="hr">10:30</span><span class="ev"><b>Bronx Museum of the Arts</b><span>Entrada gratuita siempre. Arte contemporáneo del Bronx y de la diáspora. Pequeño, serio y vacío.</span></span></li>
+        <li><span class="hr">11:30</span><span class="ev"><b>Yankee Stadium por fuera</b><span>Calle 161. Aunque no entréis, la explanada, el Bronx alrededor y los bares de la 161 son un plan en sí mismos. Si hay tour ese día, son unos 30 $.</span></span></li>
+        <li class="hi"><span class="hr">12:45</span><span class="ev"><b>Arthur Avenue</b><span><span class="bul b-bdfm">B</span><span class="bul b-bdfm">D</span> a Fordham Rd y autobús 12 hacia el este. Esta es la Little Italy de verdad, la que Manhattan perdió: charcuterías con jamones colgando, panaderías, pasta fresca, un tipo liando puros a mano dentro del mercado. Comed en el <strong>Arthur Avenue Retail Market</strong> o en Mike's Deli. 15-20 $ y salís llenos.</span></span></li>
+        <li><span class="hr">15:00</span><span class="ev"><b>New York Botanical Garden</b><span>Al lado. 250 hectáreas y el último bosque virgen que queda en la ciudad, con árboles anteriores a la llegada de los europeos. Unos 20-35 $ según acceso. Si preferís gratis, cambiadlo por un paseo por Belmont y volved antes.</span></span></li>
+        <li class="hi"><span class="hr">17:30</span><span class="ev"><b>Bajada a Lower Manhattan</b><span>Cincuenta minutos de metro. El plan del 25º aniversario es el mismo en todos los itinerarios porque es innegociable: Oculus, Stone Street, cena temprana, y a las 19:30 la <strong>plaza del Memorial</strong>, abierta hasta medianoche, con el <strong>Tribute in Light</strong> encendido desde el anochecer.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Arthur Avenue Retail Market · Mike's Deli · Zero Otto Nove (pizza napolitana, 20 $) · Stone Street por la noche · y comprad <em class="q">cannoli</em> en Madonia Brothers para el camino.</p></div>
+        <div><h5>Nota</h5><p>El Bronx tiene fama y la fama tiene treinta años de retraso. Belmont, Fordham y el Grand Concourse a plena luz del día son perfectamente tranquilos y la gente es extraordinariamente amable. Sentido común normal y ya está.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 4 · Sáb 12</span><span class="tt">Brooklyn profundo: Sunset Park, Green-Wood, Prospect</span><span class="cost">70 – 100 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">08:30</span><span class="ev"><b>Sunset Park</b><span><span class="bul b-nqrw">N</span><span class="bul b-nqrw">R</span> hasta la calle 45. La 8ª Avenida es el tercer Chinatown de la ciudad y el más vivo de los tres a esta hora: pescado, verdura, panaderías cantonesas de 1,50 $ la pieza. Y la 5ª Avenida, a cuatro manzanas, es mexicana y guatemalteca: tacos de canasta y <em class="q">champurrado</em>.</span></span></li>
+        <li class="hi"><span class="hr">10:00</span><span class="ev"><b>El parque de Sunset Park</b><span>Subid a la colina del parque que da nombre al barrio. Es una de las tres mejores vistas gratuitas de Manhattan y no la conoce nadie: el skyline entero, la bahía, la Estatua y el puente Verrazzano a la vez.</span></span></li>
+        <li><span class="hr">11:00</span><span class="ev"><b>Green-Wood Cemetery</b><span>1838, 200 hectáreas, colinas, lagos, loros salvajes que anidan en la puerta neogótica desde los años setenta. Aquí están enterrados Basquiat, Leonard Bernstein y Boss Tweed. Es gratis y es uno de los sitios más bonitos de Nueva York. Dos horas.</span></span></li>
+        <li><span class="hr">13:15</span><span class="ev"><b>Industry City</b><span>Antiguo complejo portuario reconvertido: <em class="q">food hall</em>, talleres, patios. Comed aquí, 12-18 $.</span></span></li>
+        <li><span class="hr">15:00</span><span class="ev"><b>Park Slope y Prospect Park</b><span>Las <em class="q">brownstones</em> de la 7ª Avenida y luego el parque hermano de Central Park, diseñado por los mismos y considerado por ellos mismos mejor: <strong>Long Meadow</strong>, el bosque del Ravine, el lago. Un sábado de septiembre está lleno de vecinos, no de turistas.</span></span></li>
+        <li><span class="hr">17:30</span><span class="ev"><b>Crown Heights o Bed-Stuy</b><span>Franklin Avenue: barrio caribeño y punto. <em class="q">Roti</em> trinitense, <em class="q">doubles</em>, jerk jamaicano por 10-14 $. O Bed-Stuy y sus hileras de arenisca, que son las más bonitas de la ciudad.</span></span></li>
+        <li><span class="hr">20:00</span><span class="ev"><b>Noche en Bushwick o Williamsburg</b><span>Roberta's, Radegast, House of Yes. Estáis a veinte minutos en el <span class="bul b-l">L</span>.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Panaderías de la 8ª Avenida · Tacos Matamoros (5ª Av) · Industry City food hall · Ali's Roti Shop (Crown Heights) · L&amp;B Spumoni Gardens en Bensonhurst si os desviáis: la pizza cuadrada siciliana canónica desde 1939.</p></div>
+        <div><h5>Nota</h5><p>Si os da pena perderos <strong>Smorgasburg</strong>, es fácil: acaba a las 18:00 y está en Williamsburg, así que podéis meterlo entre Prospect Park y la noche. Serían dos paradas de metro más y llegaríais sobre las 17:00, con menos cola que a mediodía.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 5 · Dom 13</span><span class="tt">Harlem, góspel y Washington Heights</span><span class="cost">55 – 85 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:20</span><span class="ev"><b>Góspel en Harlem</b><span>Igual que en el itinerario 1: cola una hora antes, protocolo estricto, servicio de 10:15 a 12:15. Es el plan que no se sustituye.</span></span></li>
+        <li><span class="hr">12:30</span><span class="ev"><b>Soul food y la 125</b><span>Amy Ruth's, Sylvia's o Charles'. Y el Apollo, y Strivers' Row si os da la tarde.</span></span></li>
+        <li class="hi"><span class="hr">14:30</span><span class="ev"><b>Washington Heights</b><span><span class="bul b-ace">A</span> hasta la 181. Little Dominican Republic: música en la calle, dominó en las aceras, <em class="q">mangú</em> y <em class="q">chicharrón</em> por 12 $. Este es el barrio de <em>In the Heights</em> y sigue siendo exactamente eso.</span></span></li>
+        <li><span class="hr">15:45</span><span class="ev"><b>The Cloisters</b><span>El anexo medieval del Met, en lo alto de Fort Tryon Park: cuatro claustros románicos y góticos traídos piedra a piedra desde Europa en los años treinta, con los tapices del unicornio. Unos 30 $ (la entrada del Met vale para los dos el mismo día). Vistas sobre el Hudson y los Palisades. Es el sitio más silencioso de Nueva York.</span></span></li>
+        <li><span class="hr">17:30</span><span class="ev"><b>Highbridge</b><span>El puente peatonal más antiguo de la ciudad (1848), reabierto en 2015, cruza el río Harlem hasta el Bronx. Casi nadie lo cruza. La torre de agua y las vistas del atardecer valen el desvío.</span></span></li>
+        <li><span class="hr">19:00</span><span class="ev"><b>Cena dominicana y vuelta</b><span>En Broadway con la 181, cualquier sitio con la tele puesta. 15 $ y os vais llenos.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Amy Ruth's · Malecón (Broadway con la 175, pollo asado legendario) · Le Chéile · Hispanic Society si vais de museo gratis: Velázquez y Goya sin cola y sin pagar.</p></div>
+        <div><h5>Nota</h5><p>Washington Heights está a cuarenta minutos de SoHo por el <span class="bul b-ace">A</span> express y parece otra ciudad. Si tuvierais que elegir un solo barrio de este itinerario para volver, sería este.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 6 · Lun 14</span><span class="tt">Red Hook, ferry y salida</span><span class="cost">50 – 75 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:00</span><span class="ev"><b>NYC Ferry a Red Hook</b><span>4,50 $ desde Wall St/Pier 11. Red Hook es el barrio más raro de Brooklyn: sin metro, adoquines, almacenes de ladrillo, grúas y la Estatua de la Libertad de frente desde Louis Valentino Jr. Park, que es la mejor vista de la Estatua que existe desde tierra.</span></span></li>
+        <li><span class="hr">10:45</span><span class="ev"><b>Tarta de lima y pupusas</b><span><strong>Steve's Authentic Key Lime Pie</strong>, en un cobertizo al final del muelle, y las <em class="q">pupusas</em> de las canchas de fútbol si es día de mercadillo. Café en Brooklyn Roasting.</span></span></li>
+        <li><span class="hr">12:00</span><span class="ev"><b>Vuelta en ferry y Chinatown</b><span>Última comida en Xi'an Famous Foods o Nom Wah.</span></span></li>
+        <li><span class="hr">14:30</span><span class="ev"><b>Compras y escalinata</b><span>Tribeca y SoHo sin plan.</span></span></li>
+        <li><span class="hr">15:40</span><span class="ev"><b>Salida a JFK</b><span><span class="bul b-ace">A</span> o <span class="bul b-ace">E</span> + AirTrain, 11,75 $, 70-85 minutos.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Steve's Key Lime Pie · Defonte's (bocadillos italianos de Red Hook desde 1922) · Xi'an · Nom Wah.</p></div>
+        <div><h5>Nota</h5><p>El ferry de Red Hook depende del horario del NYC Ferry y del tiempo. Comprobadlo la noche antes. Si no cuadra, sustituidlo por el Staten Island Ferry, que es gratis y no falla nunca.</p></div>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<article class="itin" id="it3" style="--ln:var(--l-123)">
+  <header>
+    <div class="idx">Itinerario 3 <span class="bul b-123">1</span><span class="bul b-123">2</span><span class="bul b-123">3</span> · Alternativa completa</div>
+    <h3>Butacas, gradas y azoteas</h3>
+    <p class="thesis">Nueva York como espectáculo. Este itinerario aprovecha lo que hace única esta semana concreta: Broadway Week con entradas 2×1, el Subway Series en el Bronx tres días seguidos, la final del US Open y una noche de jazz de las que se recuerdan. Es el más caro de los siete y el que más se disfruta de noche. Los días son más cortos de kilómetros porque las noches son más largas.</p>
+    <dl class="specs">
+      <div><dt>Coste 6 días</dt><dd>700 – 1.000 $</dd></div>
+      <div><dt>Kilómetros/día</dt><dd>12 – 16 km</dd></div>
+      <div><dt>Noches ocupadas</dt><dd>5 de 5</dd></div>
+      <div><dt>Para quién</dt><dd>Tres amigos sin madrugar</dd></div>
+      <div><dt>Punto fuerte</dt><dd>Sábado en el Bronx</dd></div>
+    </dl>
+  </header>
+  <div class="days">
+
+    <div class="day">
+      <h4><span class="dd">Día 1 · Mié 9</span><span class="tt">Barrio, y béisbol si el cuerpo aguanta</span><span class="cost">70 – 130 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">12:30</span><span class="ev"><b>SoHo, Nolita y comida de pie</b><span>Prince Street Pizza, la ruta del hierro fundido, Elizabeth Street Garden.</span></span></li>
+        <li><span class="hr">15:45</span><span class="ev"><b>Check-in, ducha y siesta corta de 30 minutos</b><span>Aquí sí, porque hoy se trasnocha. Alarma puesta.</span></span></li>
+        <li class="hi"><span class="hr">17:15</span><span class="ev"><b>Yankee Stadium</b><span><span class="bul b-456">4</span> desde Bleecker/Lafayette hasta la 161, cuarenta minutos. Llegad dos horas antes: se entra al abrir para ver el bateo de prácticas y el Monument Park, detrás del jardín central, que cierra 45 minutos antes del primer lanzamiento y es gratis con la entrada.</span></span></li>
+        <li><span class="hr">19:05</span><span class="ev"><b>Yankees – Rockies</b><span>El partido barato de la semana: rival flojo, entre semana. Gradas altas detrás del <em class="q">home plate</em> antes que primera fila del <em class="q">outfield</em>. Perrito, cerveza y la séptima entrada cantando <em>Take Me Out to the Ball Game</em>. Tres horas.</span></span></li>
+        <li><span class="hr">22:30</span><span class="ev"><b>Vuelta y una última</b><span>Cuarenta minutos de metro. Si aguantáis, un bar en Ludlow. Si no, a la cama y sin remordimientos: mañana también hay noche.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Prince Street Pizza · dentro del estadio: Lobel's (bocadillo de <em class="q">steak</em>, 18 $) o el perrito de 7 $ · fuera, los bares de la 161 antes del partido.</p></div>
+        <div><h5>Nota</h5><p>Con seis horas de jet lag encima, este día es exigente. Si dudáis, el partido de mañana jueves es exactamente igual de bueno y estaréis enteros. El precio es parecido.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 2 · Jue 10</span><span class="tt">Midtown, Broadway y jazz de madrugada</span><span class="cost">140 – 220 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:30</span><span class="ev"><b>Grand Central y la Biblioteca</b><span>La Whispering Gallery, la Rose Main Reading Room, Bryant Park. Gratis y en una hora y media.</span></span></li>
+        <li><span class="hr">11:30</span><span class="ev"><b>Rockefeller y Quinta Avenida</b><span>Murales, Atlas, St. Patrick's. Y aquí sí, un mirador: <strong>Top of the Rock</strong> (~40 $) al mediodía, cuando hay menos cola, o guardadlo para el atardecer.</span></span></li>
+        <li><span class="hr">13:00</span><span class="ev"><b>The Halal Guys y Koreatown</b><span>10 $ el plato de pollo y arroz. O subid a la calle 32 y comed <em class="q">bibimbap</em> por 18 $.</span></span></li>
+        <li><span class="hr">14:30</span><span class="ev"><b>Central Park sur</b><span>Bethesda, Bow Bridge, Sheep Meadow. Dos horas de descanso activo antes de la noche.</span></span></li>
+        <li><span class="hr">17:30</span><span class="ev"><b>Cena temprana de teatro</b><span>Hell's Kitchen, 9ª Avenida entre las calles 44 y 52: es donde cenan los que van al teatro y es tres veces mejor y la mitad de caro que Times Square. Reservad, que con Fashion Week está lleno.</span></span></li>
+        <li class="hi"><span class="hr">19:00</span><span class="ev"><b>Broadway con el 2×1</b><span>Función de las 19:00 o las 20:00. Con el código <strong>241BWSHOW</strong>, cuatro entradas al precio de dos: unos 80 $ por cabeza en butaca decente. Llegad media hora antes; una vez empieza, no se entra hasta el primer descanso.</span></span></li>
+        <li class="hi"><span class="hr">22:15</span><span class="ev"><b>Jazz de madrugada</b><span>Bajad al Village. <strong>Smalls</strong> hace pase de medianoche y a esa hora es cuando pasa lo bueno: la <em class="q">jam session</em>, con músicos que se van sumando. 25-35 $ y podéis quedaros hasta las tres.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Hell's Kitchen: Totto Ramen, Empanada Mama, Los Tacos No. 1 · Koreatown: Jongro BBQ, Miss Korea · Ellen's Stardust Diner si queréis lo turístico con camareros que cantan (~30 $) · nunca en Times Square.</p></div>
+        <div><h5>Nota</h5><p>Si el 2×1 no os cuadra el jueves, cambiadlo al viernes o al sábado y mové el jazz. El sábado hay más oferta pero más precio en reventa; el jueves es la noche más fácil de conseguir buenas butacas.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 3 · Vie 11</span><span class="tt">La noche del 25º aniversario</span><span class="cost">80 – 130 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">10:00</span><span class="ev"><b>Mañana lenta en el Village</b><span>Washington Square, Bleecker, Faicco's. Hoy no se madruga porque la noche es larga y emocionalmente densa.</span></span></li>
+        <li><span class="hr">13:00</span><span class="ev"><b>High Line y Little Island</b><span>De Gansevoort hacia el norte. Hora y media.</span></span></li>
+        <li><span class="hr">15:00</span><span class="ev"><b>Chelsea: galerías</b><span>Calles 24 y 25 entre la 10ª y la 11ª. Gratis, enormes, silenciosas, arte de primer nivel. Diez galerías en dos horas.</span></span></li>
+        <li><span class="hr">17:30</span><span class="ev"><b>Bajada al sur</b><span>Oculus, Wall Street, Stone Street. Cena temprana en una de las terrazas.</span></span></li>
+        <li class="hi"><span class="hr">19:30</span><span class="ev"><b>Plaza del Memorial y Tribute in Light</b><span>El plan innegociable de la semana. La plaza abierta hasta medianoche por primera vez, las dos columnas encendidas del anochecer al amanecer.</span></span></li>
+        <li><span class="hr">21:30</span><span class="ev"><b>Azotea con vista al sur</b><span>Si os apetece cerrar con una copa mirando las luces desde arriba: las azoteas del Financial District y de Tribeca (Overstory, Manhatta) son caras, 22-26 $ la copa, pero la perspectiva esta noche concreta la paga sola. Reservad.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Faicco's · Los Tacos No. 1 (Chelsea Market) · Stone Street · si queréis gastar bien una vez, <strong>Frenchette</strong> en Tribeca, 60-70 $ por cabeza y merece cada dólar.</p></div>
+        <div><h5>Nota</h5><p>Alternativa de esa noche: Yankees–Mets a las 19:05. Es incompatible con la plaza. Mi consejo es claro: el Subway Series se repite tres veces este fin de semana y la plaza del 25º aniversario abierta de noche ocurre una vez.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 4 · Sáb 12</span><span class="tt">Subway Series y noche de Brooklyn</span><span class="cost">150 – 260 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">07:00</span><span class="ev"><b>Puente de Brooklyn al amanecer</b><span>Sí, aunque haya partido. Se cruza en media hora y a esta hora es vuestro.</span></span></li>
+        <li><span class="hr">08:15</span><span class="ev"><b>DUMBO y Brooklyn Heights Promenade</b><span>La foto de Washington St, los muelles, la Promenade. Desayuno en DUMBO.</span></span></li>
+        <li><span class="hr">10:30</span><span class="ev"><b>Vuelta y subida al Bronx</b><span><span class="bul b-456">4</span> directo desde Brooklyn Bridge hasta la 161. Una hora larga, pero es una sola línea.</span></span></li>
+        <li class="hi"><span class="hr">12:00</span><span class="ev"><b>Yankees – Mets</b><span>Primer lanzamiento a las 13:35. Llegad hora y media antes: el ambiente previo del Subway Series en la 161 es la mitad del plan. Camisetas de los dos equipos, bares llenos, gente picándose con buen rollo. Dentro, las gradas están mezcladas y se nota.</span></span></li>
+        <li><span class="hr">16:45</span><span class="ev"><b>Bajada y descanso</b><span>Vuelta a SoHo, ducha, una hora tumbados. Os la habéis ganado.</span></span></li>
+        <li><span class="hr">19:30</span><span class="ev"><b>Cena en Williamsburg</b><span>Radegast Hall o Roberta's en Bushwick. El <span class="bul b-l">L</span> os deja en veinte minutos.</span></span></li>
+        <li class="hi"><span class="hr">22:30</span><span class="ev"><b>House of Yes</b><span>Bushwick. Club-cabaré con trapecistas, performance y código de vestimenta según la noche del sábado: miradlo en su web y vestíos en consecuencia, que en la puerta se lo toman en serio. 20-30 $ comprando online, bastante más en taquilla si queda.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Time Out Market (DUMBO) para desayunar · dentro del estadio · Radegast · Roberta's · y a la salida de madrugada, un <em class="q">taco</em> en cualquier ventanilla de Bushwick.</p></div>
+        <div><h5>Nota</h5><p>Comprad el béisbol <strong>esta semana</strong>. Es el fin de semana con más demanda de la temporada regular en Nueva York y las gradas altas suben de precio cada día. Si el sábado se pone imposible, el domingo a la misma hora suele estar algo mejor.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 5 · Dom 13</span><span class="tt">Góspel, final del US Open y comedia</span><span class="cost">90 – 150 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:20</span><span class="ev"><b>Góspel en Harlem</b><span>Sin excusas. Servicio de 10:15 a 12:15 y soul food después.</span></span></li>
+        <li><span class="hr">14:00</span><span class="ev"><b>Central Park de norte a sur</b><span>Harlem Meer, Conservatory Garden, Reservoir, Ramble, Bethesda, Sheep Meadow. Cuatro kilómetros y dos horas y media.</span></span></li>
+        <li class="hi"><span class="hr">16:00</span><span class="ev"><b>La final del US Open, en un bar</b><span>La final masculina se juega esta tarde. Verla en un bar de Nueva York con la gente gritando es un plan de verdad y cuesta lo que cuesten dos cervezas. Buenos sitios: los bares deportivos de la 2ª Avenida en el East Village, o cualquier tasca griega de Astoria si queréis el ambiente serio.</span></span></li>
+        <li><span class="hr">19:00</span><span class="ev"><b>Cena en el Village</b><span>John's of Bleecker o Corner Bistro. Temprano, porque a las 20:20 empieza el Giants–Cowboys y los bares se vuelven inhabitables.</span></span></li>
+        <li class="hi"><span class="hr">21:00</span><span class="ev"><b>Comedy Cellar</b><span>MacDougal Street, sótano, 24-30 $ más consumición mínima de dos bebidas. Cinco o seis cómicos por pase y es normal que aparezca alguien famoso sin anunciar. Reservad con días. Es lo más neoyorquino que se puede hacer un domingo por la noche.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Amy Ruth's · John's of Bleecker · Corner Bistro · Mamoun's a la salida del Comedy Cellar, que está en la misma acera y abre hasta tarde.</p></div>
+        <div><h5>Nota</h5><p>El humor del Comedy Cellar es rápido y muy local. Si vuestro inglés no da para eso, cambiadlo por un segundo club de jazz: Mezzrow y Smalls están enfrente el uno del otro y se puede hacer los dos en una noche.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 6 · Lun 14</span><span class="tt">Resaca elegante y salida</span><span class="cost">55 – 90 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:30</span><span class="ev"><b>Desayuno serio</b><span>Russ &amp; Daughters o Balthazar (SoHo, francés de decorado, 25 $ el desayuno y merece la pena una vez).</span></span></li>
+        <li><span class="hr">10:45</span><span class="ev"><b>Staten Island Ferry</b><span>Gratis, una hora ida y vuelta, la Estatua a quinientos metros. La mejor manera de despedirse.</span></span></li>
+        <li><span class="hr">12:30</span><span class="ev"><b>Oculus y Brookfield Place</b><span>Lo que no visteis el viernes de noche, ahora con luz.</span></span></li>
+        <li><span class="hr">13:30</span><span class="ev"><b>Última comida y compras</b><span>Chinatown o Katz's. Tribeca y SoHo.</span></span></li>
+        <li><span class="hr">15:40</span><span class="ev"><b>Salida a JFK</b><span>11,75 $ en transporte público, o taxi si vais cargados.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Russ &amp; Daughters · Balthazar · Katz's · Lombardi's.</p></div>
+        <div><h5>Nota</h5><p>El museo del 9/11 tiene entrada gratuita los lunes por la tarde, pero la franja cae después de vuestra hora de salida al aeropuerto. No lo planifiquéis.</p></div>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<article class="itin" id="it4" style="--ln:var(--l-bdfm)">
+  <header>
+    <div class="idx">Itinerario 4 <span class="bul b-bdfm">B</span><span class="bul b-bdfm">D</span><span class="bul b-bdfm">F</span><span class="bul b-bdfm">M</span> · Alternativa completa</div>
+    <h3>Rodado aquí</h3>
+    <p class="thesis">Nueva York como la habéis visto mil veces antes de pisarla. Este itinerario recorre la ciudad a través de lo que se filmó, se grabó y se inventó en ella: localizaciones de cine, sótanos de jazz, esquinas del nacimiento del hip hop, tiendas de discos y bares donde ocurrieron cosas. No es una ruta de <em class="q">selfies</em> frente a fachadas: cada parada lleva encima algo que pasó ahí de verdad.</p>
+    <dl class="specs">
+      <div><dt>Coste 6 días</dt><dd>480 – 700 $</dd></div>
+      <div><dt>Kilómetros/día</dt><dd>16 – 22 km</dd></div>
+      <div><dt>Conciertos</dt><dd>3 noches</dd></div>
+      <div><dt>Para quién</dt><dd>Cinéfilos y melómanos</dd></div>
+      <div><dt>Punto fuerte</dt><dd>Sábado en el Bronx</dd></div>
+    </dl>
+  </header>
+  <div class="days">
+
+    <div class="day">
+      <h4><span class="dd">Día 1 · Mié 9</span><span class="tt">El sur: Scorsese, los Ghostbusters y el punk</span><span class="cost">55 – 80 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">12:30</span><span class="ev"><b>Prince Street Pizza y SoHo</b><span>Las fachadas de hierro fundido de Greene Street son el decorado por defecto de media publicidad americana. Y en el 130 de Prince estuvo la fachada de <em>Los Cazafantasmas II</em>.</span></span></li>
+        <li><span class="hr">13:45</span><span class="ev"><b>Tribeca: el parque de bomberos</b><span>Hook &amp; Ladder 8, en Varick con North Moore: el cuartel de <em>Los Cazafantasmas</em>, y sigue siendo un parque de bomberos en activo. Alrededor, el Tribeca de Robert De Niro y los almacenes de <em>Buenos muchachos</em>.</span></span></li>
+        <li><span class="hr">15:00</span><span class="ev"><b>Check-in exprés</b><span>Cuarenta y cinco minutos.</span></span></li>
+        <li class="hi"><span class="hr">16:00</span><span class="ev"><b>Little Italy según Coppola y Scorsese</b><span>La iglesia de <strong>St. Patrick's Old Cathedral</strong> en Mott es donde se rodó el bautizo de <em>El Padrino</em>. En Elizabeth con Prince vivió Scorsese de niño y ahí está <em>Malas calles</em> entera. Y en el 247 de Mulberry estaba el Ravenite Social Club, el cuartel de John Gotti, hoy una tienda de ropa.</span></span></li>
+        <li><span class="hr">17:30</span><span class="ev"><b>CBGB y el East Village</b><span>El 315 de Bowery, donde estuvo el CBGB, es hoy una tienda de ropa cara y esa es la historia completa del punk neoyorquino en una frase. Enfrente, el Bowery Ballroom sigue programando. Subid a St. Marks Place, la calle de la portada de <em>Physical Graffiti</em> de Led Zeppelin (números 96 y 98).</span></span></li>
+        <li><span class="hr">19:00</span><span class="ev"><b>Katz's</b><span>Houston con Ludlow. La mesa de <em>Cuando Harry encontró a Sally</em> tiene un cartel colgado del techo. Pastrami a 28 $, pedid dos entre tres. Sistema de tickets: no perdáis el papelito o pagáis penalización.</span></span></li>
+        <li><span class="hr">21:00</span><span class="ev"><b>Bowery Ballroom o Mercury Lounge</b><span>Dos salas pequeñas y perfectas, 20-30 $. Mirad la cartelera del día: en Nueva York cualquier miércoles hay algo bueno.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Prince Street Pizza · Katz's · Veselka (24 h) · Russ &amp; Daughters.</p></div>
+        <div><h5>Nota</h5><p>Casi todo esto está a quince minutos andando de vuestro hotel. Es el día con menos metro de todos los itinerarios y el que mejor aprovecha llegar a mediodía.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 2 · Jue 10</span><span class="tt">El Village: Dylan, Coltrane y <em>Friends</em></span><span class="cost">85 – 120 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:15</span><span class="ev"><b>Washington Square</b><span>El arco es el plano de apertura de <em>Cuando Harry encontró a Sally</em>, y el parque sale en todo, de <em>Descalzos por el parque</em> a <em>Yo soy leyenda</em>.</span></span></li>
+        <li class="hi"><span class="hr">10:00</span><span class="ev"><b>La esquina de Dylan</b><span>Jones Street con West 4th: la foto de la portada de <em>The Freewheelin' Bob Dylan</em>, 1963. Se hace igual, andando por el medio de la calle. A dos manzanas, el <strong>Café Wha?</strong> en MacDougal, donde tocó Dylan recién llegado y donde debutó Hendrix, y el <strong>Bitter End</strong>, abierto desde 1961.</span></span></li>
+        <li><span class="hr">11:15</span><span class="ev"><b>Grove, Bedford y Perry</b><span>La fachada de <em>Friends</em> (Grove con Bedford), la casa de Carrie Bradshaw (66 Perry St, y por favor no os sentéis en la escalera, que viven personas ahí), y el <strong>Stonewall Inn</strong>.</span></span></li>
+        <li><span class="hr">12:30</span><span class="ev"><b>Joe's Pizza y Faicco's</b><span>Joe's, en Carmine, sale en <em>Spider-Man 2</em>. Cuatro dólares la porción y es la porción canónica.</span></span></li>
+        <li><span class="hr">14:00</span><span class="ev"><b>Chelsea: el Hotel Chelsea y las galerías</b><span>El 222 de la calle 23 alojó a Dylan Thomas, Warhol, Patti Smith, Leonard Cohen y Sid Vicious, en ese orden aproximado de decadencia. Hoy es un hotel de lujo, pero la fachada y la placa siguen. Luego las galerías de las calles 24 y 25, gratis.</span></span></li>
+        <li><span class="hr">16:00</span><span class="ev"><b>High Line y Little Island</b><span>El paseo, y desde arriba se ve el West Side de <em>West Side Story</em>, que ya no existe: lo derribaron para hacer el Lincoln Center.</span></span></li>
+        <li><span class="hr">18:30</span><span class="ev"><b>Tiendas de discos</b><span><strong>Generation Records</strong> (Thompson St) y <strong>Bleecker Street Records</strong>. Media hora cada una y salís con algo.</span></span></li>
+        <li class="hi"><span class="hr">21:00</span><span class="ev"><b>Village Vanguard</b><span>178 de la 7ª Avenida Sur, sótano triangular desde 1935. Aquí grabaron Coltrane, Bill Evans y Sonny Rollins discos que os sabéis. Unos 40 $ y hay que reservar. Si está lleno: Smalls o Mezzrow, en la calle 10, enfrente el uno del otro.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Joe's Pizza · Faicco's · Mamoun's · John's of Bleecker para cenar antes del jazz · Corner Bistro.</p></div>
+        <div><h5>Nota</h5><p>El Vanguard tiene dos pases, a las 20:00 y a las 22:00. El segundo suele estar menos lleno y el ambiente es mejor. No se puede comer, solo beber, y hay que estar callado: es un club de escuchar, no de charlar.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 3 · Vie 11</span><span class="tt">Midtown de película y la noche del aniversario</span><span class="cost">70 – 115 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:00</span><span class="ev"><b>Grand Central</b><span>El vestíbulo de <em>Los intocables</em>, <em>Origen</em>, <em>Los vengadores</em> y otras cincuenta. La Whispering Gallery.</span></span></li>
+        <li><span class="hr">10:15</span><span class="ev"><b>Tiffany y la Quinta</b><span>El 727 de la Quinta, donde Audrey Hepburn desayunaba mirando el escaparate a las cinco de la mañana. Enfrente, el Plaza de <em>Solo en casa 2</em>.</span></span></li>
+        <li><span class="hr">11:15</span><span class="ev"><b>Rockefeller y el Radio City</b><span>Art Déco, murales, el Atlas. El Radio City Music Hall, la sala de espectáculos más grande del mundo cuando se abrió en 1932; hay tour por unos 35 $ si os pica.</span></span></li>
+        <li><span class="hr">12:45</span><span class="ev"><b>Teleférico de Roosevelt Island</b><span>3 $. Sale en <em>Spider-Man</em> y en <em>Nighthawks</em>. Arriba, el Four Freedoms Park.</span></span></li>
+        <li><span class="hr">14:30</span><span class="ev"><b>Central Park de cine</b><span>Bethesda Terrace (<em>Enredados</em>, <em>Los vengadores</em>), Bow Bridge (<em>Manhattan</em>), el Dakota en la 72 (<em>La semilla del diablo</em>, y la puerta donde mataron a Lennon), Strawberry Fields.</span></span></li>
+        <li><span class="hr">17:30</span><span class="ev"><b>Bajada al sur</b><span>Oculus, Wall Street, Stone Street, cena temprana.</span></span></li>
+        <li class="hi"><span class="hr">19:30</span><span class="ev"><b>Plaza del Memorial y Tribute in Light</b><span>Igual que en todos los itinerarios. Hasta medianoche.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Grand Central Market · The Halal Guys · Koreatown · Stone Street · Los Tacos No. 1.</p></div>
+        <div><h5>Nota</h5><p>Si os sobra media hora en Midtown, el vestíbulo del <strong>Chrysler Building</strong> (Lexington con la 42) es de mármol rojo y acero y es gratis. Es el interior Art Déco más bonito de la ciudad y no lo mira nadie.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 4 · Sáb 12</span><span class="tt">El Bronx: donde empezó el hip hop</span><span class="cost">70 – 100 $</span></h4>
+      <ul class="tl">
+        <li class="hi"><span class="hr">09:30</span><span class="ev"><b>1520 Sedgwick Avenue</b><span>El 11 de agosto de 1973, en el salón comunitario de este bloque, DJ Kool Herc pinchó en una fiesta de vuelta al cole y alargó los <em class="q">breaks</em> de percusión con dos platos. Ahí nació el hip hop, literalmente en ese edificio. No hay museo ni tienda: hay una placa y un bloque de viviendas donde vive gente. Se mira desde la acera, con respeto, y ya está. <span class="bul b-bdfm">D</span> hasta 167 St.</span></span></li>
+        <li><span class="hr">10:45</span><span class="ev"><b>Grand Concourse Art Déco</b><span>Bajando desde la 167 hasta la 161: la mayor concentración de Art Déco de Nueva York después de Miami Beach, en un bulevar que se diseñó imitando los Campos Elíseos.</span></span></li>
+        <li><span class="hr">11:45</span><span class="ev"><b>Las escaleras del Joker</b><span>Shakespeare Avenue con la calle 167. Ciento treinta y dos escalones que se hicieron famosos en 2019 y que los vecinos llevan usando ochenta años para subir a casa. Subidlas y bajadlas sin montar el numerito.</span></span></li>
+        <li><span class="hr">12:45</span><span class="ev"><b>Arthur Avenue</b><span>Comida italiana de verdad en el mercado cubierto. 15-20 $.</span></span></li>
+        <li><span class="hr">15:00</span><span class="ev"><b>Vuelta y Harlem</b><span><span class="bul b-bdfm">B</span><span class="bul b-bdfm">D</span> hasta la 125. El <strong>Apollo Theater</strong> por fuera y por dentro si hay visita, y el <strong>Schomburg Center</strong>, gratis.</span></span></li>
+        <li><span class="hr">17:00</span><span class="ev"><b>Smorgasburg, si llegáis</b><span>Cierra a las 18:00 en Williamsburg. Es apretado pero se puede: <span class="bul b-l">L</span> desde la 14. Si no, cenad en Harlem.</span></span></li>
+        <li class="hi"><span class="hr">21:00</span><span class="ev"><b>Concierto</b><span>Mirad qué hay en Brooklyn Steel, Music Hall of Williamsburg, Elsewhere o Baby's All Right. Un sábado de septiembre en Brooklyn siempre hay tres cosas buenas a la vez y cuestan 25-40 $.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Mike's Deli (Arthur Ave) · Sylvia's o Amy Ruth's (Harlem) · Smorgasburg · Roberta's.</p></div>
+        <div><h5>Nota</h5><p>Este es el día que ningún otro itinerario tiene y el que más os va a sorprender. El Bronx del Grand Concourse es una ciudad europea de los años treinta metida dentro de Nueva York.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 5 · Dom 13</span><span class="tt">Góspel, Do the Right Thing y Coney Island</span><span class="cost">65 – 95 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:20</span><span class="ev"><b>Góspel en Harlem</b><span>La música en directo más importante del viaje y no se paga entrada.</span></span></li>
+        <li><span class="hr">12:30</span><span class="ev"><b>Soul food y la 125</b><span>Amy Ruth's o Charles'.</span></span></li>
+        <li><span class="hr">14:30</span><span class="ev"><b>Bed-Stuy</b><span>La esquina de Stuyvesant con Lexington es donde Spike Lee rodó <em>Haz lo que debas</em> en 1989, con la pizzería de Sal construida en un solar vacío. El barrio hoy son las hileras de arenisca más bonitas de Nueva York. Es un paseo, no una visita.</span></span></li>
+        <li class="hi"><span class="hr">16:30</span><span class="ev"><b>Coney Island</b><span><span class="bul b-bdfm">D</span><span class="bul b-bdfm">F</span> hasta el final, una hora larga. Playa, paseo marítimo de madera, la noria <strong>Wonder Wheel</strong> de 1920 (10 $), la montaña rusa <strong>Cyclone</strong> de 1927 (12 $, de madera, brutal) y el perrito original de <strong>Nathan's</strong> por 6 $. En septiembre hay poca gente y la luz del atardecer sobre el paseo es melancólica y preciosa. Aquí se rodó parte de <em>Los amos de la noche</em> y de <em>Requiem por un sueño</em>.</span></span></li>
+        <li><span class="hr">19:15</span><span class="ev"><b>Atardecer en el muelle</b><span>El sol se pone a las 19:07 y desde el muelle de Coney se ve caer sobre el agua. Cerveza en Ruby's, el bar del paseo marítimo.</span></span></li>
+        <li><span class="hr">20:30</span><span class="ev"><b>Brighton Beach de camino</b><span>A diez minutos andando: la Little Odessa rusa, bajo las vías del tren elevado. Cenad <em class="q">pelmeni</em> y comprad algo raro en un supermercado ruso.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Amy Ruth's · Nathan's Famous · Totonno's (Coney Island, pizza de horno de carbón desde 1924, mejor que casi todas las de Manhattan) · Tatiana o cualquier sitio de Brighton Beach Avenue.</p></div>
+        <div><h5>Nota</h5><p>Coney Island está a una hora en metro y merece la pena precisamente por eso: es el final de la línea, el borde de la ciudad y el sitio donde Nueva York se acaba y empieza el Atlántico.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 6 · Lun 14</span><span class="tt">Última mañana y salida</span><span class="cost">50 – 80 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:30</span><span class="ev"><b>Staten Island Ferry</b><span>Gratis. Sale en <em>Trabajo basura</em> y en cuarenta películas más.</span></span></li>
+        <li><span class="hr">11:00</span><span class="ev"><b>Strand Bookstore</b><span>Broadway con la calle 12. Veintinueve kilómetros de estanterías desde 1927. Sección de cine y de música en la primera planta. Se pueden pasar dos horas dentro sin darse cuenta, así que poned alarma.</span></span></li>
+        <li><span class="hr">13:00</span><span class="ev"><b>Última comida</b><span>Katz's, Xi'an o Nom Wah.</span></span></li>
+        <li><span class="hr">14:30</span><span class="ev"><b>Compras y despedida</b><span>SoHo y Tribeca.</span></span></li>
+        <li><span class="hr">15:40</span><span class="ev"><b>Salida a JFK</b><span>11,75 $, 70-85 minutos.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Katz's · Xi'an · Nom Wah · Lombardi's.</p></div>
+        <div><h5>Nota</h5><p>La Strand vende <em class="q">tote bags</em> a 15 $ y son el mejor recuerdo posible de Nueva York: barato, útil y no es un imán de nevera.</p></div>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<article class="itin" id="it5" style="--ln:var(--l-456)">
+  <header>
+    <div class="idx">Itinerario 5 <span class="bul b-456">4</span><span class="bul b-456">5</span><span class="bul b-456">6</span> · Alternativa completa</div>
+    <h3>Puentes, ferris y horizontes</h3>
+    <p class="thesis">Nueva York es un archipiélago y casi nadie lo trata como tal. Este itinerario se hace sobre el agua y desde arriba: cinco puentes cruzados a pie, cuatro ferris, dos islas, un teleférico y todas las panorámicas gratuitas que existen. Es el más barato después del itinerario 2, el más fotogénico de los siete y el que mejor funciona si hace bueno. También es el que peor aguanta la lluvia: tened el itinerario 7 a mano.</p>
+    <dl class="specs">
+      <div><dt>Coste 6 días</dt><dd>390 – 560 $</dd></div>
+      <div><dt>Kilómetros/día</dt><dd>20 – 26 km</dd></div>
+      <div><dt>Puentes a pie</dt><dd>5</dd></div>
+      <div><dt>Para quién</dt><dd>Andarines y fotógrafos</dd></div>
+      <div><dt>Punto fuerte</dt><dd>Los amaneceres</dd></div>
+    </dl>
+  </header>
+  <div class="days">
+
+    <div class="day">
+      <h4><span class="dd">Día 1 · Mié 9</span><span class="tt">Del hotel al río, y el primer atardecer</span><span class="cost">50 – 75 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">12:30</span><span class="ev"><b>Comida rápida y SoHo</b><span>Prince Street Pizza y la ruta del hierro fundido.</span></span></li>
+        <li><span class="hr">14:30</span><span class="ev"><b>Tribeca hasta el río</b><span>Bajáis al oeste hasta Hudson River Park y los pantalanes. Rockefeller Park y el puerto deportivo de North Cove.</span></span></li>
+        <li><span class="hr">15:30</span><span class="ev"><b>Check-in exprés</b></span></li>
+        <li class="hi"><span class="hr">16:30</span><span class="ev"><b>Ferry a Governors Island</b><span>5 $ ida y vuelta desde el Battery Maritime Building. Sin coches, praderas, hamacas, las colinas artificiales con vistas de 360°. Comprobad la hora de cierre de otoño antes de subir al barco.</span></span></li>
+        <li><span class="hr">18:30</span><span class="ev"><b>The Battery al ocaso</b><span>La punta de la isla mirando a la bahía. El sol se pone a las 19:15.</span></span></li>
+        <li><span class="hr">20:00</span><span class="ev"><b>Cena en Chinatown</b><span>Noodletown o Wo Hop. Veinte minutos andando hacia el norte.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Prince Street Pizza · el <em class="q">food truck</em> de Governors Island · Great NY Noodletown · Wo Hop.</p></div>
+        <div><h5>Nota</h5><p>Si el ferry de Governors no cuadra con la hora de llegada, cambiadlo por el <strong>Staten Island Ferry</strong>, que es gratis y sale cada media hora: una hora ida y vuelta con la Estatua de por medio y el <em class="q">skyline</em> alejándose al atardecer.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 2 · Jue 10</span><span class="tt">Tres puentes del East River</span><span class="cost">55 – 85 $</span></h4>
+      <ul class="tl">
+        <li class="hi"><span class="hr">06:45</span><span class="ev"><b>Puente de Brooklyn al amanecer</b><span>El sol sale a las 6:30. Cruzar el puente con la luz entrando por el este y la ciudad todavía dormida es la mejor hora del viaje entero. Vais casi solos.</span></span></li>
+        <li><span class="hr">07:30</span><span class="ev"><b>DUMBO y Brooklyn Bridge Park</b><span>La foto de Washington St sin cola, los muelles, Jane's Carousel, el Pier 1. Desayuno en DUMBO.</span></span></li>
+        <li><span class="hr">09:00</span><span class="ev"><b>Brooklyn Heights Promenade</b><span>La mejor vista frontal de Lower Manhattan. Y el barrio detrás: Willow, Cranberry, Orange.</span></span></li>
+        <li class="hi"><span class="hr">10:30</span><span class="ev"><b>Puente de Manhattan a pie</b><span>El hermano feo, y por eso mucho mejor: se cruza por un lateral, con los trenes <span class="bul b-bdfm">B</span><span class="bul b-bdfm">D</span><span class="bul b-bdfm">N</span><span class="bul b-nqrw">Q</span> pasando a dos metros y retumbando, y desde ahí se ve el puente de Brooklyn <em>entero</em>, que es la vista que no se puede tener desde el propio puente de Brooklyn. Treinta minutos.</span></span></li>
+        <li><span class="hr">11:30</span><span class="ev"><b>Chinatown y comida</b><span>Salís justo en Canal Street. Xi'an Famous Foods, 12 $.</span></span></li>
+        <li><span class="hr">13:00</span><span class="ev"><b>NYC Ferry: línea East River</b><span>4,50 $ desde Wall St/Pier 11 hasta North Williamsburg, con parada en DUMBO. Veinte minutos con la ciudad de perfil. Subid a la cubierta de arriba.</span></span></li>
+        <li><span class="hr">14:00</span><span class="ev"><b>Domino Park y Williamsburg</b><span>La antigua refinería de azúcar, las grúas conservadas, la vista de Manhattan desde el agua. Bedford Avenue.</span></span></li>
+        <li class="hi"><span class="hr">17:00</span><span class="ev"><b>Puente de Williamsburg a pie</b><span>Dos kilómetros de vuelta a Manhattan por una pasarela pintada de rojo, con el sol de tarde de frente y las vistas más limpias de los tres puentes. Os deja en Delancey, en pleno Lower East Side.</span></span></li>
+        <li><span class="hr">19:00</span><span class="ev"><b>Cena en el LES</b><span>Essex Market o cualquier cosa en Orchard.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Time Out Market (DUMBO) · Xi'an · Essex Market · Katz's está a cuatro manzanas de la salida del puente.</p></div>
+        <div><h5>Nota</h5><p>Tres puentes en un día son unos 8 km solo de puente. Es mucho y es el mejor día de este itinerario. Llevad agua, gorra y protección solar: en las pasarelas no hay sombra ninguna.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 3 · Vie 11</span><span class="tt">El río Este por arriba y el sur de noche</span><span class="cost">65 – 100 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:00</span><span class="ev"><b>Teleférico de Roosevelt Island</b><span>3 $, cuenta para el tope semanal. Cinco minutos colgados sobre el East River a la altura del puente de Queensboro.</span></span></li>
+        <li><span class="hr">09:45</span><span class="ev"><b>Four Freedoms Park</b><span>La punta sur de la isla: granito, cinco escalones y la vista frontal de Midtown. Uno de los sitios más serenos de Nueva York. De camino, las ruinas del hospital de viruela.</span></span></li>
+        <li><span class="hr">11:00</span><span class="ev"><b>Ferry a Long Island City</b><span>NYC Ferry o el <span class="bul b-bdfm">F</span>. <strong>Gantry Plaza State Park</strong>: la mejor vista gratuita de Midtown que existe, con los carteles de Pepsi-Cola y Long Island.</span></span></li>
+        <li><span class="hr">12:30</span><span class="ev"><b>Comida en LIC</b><span>Casa Enrique o cualquier sitio de Vernon Boulevard.</span></span></li>
+        <li><span class="hr">14:00</span><span class="ev"><b>Hudson Yards y la High Line al revés</b><span>Cruzáis a Manhattan y bajáis la High Line de norte a sur, que es como la ve menos gente. Termináis en Gansevoort.</span></span></li>
+        <li><span class="hr">16:00</span><span class="ev"><b>Little Island y Hudson River Park</b><span>Los pantalanes de madera mirando a Nueva Jersey.</span></span></li>
+        <li><span class="hr">17:30</span><span class="ev"><b>Bajada al sur</b><span>Oculus, Stone Street, cena temprana.</span></span></li>
+        <li class="hi"><span class="hr">19:30</span><span class="ev"><b>Plaza del Memorial y Tribute in Light</b><span>Y aquí, la mejor opción de las siete: después de la plaza, cruzad a la <strong>Brooklyn Heights Promenade</strong> o al <strong>Pier 1</strong>. Las dos columnas de luz sobre el <em class="q">skyline</em> entero, desde el agua. Es la fotografía del viaje.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Casa Enrique (LIC) · Los Tacos No. 1 (Chelsea Market) · Stone Street · Time Out Market en DUMBO si acabáis allí.</p></div>
+        <div><h5>Nota</h5><p>Las luces se ven desde noventa kilómetros. Desde la Promenade se ven perfectas y se puede estar sentado. Desde la plaza se sienten. Si sois tres, se puede hacer las dos cosas: plaza a las 19:30, metro a las 21:00, Promenade hasta las 22:30.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 4 · Sáb 12</span><span class="tt">Rockaway: la playa a la que se llega en metro</span><span class="cost">70 – 100 $</span></h4>
+      <ul class="tl">
+        <li class="hi"><span class="hr">08:30</span><span class="ev"><b>NYC Ferry a Rockaway</b><span>4,50 $ desde Wall St/Pier 11, una hora de travesía por la bahía de Nueva York, pasando junto a la Estatua y saliendo casi a mar abierto. Es el mejor trayecto de transporte público de la ciudad y cuesta lo mismo que un café.</span></span></li>
+        <li><span class="hr">09:45</span><span class="ev"><b>Rockaway Beach</b><span>Once kilómetros de playa atlántica con paseo marítimo, dentro de los límites de la ciudad. En septiembre el agua todavía está a 22 °C y no hay nadie. Bañaos.</span></span></li>
+        <li><span class="hr">12:00</span><span class="ev"><b>Tacos en la playa</b><span>Los <em class="q">concession stands</em> de la calle 97 y los sitios de Rockaway Beach Boulevard: tacos de pescado a 5 $ y cerveza. Es California en Queens.</span></span></li>
+        <li><span class="hr">14:00</span><span class="ev"><b>Vuelta y Smorgasburg</b><span>Ferry o <span class="bul b-ace">A</span> hasta Broad Channel y transbordo. Llegáis a Williamsburg sobre las 16:00, con Smorgasburg abierto hasta las 18:00 y ya sin cola.</span></span></li>
+        <li><span class="hr">17:00</span><span class="ev"><b>Domino Park y el atardecer</b><span>Sobre el East River, con Manhattan enfrente encendiéndose.</span></span></li>
+        <li><span class="hr">19:30</span><span class="ev"><b>Cena y noche en Williamsburg</b><span>Radegast Hall, o la azotea del Wythe si os apetece pagar la vista.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Tacos de Rockaway · Smorgasburg · Radegast Hall · Westlight.</p></div>
+        <div><h5>Nota</h5><p>Comprobad el horario del ferry de Rockaway la noche antes: es estacional y los fines de semana lleva más frecuencia, pero se llena. Toalla y bañador en la mochila.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 5 · Dom 13</span><span class="tt">Central Park entero y el Upper West</span><span class="cost">55 – 85 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:20</span><span class="ev"><b>Góspel en Harlem</b><span>Sí, también aquí. Es el único plan de la semana que no tiene sustituto.</span></span></li>
+        <li><span class="hr">12:30</span><span class="ev"><b>Soul food</b><span>Amy Ruth's o Sylvia's.</span></span></li>
+        <li><span class="hr">14:00</span><span class="ev"><b>Central Park de norte a sur, a pie</b><span>Cuatro kilómetros: Harlem Meer, Conservatory Garden, el Reservoir con el <em class="q">skyline</em> reflejado, Belvedere Castle, el Ramble, Bow Bridge, Bethesda, Sheep Meadow. Dos horas y media largas y no cuesta nada.</span></span></li>
+        <li><span class="hr">17:00</span><span class="ev"><b>Barca de remos en el lago</b><span>Loeb Boathouse, 20-25 $ la hora por barca entre tres. Remar bajo el Bow Bridge un domingo de septiembre es una tontería y es maravilloso.</span></span></li>
+        <li><span class="hr">18:30</span><span class="ev"><b>Upper West Side</b><span>Dakota, Strawberry Fields, Levain, Zabar's, Gray's Papaya.</span></span></li>
+        <li><span class="hr">20:00</span><span class="ev"><b>Riverside Park al anochecer</b><span>Del 72 al 79, con el puerto deportivo de casas flotantes y el Hudson enfrente. Casi nadie va y es el mejor paseo de río de Manhattan.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Amy Ruth's · Levain · Zabar's · Gray's Papaya · Barney Greengrass.</p></div>
+        <div><h5>Nota</h5><p>Si preferís museo: el <strong>Whitney es gratis hoy</strong> (segundo domingo) y está en el Meatpacking, al final de la High Line. Encaja perfecto con este itinerario si cambiáis Riverside por el Whitney a las 17:00.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 6 · Lun 14</span><span class="tt">La bahía entera y salida</span><span class="cost">50 – 75 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:00</span><span class="ev"><b>Staten Island Ferry</b><span>Gratis. Estribor a la ida, popa a la vuelta.</span></span></li>
+        <li><span class="hr">10:30</span><span class="ev"><b>Governors Island</b><span>Si no fuisteis el miércoles. 5 $ y ocho minutos. Las colinas y las vistas de 360°.</span></span></li>
+        <li><span class="hr">12:30</span><span class="ev"><b>Battery y Chinatown</b><span>Última comida: Xi'an o Nom Wah.</span></span></li>
+        <li><span class="hr">14:30</span><span class="ev"><b>Compras y escalinata</b></span></li>
+        <li><span class="hr">15:40</span><span class="ev"><b>Salida a JFK</b></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Dónde comer</h5><p>Xi'an · Nom Wah · Katz's · Lombardi's.</p></div>
+        <div><h5>Nota</h5><p>Recuento final de este itinerario: cinco puentes, cuatro ferris, dos islas, un teleférico y unas ocho panorámicas del <em class="q">skyline</em>. Coste total en transporte sobre el agua: menos de 25 $ por persona en seis días.</p></div>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<article class="itin" id="it6" style="--ln:var(--l-nqrw)">
+  <header>
+    <div class="idx">Itinerario 6 <span class="bul b-nqrw">N</span><span class="bul b-nqrw">Q</span><span class="bul b-nqrw">R</span><span class="bul b-nqrw">W</span> · Alternativa completa</div>
+    <h3>Comer Nueva York</h3>
+    <p class="thesis">Ochocientos idiomas y una ciudad construida por gente que trajo su cocina en la maleta. Este itinerario ordena los seis días alrededor de la mesa: cada jornada tiene una cocina, un mercado y una lección. Es el que menos kilómetros hace, el que mejor aguanta el cansancio y el que más se disfruta si sois de los que planifican el viaje por dónde van a comer. Presupuesto de comida más alto que el resto, y el de actividades casi a cero.</p>
+    <dl class="specs">
+      <div><dt>Coste 6 días</dt><dd>430 – 620 $</dd></div>
+      <div><dt>Kilómetros/día</dt><dd>10 – 15 km</dd></div>
+      <div><dt>Comidas/día</dt><dd>4 – 6 paradas</dd></div>
+      <div><dt>Para quién</dt><dd>Estómagos con criterio</dd></div>
+      <div><dt>Punto fuerte</dt><dd>Jueves en Queens</dd></div>
+    </dl>
+  </header>
+  <div class="days">
+
+    <div class="day">
+      <h4><span class="dd">Día 1 · Mié 9</span><span class="tt">La lección de Chinatown</span><span class="cost">55 – 80 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">12:30</span><span class="ev"><b>Prince Street Pizza</b><span>Porción cuadrada de pepperoni picante, 5 $. Los bordes del pepperoni se curvan hacia arriba y se llenan de grasa: eso es lo que estáis buscando y se llama <em class="q">cup and char</em>.</span></span></li>
+        <li><span class="hr">13:30</span><span class="ev"><b>Nolita y Elizabeth Street Garden</b><span>Bajar la comida andando.</span></span></li>
+        <li class="hi"><span class="hr">15:00</span><span class="ev"><b>Chinatown: la ruta de las tres paradas</b><span><strong>Vanessa's Dumpling House</strong> (cinco <em class="q">dumplings</em> fritos por 5 $), <strong>Nom Wah Tea Parlor</strong> en Doyers para un par de piezas de dim sum, y una panadería cantonesa para el bollo de cerdo y el <em class="q">egg tart</em>. Total: 12 $ por cabeza y tres cocinas distintas.</span></span></li>
+        <li><span class="hr">16:15</span><span class="ev"><b>Check-in y ducha</b></span></li>
+        <li><span class="hr">17:30</span><span class="ev"><b>Essex Market y Economy Candy</b><span>El mercado cubierto del Lower East Side y la chuchería de 1937.</span></span></li>
+        <li><span class="hr">19:30</span><span class="ev"><b>Cena: Great NY Noodletown</b><span>Pato asado colgado en el escaparate, calamares al ajo con sal y pimienta, arroz. 20-25 $ entre lo que se pida. Feo, ruidoso, sin decorado y perfecto.</span></span></li>
+        <li><span class="hr">21:15</span><span class="ev"><b>Attaboy o Mr Purple</b><span>Coctelería sin carta en Eldridge (dices lo que te gusta y te lo inventan, 20 $) o azotea con vistas. O una cerveza en un bar de Ludlow por 8 $.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>La lección del día</h5><p>En Nueva York, la calidad de un restaurante chino es inversamente proporcional a lo bonito que sea. Los sitios con fotos de los platos en la puerta son para turistas; los que tienen fluorescentes, mesas de formica y una cola de gente hablando cantonés son los buenos.</p></div>
+        <div><h5>Nota</h5><p>Empezad a tomar notas en el móvil desde hoy. En seis días vais a comer en veinticinco sitios y al tercero se os mezclan.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 2 · Jue 10</span><span class="tt">Queens: comer en seis países en un día</span><span class="cost">60 – 90 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:30</span><span class="ev"><b>Desayuno griego en Astoria</b><span><span class="bul b-nqrw">N</span><span class="bul b-nqrw">W</span> hasta Broadway. Café <em class="q">frappé</em> y <em class="q">bougatsa</em> en cualquier pastelería de la 31.</span></span></li>
+        <li><span class="hr">11:00</span><span class="ev"><b>Jackson Heights, primera vuelta</b><span>Calle 74: dulces indios, <em class="q">samosas</em> a 2 $, <em class="q">chaat</em>. Y en un local sin cartel detrás de una tienda de móviles, <strong>Lhasa Fast Food</strong>: los <em class="q">momos</em> tibetanos por los que la gente cruza la ciudad. 8 $.</span></span></li>
+        <li class="hi"><span class="hr">13:00</span><span class="ev"><b>Roosevelt Avenue bajo el tren</b><span>Colombia, Ecuador, México en cuatro manzanas: arepas, <em class="q">llapingachos</em>, tacos de canasta desde una bicicleta, <em class="q">esquites</em>. Comed de tres o cuatro sitios distintos, 4-6 $ cada parada. Es probablemente la mejor comida callejera de Estados Unidos.</span></span></li>
+        <li><span class="hr">15:30</span><span class="ev"><b>Flushing</b><span><span class="bul b-7">7</span> hasta el final. El <em class="q">food court</em> del <strong>New World Mall</strong>: veinte puestos regionales chinos. Pedid fideos de Lanzhou, <em class="q">jianbing</em> y algo de Sichuan. 8-12 $ el plato.</span></span></li>
+        <li><span class="hr">17:30</span><span class="ev"><b>Gantry Plaza, Long Island City</b><span>Bajar la comida mirando el skyline de Midtown desde el agua.</span></span></li>
+        <li><span class="hr">19:30</span><span class="ev"><b>Bohemian Hall</b><span>Cervecería al aire libre desde 1910, Astoria. Salchicha checa, mesas largas y jarra grande.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>La lección del día</h5><p>Queens es el condado con más diversidad lingüística del planeta y eso se come. Un día aquí da más variedad que una semana en Manhattan, y a un tercio del precio. Nadie que venga cinco días a Nueva York lo hace, y es el mayor error del turismo gastronómico de esta ciudad.</p></div>
+        <div><h5>Nota</h5><p>El <span class="bul b-7">7</span> va lleno por el US Open. Y el <strong>Queens Night Market está cerrado</strong> hasta el 19 de septiembre: no lo busquéis, no está.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 3 · Vie 11</span><span class="tt">El delicatessen judío y la noche del aniversario</span><span class="cost">75 – 115 $</span></h4>
+      <ul class="tl">
+        <li class="hi"><span class="hr">09:30</span><span class="ev"><b>Russ &amp; Daughters</b><span>Houston con Orchard, abierto desde 1914 y todavía en manos de la familia. <em class="q">Bagel</em> con salmón curado, <em class="q">cream cheese</em> y alcaparras, unos 18 $. Es caro para ser un desayuno y es de las mejores cosas que se comen en esta ciudad. Pedid en el mostrador, no en el café de al lado, que es más caro por lo mismo.</span></span></li>
+        <li><span class="hr">11:00</span><span class="ev"><b>Tenement Museum</b><span>A dos manzanas, 30 $, solo con visita guiada. Un edificio de viviendas de inmigrantes conservado tal cual, y la visita explica exactamente de dónde salen todas las cocinas que estáis comiendo esta semana. Es el museo que mejor encaja con este itinerario.</span></span></li>
+        <li><span class="hr">13:00</span><span class="ev"><b>Katz's Delicatessen</b><span>Pastrami sobre pan de centeno, 28 $ y descomunal: pedid dos entre tres. Sistema de tickets, no perdáis el papel. Propina de 1-2 $ al cortador si queréis que la loncha sea generosa; funciona.</span></span></li>
+        <li><span class="hr">15:00</span><span class="ev"><b>Siesta honesta</b><span>Habéis comido pastrami. Hora y media en el hotel y no os avergoncéis.</span></span></li>
+        <li><span class="hr">17:00</span><span class="ev"><b>Bajada al sur y Stone Street</b><span>Oculus, Wall Street, y cena ligera en una terraza de Stone Street.</span></span></li>
+        <li class="hi"><span class="hr">19:30</span><span class="ev"><b>Plaza del Memorial y Tribute in Light</b><span>Abierta hasta medianoche.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>La lección del día</h5><p>El <em class="q">deli</em> judío askenazi es la única cocina que Nueva York inventó de cero: no existe así en Europa del Este ni en ningún otro sitio. Quedan una docena de sitios buenos de los cientos que hubo. Comed en ellos ahora.</p></div>
+        <div><h5>Nota</h5><p>Katz's está a nueve minutos andando de Russ &amp; Daughters, y encadenar los dos el mismo día es una barbaridad que os recomiendo hacer una vez en la vida.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 4 · Sáb 12</span><span class="tt">Smorgasburg y la doctrina de la pizza</span><span class="cost">80 – 115 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:00</span><span class="ev"><b>Bagel de verdad</b><span>Un <em class="q">bagel</em> bueno es hervido antes de hornearse y tiene corteza. <strong>Absolute Bagels</strong>, <strong>Ess-a-Bagel</strong> o <strong>Tompkins Square Bagels</strong>. 5-8 $ con <em class="q">cream cheese</em>.</span></span></li>
+        <li><span class="hr">10:30</span><span class="ev"><b>Puente de Brooklyn y DUMBO</b><span>Se cruza para hacer hambre. En DUMBO, café en Brooklyn Roasting.</span></span></li>
+        <li class="hi"><span class="hr">12:00</span><span class="ev"><b>Smorgasburg</b><span>Marsha P. Johnson State Park, 90 Kent Ave, 11:00-18:00, unos setenta puestos. La estrategia correcta: una vuelta completa sin comprar nada, y luego cada uno un plato distinto de 10-15 $ y todo compartido. Dos horas.</span></span></li>
+        <li><span class="hr">14:30</span><span class="ev"><b>Williamsburg y Domino Park</b><span>Bajar la comida. Y una cerveza en Radegast.</span></span></li>
+        <li class="hi"><span class="hr">18:00</span><span class="ev"><b>La doctrina de la pizza</b><span>Nueva York tiene cuatro pizzas distintas y conviene no confundirlas. <strong>La porción</strong> (Joe's, 4 $, se dobla por la mitad y se come andando). <strong>La de horno de carbón</strong> (John's of Bleecker, Lombardi's, Totonno's: entera, fina, con el borde quemado a manchas, desde 1905). <strong>La cuadrada siciliana</strong> (Prince Street, L&amp;B Spumoni Gardens: masa gruesa, aceite, queso debajo del tomate). Y <strong>la de leña moderna</strong> (Roberta's, Lucali). Esta noche, Roberta's en Bushwick, 20 $.</span></span></li>
+        <li><span class="hr">21:00</span><span class="ev"><b>Noche en Bushwick</b><span>Bares en Troutman y Wyckoff, o House of Yes si os apetece espectáculo.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>La lección del día</h5><p>Compartir no es opcional: las raciones americanas están calculadas para dos personas. Tres personas pidiendo tres platos en Nueva York acaban tirando comida y pagando el 40 % de más. Pedid dos, compartid, y si falta, pedís un tercero.</p></div>
+        <div><h5>Nota</h5><p>Si queréis el chuletón mítico, <strong>Peter Luger</strong> está en Williamsburg. Son más de 100 $ por cabeza y hay que reservar con semanas. La alternativa razonable a un cuarto del precio: el <em class="q">porterhouse</em> de <strong>Keens</strong> en Midtown a mediodía, o directamente no hacerlo.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 5 · Dom 13</span><span class="tt">Soul food, brunch y el Bronx italiano</span><span class="cost">70 – 105 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:20</span><span class="ev"><b>Góspel en Harlem</b><span>Se llega una hora antes. Dos horas de música y luego se come.</span></span></li>
+        <li class="hi"><span class="hr">12:45</span><span class="ev"><b>Soul food</b><span><strong>Amy Ruth's</strong>: pollo frito con gofre, 22 $, y los platos llevan nombres de personalidades del barrio. <strong>Sylvia's</strong> hace brunch dominical con góspel en directo. <strong>Charles' Country Pan Fried Chicken</strong> no tiene decorado y hace el mejor pollo de la ciudad. Acompañad con <em class="q">collard greens</em>, <em class="q">mac and cheese</em> y <em class="q">candied yams</em>.</span></span></li>
+        <li><span class="hr">15:00</span><span class="ev"><b>Arthur Avenue, el Bronx</b><span><span class="bul b-bdfm">B</span><span class="bul b-bdfm">D</span> a Fordham y autobús. La Little Italy que Manhattan perdió: charcuterías con jamones colgando, pasta fresca, un tipo liando puros a mano dentro del mercado cubierto. <em class="q">Cannoli</em> en Madonia Brothers, mozzarella recién hecha en Casa Della, bocadillo en Mike's Deli.</span></span></li>
+        <li><span class="hr">17:30</span><span class="ev"><b>Zero Otto Nove o Roberto's</b><span>Cena italiana de verdad, 20-30 $. O volvéis con la compra hecha y cenáis ligero.</span></span></li>
+        <li><span class="hr">20:00</span><span class="ev"><b>Vuelta y helado</b><span>En Manhattan: <strong>Morgenstern's</strong> o el <em class="q">soft serve</em> de cualquier camioneta. Y a la cama.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>La lección del día</h5><p>La <em class="q">soul food</em> es la cocina que subió del sur con la Gran Migración y no es comida rápida ni un cliché: es una tradición con dos siglos y una técnica muy precisa. Se come despacio y con respeto por lo que hay en el plato.</p></div>
+        <div><h5>Nota</h5><p>Arthur Avenue cierra pronto los domingos: la mayoría de tiendas a las 15:00 o 16:00, aunque los restaurantes siguen. Comprobadlo o cambiadlo al sábado.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 6 · Lun 14</span><span class="tt">Última ronda y salida</span><span class="cost">55 – 85 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:00</span><span class="ev"><b>Bacon, egg &amp; cheese de bodega</b><span>6 $, en pan blando, envuelto en papel de aluminio. Es el desayuno real de esta ciudad y hay que despedirse con él, no con un <em class="q">brunch</em> de 30 $.</span></span></li>
+        <li><span class="hr">10:00</span><span class="ev"><b>Staten Island Ferry</b><span>Gratis. Hacer hueco.</span></span></li>
+        <li><span class="hr">12:00</span><span class="ev"><b>Chinatown, última vuelta</b><span><strong>Xi'an Famous Foods</strong>: fideos de cordero al comino tirados a mano, 12 $, y pican de verdad. O <strong>Nom Wah</strong> para el dim sum de 1920.</span></span></li>
+        <li><span class="hr">14:00</span><span class="ev"><b>Compras comestibles</b><span>Té en Chinatown, especias en Kalustyan's si os desviáis a Murray Hill, <em class="q">everything bagel seasoning</em> en cualquier supermercado, salsa picante en la bodega. Los mejores recuerdos de Nueva York se comen.</span></span></li>
+        <li><span class="hr">15:40</span><span class="ev"><b>Salida a JFK</b><span>Con un <em class="q">bagel</em> en la mochila para el avión.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>La lección del día</h5><p>Preguntad a los camareros y a la gente de los bares dónde comen ellos. Funciona casi siempre y es la única guía que nunca se queda desactualizada.</p></div>
+        <div><h5>Nota</h5><p>Recuento aproximado de este itinerario: unas treinta paradas de comida en seis días, doce cocinas nacionales y un gasto medio en comida de 55-70 $ por persona y día. Merece la pena.</p></div>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<article class="itin" id="it7" style="--ln:var(--l-l)">
+  <header>
+    <div class="idx">Itinerario 7 <span class="bul b-l">L</span> · Plan de contingencia</div>
+    <h3>Bajo techo</h3>
+    <p class="thesis">Septiembre en Nueva York trae tormentas cortas y violentas, y un viaje de seis días caminando veinte kilómetros diarios acaba pasando factura hacia el cuarto. Este itinerario no es un castigo: es una versión completa de la ciudad que se hace a cubierto, y hay quien lo prefiere. Usadlo entero si la semana se estropea, o robadle días sueltos cuando llueva o cuando ya no os tengáis en pie.</p>
+    <dl class="specs">
+      <div><dt>Coste 6 días</dt><dd>520 – 720 $</dd></div>
+      <div><dt>Kilómetros/día</dt><dd>8 – 12 km</dd></div>
+      <div><dt>A cubierto</dt><dd>~80 % del tiempo</dd></div>
+      <div><dt>Para quién</dt><dd>Lluvia o agujetas</dd></div>
+      <div><dt>Punto fuerte</dt><dd>Se puede improvisar</dd></div>
+    </dl>
+  </header>
+  <div class="days">
+
+    <div class="day">
+      <h4><span class="dd">Día 1 · Mié 9</span><span class="tt">Mercados cubiertos del sur</span><span class="cost">60 – 90 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">12:30</span><span class="ev"><b>Essex Market</b><span>Mercado cubierto del Lower East Side: puestos de comida de medio mundo, mesas arriba, y se puede pasar hora y media sin mirar el reloj. 12-18 $.</span></span></li>
+        <li><span class="hr">14:00</span><span class="ev"><b>Tenement Museum</b><span>30 $, solo con visita guiada, hay que reservar. Un edificio de viviendas de inmigrantes conservado tal cual, con las capas de papel pintado de cada familia. Si pagáis un museo en todo el viaje, que sea este: es el que mejor explica de dónde sale esta ciudad y el que mejor encaja con lo que os interesa.</span></span></li>
+        <li><span class="hr">16:00</span><span class="ev"><b>Check-in y descanso</b></span></li>
+        <li><span class="hr">17:00</span><span class="ev"><b>Economy Candy y las tiendas de Orchard</b><span>Chuchería de 1937 que funciona como museo, y las tiendas del LES, casi todas pequeñas y a cubierto.</span></span></li>
+        <li><span class="hr">19:30</span><span class="ev"><b>Cena en Chinatown</b><span>Noodletown o Wo Hop, en el sótano.</span></span></li>
+        <li><span class="hr">21:00</span><span class="ev"><b>McSorley's o Ear Inn</b><span><strong>McSorley's Old Ale House</strong> (1854, East Village, suelo de serrín, solo cerveza clara u oscura) o el <strong>Ear Inn</strong> (SoHo, 1817, a cinco minutos de vuestro hotel). Dos bares que llevan siglos sirviendo dos cosas y haciéndolo bien.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Refugios de la zona</h5><p>Essex Market · Canal Street Market · Chinatown entero, que funciona igual bajo paraguas · los sótanos de Mott Street.</p></div>
+        <div><h5>Nota</h5><p>Reservad el Tenement Museum en cuanto sepáis que llueve: las visitas se llenan y hay pocas plazas por pase.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 2 · Jue 10</span><span class="tt">La ruta cubierta de Midtown</span><span class="cost">70 – 110 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:00</span><span class="ev"><b>Grand Central</b><span>Desayuno en el mercado de abajo, la Whispering Gallery, el techo del zodiaco al revés. Una hora entera sin salir.</span></span></li>
+        <li class="hi"><span class="hr">10:15</span><span class="ev"><b>New York Public Library</b><span>La Rose Main Reading Room: noventa metros, techo pintado, lámparas de bronce y silencio. Gratis. Se puede estar una hora sentado leyendo y nadie os dice nada. Hay exposiciones en la planta baja y la sala de mapas.</span></span></li>
+        <li><span class="hr">11:45</span><span class="ev"><b>Morgan Library</b><span>Calle 36 con Madison. La biblioteca privada de J. P. Morgan: tres pisos de estanterías de nogal, techos pintados, una Biblia de Gutenberg y manuscritos de Dickens y Mozart. Unos 25 $, pequeña, preciosa y casi siempre vacía. Es el museo más infravalorado de Nueva York.</span></span></li>
+        <li><span class="hr">13:30</span><span class="ev"><b>Koreatown</b><span>Calle 32 entre la 5ª y Broadway. Barbacoa coreana o <em class="q">bibimbap</em> por 18-22 $, en sótanos y primeros pisos, con ambiente hasta las dos de la mañana.</span></span></li>
+        <li><span class="hr">15:00</span><span class="ev"><b>Vestíbulos Art Déco</b><span>Un plan que solo funciona con lluvia y es fantástico: el <strong>Chrysler Building</strong> (mármol rojo y acero), el <strong>30 Rock</strong> (murales), el <strong>Empire State</strong> (techo dorado del vestíbulo), el <strong>Film Center Building</strong>. Todos gratis, todos a cubierto, todos espectaculares.</span></span></li>
+        <li><span class="hr">17:00</span><span class="ev"><b>MoMA</b><span>30 $ y la mejor colección de arte moderno del mundo. Recordad: la entrada gratuita de los viernes es <strong>solo para residentes de Nueva York</strong>, así que aquí se paga. Dos horas y media, empezando por la quinta planta.</span></span></li>
+        <li><span class="hr">20:00</span><span class="ev"><b>Broadway con el 2×1</b><span>La mejor noche de lluvia posible. Código 241BWSHOW.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Refugios de la zona</h5><p>Grand Central · NYPL · Bryant Park bajo la marquesina · Koreatown · el pasadizo subterráneo de Rockefeller Center, que conecta varios edificios sin salir a la calle.</p></div>
+        <div><h5>Nota</h5><p>Con lluvia, Midtown es la mejor zona de la ciudad: casi todo lo interesante está dentro de un edificio y las distancias entre ellos son de tres o cuatro manzanas.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 3 · Vie 11</span><span class="tt">Galerías, Whitney y la noche del aniversario</span><span class="cost">70 – 110 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">10:00</span><span class="ev"><b>Chelsea Market</b><span>La antigua fábrica Nabisco: pasillos de ladrillo, tuberías vistas, puestos. Desayuno y una vuelta.</span></span></li>
+        <li class="hi"><span class="hr">11:30</span><span class="ev"><b>Galerías de Chelsea</b><span>Calles 24 y 25 entre la 10ª y la 11ª avenida, y también la 20, la 21 y la 26. Arte contemporáneo de primer nivel en naves enormes, con suelo de hormigón pulido y nadie dentro. <strong>Entrada libre en todas.</strong> Se encadenan diez en dos horas sin gastar un dólar y sin mojarse casi. Gagosian, David Zwirner, Pace, Hauser &amp; Wirth: son los mismos nombres que en Londres o Basilea.</span></span></li>
+        <li><span class="hr">14:00</span><span class="ev"><b>Comida en el mercado</b><span>Los Tacos No. 1 dentro de Chelsea Market, 4-5 $ el taco.</span></span></li>
+        <li><span class="hr">15:30</span><span class="ev"><b>Whitney Museum</b><span>Al final de la High Line, en el Meatpacking. Arte americano del XX, y las terrazas exteriores si escampa. 30 $, o <em class="q">pay-what-you-wish</em> esta noche de 19:00 a 22:00 si conseguisteis las entradas el lunes. Y gratis siempre para menores de 26.</span></span></li>
+        <li><span class="hr">17:30</span><span class="ev"><b>Bajada al sur: Oculus y Brookfield Place</b><span>El intercambiador de Calatrava y el centro comercial acristalado de al lado, con el Hudson Eats arriba. Se puede pasar dos horas aquí sin ver el cielo.</span></span></li>
+        <li class="hi"><span class="hr">19:30</span><span class="ev"><b>Plaza del Memorial y Tribute in Light</b><span>Con lluvia o sin ella. Las luces se ven igual con nubes bajas: de hecho, cuando la nube coge el haz, es más impresionante todavía.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Refugios de la zona</h5><p>Chelsea Market · las galerías · Whitney · Oculus · Brookfield Place · el vestíbulo del World Trade Center.</p></div>
+        <div><h5>Nota</h5><p>Las galerías de Chelsea son el mejor secreto barato de Nueva York. Nadie las incluye en una guía turística porque parece que hay que entender de arte, y no hace falta: se entra, se mira y se sale, y nadie os va a preguntar nada.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 4 · Sáb 12</span><span class="tt">Brooklyn a cubierto</span><span class="cost">75 – 110 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:30</span><span class="ev"><b>Metro directo a DUMBO</b><span>Sin puente. <span class="bul b-ace">A</span><span class="bul b-ace">C</span> hasta High St, veinte minutos.</span></span></li>
+        <li><span class="hr">10:00</span><span class="ev"><b>Time Out Market</b><span>Food hall en un edificio con ventanales sobre el East River: la misma vista de postal que desde el muelle, pero seco y con café. Desayuno.</span></span></li>
+        <li class="hi"><span class="hr">11:30</span><span class="ev"><b>Brooklyn Museum</b><span>El segundo museo más grande de la ciudad y el que menos gente conoce: arte egipcio de primer nivel, arte americano, y <em>The Dinner Party</em> de Judy Chicago. Unos 20 $. Tres horas fáciles y nunca hay cola.</span></span></li>
+        <li><span class="hr">14:30</span><span class="ev"><b>Brooklyn Botanic Garden</b><span>Al lado. Los invernaderos son grandes y están calientes: el pabellón de bonsáis y la casa tropical. 18 $.</span></span></li>
+        <li><span class="hr">16:00</span><span class="ev"><b>Industry City o Smorgasburg</b><span>Si escampa, Smorgasburg está abierto hasta las 18:00 y funciona bajo chubasquero. Si no, <strong>Industry City</strong> en Sunset Park: naves reconvertidas con food hall, tiendas y patios cubiertos.</span></span></li>
+        <li><span class="hr">19:00</span><span class="ev"><b>Roberta's o Radegast</b><span>Pizza de leña en un almacén, o cervecería austríaca con mesas corridas y banda.</span></span></li>
+        <li><span class="hr">22:00</span><span class="ev"><b>House of Yes</b><span>Club-cabaré en Bushwick. Con lluvia, mejor todavía.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Refugios de la zona</h5><p>Time Out Market · Brooklyn Museum · los invernaderos del Jardín Botánico · Industry City · Roberta's, que tiene patio cubierto.</p></div>
+        <div><h5>Nota</h5><p>El Brooklyn Museum y el Jardín Botánico están pegados y valen una entrada combinada. Es el mejor medio día de lluvia que se puede tener en esta ciudad.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 5 · Dom 13</span><span class="tt">Góspel, museo gratis y baños turcos</span><span class="cost">70 – 110 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:20</span><span class="ev"><b>Góspel en Harlem</b><span>Bajo techo por definición. Dos horas de la mejor música del viaje.</span></span></li>
+        <li><span class="hr">12:30</span><span class="ev"><b>Soul food</b><span>Amy Ruth's o Sylvia's, que hace brunch dominical con góspel en directo.</span></span></li>
+        <li class="hi"><span class="hr">14:30</span><span class="ev"><b>Whitney Museum, gratis</b><span>Hoy es el <strong>segundo domingo del mes</strong> y el Whitney es gratis para todo el mundo. Es la mejor colección de arte americano del siglo XX y el edificio de Renzo Piano es una maravilla. Reservad la entrada gratuita online en cuanto podáis, que vuelan.</span></span></li>
+        <li><span class="hr">17:00</span><span class="ev"><b>Guggenheim, pay-what-you-wish</b><span>Los domingos de 16:00 a 17:30 se paga lo que se quiera. Si os cuadra el horario, la rampa en espiral de Frank Lloyd Wright se recorre en cuarenta minutos y es más arquitectura que museo. Si no llegáis, no pasa nada.</span></span></li>
+        <li class="hi"><span class="hr">19:00</span><span class="ev"><b>Russian &amp; Turkish Baths</b><span>Calle 10 Este, abierto desde 1892. Sauna rusa de piedra al rojo, baño turco, piscina helada y un tipo que te golpea con hojas de roble empapadas si se lo pides. Unos 55 $. Es raro, es viejísimo y después de cinco días andando es exactamente lo que os hace falta. Comprobad si el día es mixto o de un solo género, que va por turnos.</span></span></li>
+        <li><span class="hr">21:00</span><span class="ev"><b>Veselka</b><span>A dos manzanas, abierto 24 horas desde 1954. <em class="q">Pierogi</em> y sopa de remolacha después de la sauna.</span></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Refugios de la zona</h5><p>Whitney · Guggenheim · Museo de Historia Natural · Hispanic Society (gratis, con Velázquez y Goya) · los baños.</p></div>
+        <div><h5>Nota</h5><p>Los baños son el plan que nadie os va a recomendar y el que más se agradece el quinto día. Llevad chanclas o compradlas allí. Salís nuevos.</p></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <h4><span class="dd">Día 6 · Lun 14</span><span class="tt">Libros, museo y salida</span><span class="cost">55 – 95 $</span></h4>
+      <ul class="tl">
+        <li><span class="hr">09:30</span><span class="ev"><b>Desayuno en Russ &amp; Daughters</b><span>O en la bodega, según presupuesto.</span></span></li>
+        <li><span class="hr">10:30</span><span class="ev"><b>Strand Bookstore</b><span>Broadway con la calle 12. Veintinueve kilómetros de estanterías, tres plantas, desde 1927. Dos horas dentro sin darse cuenta.</span></span></li>
+        <li><span class="hr">12:30</span><span class="ev"><b>Museo del 9/11</b><span>21-33 $, magnífico y muy duro. Dos horas. Si preferís algo más ligero, el Oculus y Brookfield Place están al lado y son gratis.</span></span></li>
+        <li><span class="hr">14:00</span><span class="ev"><b>Última comida</b><span>Katz's, Xi'an o Nom Wah.</span></span></li>
+        <li><span class="hr">15:40</span><span class="ev"><b>Salida a JFK</b></span></li>
+      </ul>
+      <div class="dayfoot">
+        <div><h5>Refugios de la zona</h5><p>Strand · Oculus · Brookfield Place · Museo del 9/11 · el propio hotel, que también vale.</p></div>
+        <div><h5>Nota</h5><p>Con lluvia, plantead salir al aeropuerto con quince minutos más de margen: el metro no se retrasa, pero las escaleras del AirTrain con maleta y el suelo mojado, sí.</p></div>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<section id="modulos">
+  <div class="eyebrow"><span class="num">06</span><span class="line"></span><span class="num">Piezas sueltas</span></div>
+  <h2>Módulos de medio día</h2>
+  <p class="lede">Bloques de cuatro o cinco horas que sustituyen limpiamente cualquier tarde de cualquier itinerario. Son la red de seguridad: si un día amanece raro, si una cola es imposible o si simplemente no os apetece lo que tocaba, se coge uno de estos y no se pierde la jornada.</p>
+
+  <div class="grid2">
+    <div class="blk">
+      <h4>Roosevelt Island</h4>
+      <p>Teleférico de 3 $ desde la 59 con la 2ª Avenida, cinco minutos colgados sobre el East River. Arriba, una isla estrecha y silenciosa: el <strong>Four Freedoms Park</strong> de Louis Kahn en la punta sur, granito blanco y la vista frontal de Midtown, y las ruinas del antiguo hospital de viruela. Media tarde perfecta por el precio de un viaje de metro.</p>
+      <span class="meta">4 h · 3 $ · encaja en cualquier tarde de Midtown</span>
+    </div>
+    <div class="blk">
+      <h4>Governors Island</h4>
+      <p>Ferry de 5 $ ida y vuelta desde el Battery Maritime Building, ocho minutos. Isla peatonal sin coches: praderas, hamacas, colinas artificiales con vistas de 360°, cuarteles del XIX y silencio. Gratis los fines de semana antes de las 11:00. Horario de otoño desde el 8 de septiembre: comprobad la hora de cierre.</p>
+      <span class="meta">4-5 h · 5 $ · solo si hace bueno</span>
+    </div>
+    <div class="blk">
+      <h4>Coney Island y Brighton Beach</h4>
+      <p><span class="bul b-bdfm">D</span><span class="bul b-bdfm">F</span><span class="bul b-nqrw">N</span><span class="bul b-nqrw">Q</span> hasta el final, una hora. Paseo marítimo de madera, la Wonder Wheel de 1920 (10 $), la Cyclone de 1927 (12 $) y el perrito de Nathan's por 6 $. En septiembre hay poca gente y la luz es preciosa. A diez minutos andando, Brighton Beach: la Little Odessa rusa bajo las vías del tren.</p>
+      <span class="meta">6 h · 20-30 $ · mejor por la tarde, para el atardecer</span>
+    </div>
+    <div class="blk">
+      <h4>Arthur Avenue, el Bronx</h4>
+      <p>La Little Italy de verdad. <span class="bul b-bdfm">B</span><span class="bul b-bdfm">D</span> hasta Fordham Rd y autobús 12. Charcuterías, panaderías, pasta fresca y un mercado cubierto donde un señor lía puros a mano. Comed en Mike's Deli. Cerca quedan el Jardín Botánico y el zoo. Cuidado con los domingos, que muchas tiendas cierran a mediodía.</p>
+      <span class="meta">5 h · 20-25 $ · el mejor plan de comida del viaje</span>
+    </div>
+    <div class="blk">
+      <h4>Prospect Park y Park Slope</h4>
+      <p>El parque hermano de Central Park, diseñado por los mismos, Olmsted y Vaux, que lo consideraban mejor obra que el otro. Long Meadow, el bosque del Ravine, el lago. Alrededor, las <em class="q">brownstones</em> de Park Slope y la 7ª Avenida. La mitad de turistas y el doble de vecinos.</p>
+      <span class="meta">4 h · gratis · sustituye Bushwick el sábado</span>
+    </div>
+    <div class="blk">
+      <h4>Green-Wood Cemetery</h4>
+      <p>1838, doscientas hectáreas de colinas, lagos y mausoleos góticos, con loros salvajes que anidan en la puerta principal desde los años setenta. Basquiat, Leonard Bernstein y Boss Tweed están aquí. Gratis, silencioso y con una de las mejores vistas de la bahía desde Battle Hill, el punto más alto de Brooklyn.</p>
+      <span class="meta">2-3 h · gratis · combina con Sunset Park</span>
+    </div>
+    <div class="blk">
+      <h4>Flushing y el New World Mall</h4>
+      <p><span class="bul b-7">7</span> hasta el final. El Chinatown más grande y auténtico de Nueva York, mucho más que el de Manhattan. Bajad al <em class="q">food court</em> del centro comercial: veinte puestos regionales chinos con platos de 8-12 $. Pedid de cuatro sitios distintos entre los tres.</p>
+      <span class="meta">4 h · 15 $ · el 7 va lleno por el US Open</span>
+    </div>
+    <div class="blk">
+      <h4>Jackson Heights</h4>
+      <p>Seis manzanas con India, Nepal, Tíbet, Colombia, Ecuador y México. La calle 74 para lo indio, Roosevelt Avenue bajo el tren elevado para lo latino. <em class="q">Momos</em> a 8 $, arepas, tacos de canasta, <em class="q">dosas</em>. Se come de pie y de puesto en puesto.</p>
+      <span class="meta">3-4 h · 15-20 $ · el mejor módulo de comida callejera</span>
+    </div>
+    <div class="blk">
+      <h4>Galerías de Chelsea</h4>
+      <p>Calles 20 a 26 entre la 10ª y la 11ª avenida. Arte contemporáneo de primer nivel en naves industriales enormes, entrada libre en todas. Diez galerías en dos horas, sin gastar nada y casi sin salir a la calle. Cerrado los domingos y los lunes: es plan de martes a sábado.</p>
+      <span class="meta">2-3 h · gratis · el mejor plan de lluvia</span>
+    </div>
+    <div class="blk">
+      <h4>Los baños rusos y turcos</h4>
+      <p>Calle 10 Este, desde 1892. Sauna rusa de piedra al rojo, baño turco, piscina helada, y el <em class="q">platza</em>: alguien te golpea con hojas de roble empapadas en jabón de oliva. Unos 55 $. Es la mejor inversión del cuarto o quinto día, cuando las piernas ya no responden. Mirad si el turno es mixto.</p>
+      <span class="meta">2-3 h · 55 $ · reparación de emergencia</span>
+    </div>
+    <div class="blk">
+      <h4>Red Hook</h4>
+      <p>El barrio sin metro de Brooklyn: adoquines, almacenes, grúas y la mejor vista de la Estatua de la Libertad desde tierra, en el Louis Valentino Jr. Park. Se llega en NYC Ferry por 4,50 $. Tarta de lima en un cobertizo al final del muelle y bocadillos italianos en Defonte's desde 1922.</p>
+      <span class="meta">4 h · 10 $ · muy poco turista</span>
+    </div>
+    <div class="blk">
+      <h4>Rockaway Beach</h4>
+      <p>Once kilómetros de playa atlántica dentro de la ciudad, con paseo marítimo. NYC Ferry desde Wall Street, 4,50 $ y una hora de travesía pasando junto a la Estatua: el mejor trayecto de transporte público de Nueva York. En septiembre el agua está a 22 °C. Tacos de pescado en la calle 97.</p>
+      <span class="meta">6 h · 10 $ · solo si hace sol</span>
+    </div>
+  </div>
+</section>
+
+<section id="comer">
+  <div class="eyebrow"><span class="num">07</span><span class="line"></span><span class="num">Directorio</span></div>
+  <h2>Dónde comer, por zona y por precio</h2>
+  <p class="lede">Todo lo que aparece en los siete itinerarios, en una sola tabla, con el precio por persona antes de impuestos y propina. Acordaos de sumar el 30 %. Los sitios marcados como <strong>canónicos</strong> son los que hay que hacer aunque tengáis que reorganizar el día.</p>
+
+  <div class="tw">
+    <table>
+      <caption>Barato · menos de 15 $ por persona</caption>
+      <thead><tr><th>Sitio</th><th>Zona</th><th>Qué pedir</th><th class="n">Precio</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Prince Street Pizza</strong> · canónico</td><td>Nolita</td><td>Porción cuadrada de pepperoni picante</td><td class="n">5 $</td></tr>
+        <tr><td><strong>Joe's Pizza</strong> · canónico</td><td>Village (Carmine St)</td><td>Porción de queso. La porción de referencia</td><td class="n">4 $</td></tr>
+        <tr><td>La Esquina</td><td>Nolita (Kenmare St)</td><td>Tacos en la ventanilla, tres por cabeza</td><td class="n">13 $</td></tr>
+        <tr><td>Vanessa's Dumpling House</td><td>Chinatown / LES</td><td>Dumplings fritos, cinco por 5 $</td><td class="n">5-8 $</td></tr>
+        <tr><td><strong>The Halal Guys</strong> · canónico</td><td>Midtown (53 con 6ª)</td><td>Pollo con arroz. Salsa blanca sí, roja con cuidado</td><td class="n">10 $</td></tr>
+        <tr><td>Xi'an Famous Foods</td><td>Chinatown</td><td>Fideos de cordero al comino, tirados a mano</td><td class="n">12 $</td></tr>
+        <tr><td>Faicco's Italian Specialties</td><td>Village (Bleecker St)</td><td>Bocadillo italiano descomunal</td><td class="n">12 $</td></tr>
+        <tr><td>Mamoun's Falafel</td><td>Village (MacDougal)</td><td>Falafel, desde 1971, abierto hasta tarde</td><td class="n">6 $</td></tr>
+        <tr><td>Los Tacos No. 1</td><td>Chelsea Market / Times Sq</td><td>Adobada y nopal. De los mejores de la ciudad</td><td class="n">4-5 $/ud</td></tr>
+        <tr><td>Gray's Papaya</td><td>UWS (72 con Broadway)</td><td>Perrito con zumo de papaya. Sí, en serio</td><td class="n">3 $</td></tr>
+        <tr><td>Nathan's Famous</td><td>Coney Island</td><td>El perrito original, desde 1916</td><td class="n">6 $</td></tr>
+        <tr><td>Lhasa Fast Food</td><td>Jackson Heights</td><td>Momos tibetanos. Detrás de una tienda de móviles</td><td class="n">8 $</td></tr>
+        <tr><td>New World Mall food court</td><td>Flushing</td><td>Fideos de Lanzhou, jianbing, Sichuan</td><td class="n">8-12 $</td></tr>
+        <tr><td>Cualquier bodega</td><td>Todas partes</td><td>Bacon, egg &amp; cheese y café. El desayuno real</td><td class="n">6-8 $</td></tr>
+        <tr><td>Bagel con cream cheese</td><td>Todas partes</td><td>Absolute, Ess-a-Bagel, Tompkins Square</td><td class="n">5-8 $</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tw">
+    <table>
+      <caption>Medio · 15 – 35 $ por persona</caption>
+      <thead><tr><th>Sitio</th><th>Zona</th><th>Qué pedir</th><th class="n">Precio</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Great NY Noodletown</strong> · canónico</td><td>Chinatown</td><td>Pato asado y calamares al ajo. Abre hasta las 4:00</td><td class="n">20-25 $</td></tr>
+        <tr><td>Wo Hop</td><td>Chinatown (17 Mott, sótano)</td><td>Chino-americano desde 1938. Feo y buenísimo</td><td class="n">18 $</td></tr>
+        <tr><td>Nom Wah Tea Parlor</td><td>Chinatown (Doyers St)</td><td>Dim sum desde 1920</td><td class="n">20 $</td></tr>
+        <tr><td><strong>Katz's Delicatessen</strong> · canónico</td><td>LES (Houston St)</td><td>Pastrami. Pedid dos entre tres. No perdáis el ticket</td><td class="n">28 $</td></tr>
+        <tr><td><strong>Russ &amp; Daughters</strong> · canónico</td><td>LES (Houston St)</td><td>Bagel con salmón curado, desde 1914</td><td class="n">18 $</td></tr>
+        <tr><td><strong>John's of Bleecker St</strong> · canónico</td><td>Village</td><td>Pizza entera de horno de carbón, 1929. No hay porciones</td><td class="n">22 $/pizza</td></tr>
+        <tr><td>Lombardi's</td><td>Nolita (Spring St)</td><td>La primera pizzería con licencia de EE. UU., 1905</td><td class="n">25 $/pizza</td></tr>
+        <tr><td>Rubirosa</td><td>Nolita (Mulberry St)</td><td>Pizza fina y vodka sauce. Reservad por Resy</td><td class="n">30 $</td></tr>
+        <tr><td>Roberta's</td><td>Bushwick</td><td>Pizza de leña en un almacén con patio</td><td class="n">20 $</td></tr>
+        <tr><td>Totonno's</td><td>Coney Island</td><td>Horno de carbón desde 1924. Mejor que casi todas</td><td class="n">22 $</td></tr>
+        <tr><td>L&amp;B Spumoni Gardens</td><td>Bensonhurst</td><td>La cuadrada siciliana canónica, 1939</td><td class="n">15 $</td></tr>
+        <tr><td><strong>Amy Ruth's</strong> · canónico</td><td>Harlem</td><td>Pollo frito con gofre. Platos con nombre propio</td><td class="n">22 $</td></tr>
+        <tr><td>Sylvia's</td><td>Harlem</td><td>Soul food desde 1962. Brunch dominical con góspel</td><td class="n">28 $</td></tr>
+        <tr><td>Charles' Country Pan Fried Chicken</td><td>Harlem</td><td>Pollo frito sin florituras. El mejor</td><td class="n">20 $</td></tr>
+        <tr><td>Corner Bistro</td><td>Village (Jane St)</td><td>Hamburguesa histórica en un bar de siempre</td><td class="n">12 $</td></tr>
+        <tr><td>Veselka</td><td>East Village</td><td>Pierogi y borscht, 24 horas desde 1954</td><td class="n">15-20 $</td></tr>
+        <tr><td>Radegast Hall</td><td>Williamsburg</td><td>Salchichas, cerveza, mesas corridas, banda</td><td class="n">25 $</td></tr>
+        <tr><td>Smorgasburg</td><td>Williamsburg · sáb 11-18 h</td><td>Un plato cada uno y todo compartido</td><td class="n">20-25 $</td></tr>
+        <tr><td>Taverna Kyclades</td><td>Astoria</td><td>Pescado a la brasa griego</td><td class="n">25-30 $</td></tr>
+        <tr><td>Mike's Deli</td><td>Arthur Ave, Bronx</td><td>Bocadillo italiano en el mercado cubierto</td><td class="n">15 $</td></tr>
+        <tr><td>Koreatown (calle 32)</td><td>Midtown</td><td>Bibimbap o barbacoa. Jongro, Miss Korea</td><td class="n">18-25 $</td></tr>
+        <tr><td>Casa Enrique</td><td>Long Island City</td><td>Mexicano con estrella. A mediodía sale a cuenta</td><td class="n">30 $</td></tr>
+        <tr><td>Defonte's</td><td>Red Hook</td><td>Bocadillos italianos desde 1922</td><td class="n">16 $</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tw">
+    <table>
+      <caption>Caprichos y decisiones conscientes</caption>
+      <thead><tr><th>Sitio</th><th>Qué es</th><th>Veredicto</th><th class="n">Precio</th></tr></thead>
+      <tbody>
+        <tr><td>Balthazar</td><td>Brasserie francesa en SoHo, decorado impecable</td><td>Desayuno sí, cena no. Está a cinco minutos</td><td class="n">25 $ desayuno</td></tr>
+        <tr><td>Frenchette</td><td>Bistró de Tribeca, uno de los mejores de la ciudad</td><td>Si gastáis bien una vez, aquí</td><td class="n">65 $</td></tr>
+        <tr><td>Keens Steakhouse</td><td>Chuletería de 1885 con pipas de arcilla en el techo</td><td>El <em class="q">mutton chop</em> a mediodía sale bien de precio</td><td class="n">60 $</td></tr>
+        <tr><td>Peter Luger</td><td>El chuletón mítico de Williamsburg</td><td><strong>Descartadlo.</strong> No compensa a ese precio entre tres</td><td class="n">110 $+</td></tr>
+        <tr><td>Westlight</td><td>Azotea del Wythe Hotel, Williamsburg</td><td>Una copa, la vista y fuera. Merece la pena una vez</td><td class="n">22 $/copa</td></tr>
+        <tr><td>Attaboy</td><td>Coctelería sin carta en Eldridge St</td><td>Dices lo que te gusta y te lo inventan. Sin reserva</td><td class="n">20 $/copa</td></tr>
+        <tr><td>Levain Bakery</td><td>Galleta de 170 gramos en el Upper West</td><td>Una entre dos. Va en serio, pesa lo que un ladrillo</td><td class="n">6 $</td></tr>
+        <tr><td>Ellen's Stardust Diner</td><td>Camareros que cantan Broadway, Times Square</td><td>Turístico y divertido. La comida da igual</td><td class="n">30 $</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note alert">
+    <span class="tag">Las seis reglas que no se rompen</span>
+    <p><strong>1.</strong> Nunca comáis en Times Square, en Little Italy (y esta semana no hay San Gennaro que lo justifique) ni en un sitio con fotos de los platos en la puerta. <strong>2.</strong> Comed fuerte a mediodía: los <em class="q">lunch specials</em> valen la mitad que la misma carta por la noche. <strong>3.</strong> Compartid: las raciones son para dos. <strong>4.</strong> Pedid siempre agua del grifo, que es potable, gratis y os ahorra 5 $ por comida. <strong>5.</strong> Desayunad en bodega, no en cafetería para turistas: 6 $ contra 20 $. <strong>6.</strong> Preguntad a los camareros dónde comen ellos.</p>
+  </div>
+</section>
+
+<section id="dinero">
+  <div class="eyebrow"><span class="num">08</span><span class="line"></span><span class="num">Presupuesto</span></div>
+  <h2>Lo que cuesta cada itinerario</h2>
+  <p class="lede">Por persona, en dólares, seis días completos, con impuestos y propina ya calculados. No incluye alojamiento, vuelos ni seguro. La columna de actividad es la que más varía y la que decide en qué liga jugáis.</p>
+
+  <div class="tw">
+    <table>
+      <caption>Comparativa · por persona y para los seis días</caption>
+      <thead><tr><th>Itinerario</th><th class="n">Transporte</th><th class="n">Comida</th><th class="n">Actividad</th><th class="n">Total</th><th class="n">Media/día</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1 · La ciudad a pie</strong></td><td class="n">45 $</td><td class="n">250 $</td><td class="n">145 $</td><td class="n">440 – 620 $</td><td class="n">73 – 103 $</td></tr>
+        <tr><td><strong>2 · Los otros distritos</strong></td><td class="n">55 $</td><td class="n">215 $</td><td class="n">90 $</td><td class="n">360 – 500 $</td><td class="n">60 – 83 $</td></tr>
+        <tr><td><strong>3 · Butacas y gradas</strong></td><td class="n">50 $</td><td class="n">300 $</td><td class="n">400 $</td><td class="n">700 – 1.000 $</td><td class="n">117 – 167 $</td></tr>
+        <tr><td><strong>4 · Rodado aquí</strong></td><td class="n">50 $</td><td class="n">255 $</td><td class="n">195 $</td><td class="n">480 – 700 $</td><td class="n">80 – 117 $</td></tr>
+        <tr><td><strong>5 · Puentes y ferris</strong></td><td class="n">60 $</td><td class="n">240 $</td><td class="n">70 $</td><td class="n">390 – 560 $</td><td class="n">65 – 93 $</td></tr>
+        <tr><td><strong>6 · Comer Nueva York</strong></td><td class="n">50 $</td><td class="n">340 $</td><td class="n">50 $</td><td class="n">430 – 620 $</td><td class="n">72 – 103 $</td></tr>
+        <tr><td><strong>7 · Bajo techo</strong></td><td class="n">45 $</td><td class="n">250 $</td><td class="n">235 $</td><td class="n">520 – 720 $</td><td class="n">87 – 120 $</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="tw">
+    <table>
+      <caption>Caprichos opcionales · precios de referencia por persona</caption>
+      <thead><tr><th>Qué</th><th>Dónde y cuándo</th><th class="n">Precio</th></tr></thead>
+      <tbody>
+        <tr><td>Broadway con el 2×1 de Broadway Week</td><td>Código 241BWSHOW, hasta el 20 de septiembre</td><td class="n">55 – 85 $</td></tr>
+        <tr><td>Broadway por lotería o rush digital</td><td>broadwaydirect, luckyseat, TodayTix</td><td class="n">39 – 55 $</td></tr>
+        <tr><td>Yankees – Rockies (mié 9 o jue 10)</td><td>Gradas altas, entre semana</td><td class="n">30 – 60 $</td></tr>
+        <tr><td>Yankees – Mets, Subway Series (vie/sáb/dom)</td><td>Reventa. Sube cada día que pasa</td><td class="n">70 – 200 $</td></tr>
+        <tr><td>Club de jazz</td><td>Smalls y Mezzrow 25-35 $, Vanguard 40 $</td><td class="n">25 – 40 $</td></tr>
+        <tr><td>Comedy Cellar</td><td>Más consumición mínima de dos bebidas</td><td class="n">24 – 30 $</td></tr>
+        <tr><td>House of Yes</td><td>Bushwick, comprando online</td><td class="n">20 – 30 $</td></tr>
+        <tr><td>Top of the Rock</td><td>El mejor mirador si solo subís a uno</td><td class="n">40 $</td></tr>
+        <tr><td>Summit One Vanderbilt</td><td>El más espectacular de los cuatro</td><td class="n">49 $</td></tr>
+        <tr><td>Museo del 9/11</td><td>Cerrado al público el viernes 11</td><td class="n">21 – 33 $</td></tr>
+        <tr><td>Tenement Museum</td><td>Solo con visita guiada, hay que reservar</td><td class="n">30 $</td></tr>
+        <tr><td>Whitney · MoMA · Brooklyn Museum</td><td>Whitney gratis el domingo 13</td><td class="n">20 – 30 $</td></tr>
+        <tr><td>Baños rusos y turcos</td><td>Calle 10 Este, desde 1892</td><td class="n">55 $</td></tr>
+        <tr><td>Cóctel de azotea</td><td>Westlight, Overstory, Manhatta</td><td class="n">20 – 26 $</td></tr>
+        <tr><td>Barca de remos en Central Park</td><td>Por barca y hora, entre tres</td><td class="n">8 $</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note info">
+    <span class="tag">Cómo cuadrar el presupuesto sobre la marcha</span>
+    <p>Si el objetivo son <strong>100 $ por persona y día</strong>, la regla práctica es: 8 $ de desayuno, 15 $ de comida, 30 $ de cena, 10 $ de transporte y 25 $ de actividad, y os quedan 12 $ de colchón para una cerveza y un imprevisto. Los días que os salgáis (béisbol, teatro, una cena buena) se compensan con un día de barrio, ferry y comida de puesto, que sale por 55 $. En seis días eso se equilibra solo si no os salís tres días seguidos.</p>
+  </div>
+</section>
+
+<section id="chuleta">
+  <div class="eyebrow"><span class="num">09</span><span class="line"></span><span class="num">Para el móvil</span></div>
+  <h2>La chuleta</h2>
+  <p class="lede">Lo único que hay que llevar encima. Si os quedáis sin batería y sin plan, con esto basta.</p>
+
+  <div class="grid2">
+    <div class="blk">
+      <h4>Los ocho errores caros</h4>
+      <p><strong>1.</strong> Meter más de dos barrios grandes en un día. <strong>2.</strong> Coger el metro para diez manzanas, que son diez minutos andando. <strong>3.</strong> No mirar si el tren es local o express. <strong>4.</strong> Pagar por vistas cuando hay cinco gratis. <strong>5.</strong> No calcular el 30 % de impuestos y propina. <strong>6.</strong> Dejar el último día apretado. <strong>7.</strong> Entrar en un museo grande sin ganas: son 30 $ y tres horas y no habéis venido a eso. <strong>8.</strong> No hablar con nadie.</p>
+    </div>
+    <div class="blk">
+      <h4>Los cinco miradores gratis o casi</h4>
+      <p>Staten Island Ferry (0 $) · Brooklyn Heights Promenade (0 $) · Gantry Plaza State Park, Long Island City (0 $) · la colina de Sunset Park (0 $) · teleférico de Roosevelt Island (3 $). Entre los cinco tenéis la ciudad desde todos los ángulos por menos de lo que cuesta un café en Midtown.</p>
+    </div>
+    <div class="blk">
+      <h4>Números y direcciones</h4>
+      <p>Emergencias <strong>911</strong>. Información municipal <strong>311</strong>. Metro: 3,00 $, tope 35 $/semana lunes-domingo. JFK: <span class="bul b-ace">A</span> a Howard Beach o <span class="bul b-ace">E</span> a Jamaica + AirTrain, 11,75 $, 70-85 min. Consignas: Bounce, Radical Storage, 7-10 $/bulto. Wifi gratis en todos los andenes de metro y en LinkNYC.</p>
+    </div>
+    <div class="blk">
+      <h4>Las cuatro cosas que no se pueden repetir</h4>
+      <p><strong>Viernes 11, 19:30:</strong> la plaza del Memorial abierta de noche en el 25º aniversario, con el Tribute in Light encendido. <strong>Sábado 12, 12:00:</strong> Smorgasburg. <strong>Domingo 13, 10:15:</strong> el góspel en Harlem. <strong>Cualquier día, 07:00:</strong> el puente de Brooklyn vacío al amanecer. Todo lo demás se puede cambiar de sitio.</p>
+    </div>
+  </div>
+
+  <div class="note good">
+    <span class="tag">Y lo único que hay que recordar de verdad</span>
+    <p><strong>Andad.</strong> El itinerario está diseñado para que la mayor parte del viaje ocurra entre parada y parada, no en las paradas. <strong>Comed de pie.</strong> Lo mejor de esta ciudad se despacha por una ventanilla, en un sótano o desde un carrito. <strong>No lo cumpláis todo.</strong> Si un día os apetece quedaros tres horas tirados en un parque, quedaos: esto es un mapa, no un examen. Y <strong>hablad con la gente</strong>, que es la única forma de que un viaje de seis días acabe pareciendo que vivisteis allí.</p>
+  </div>
+</section>
+
+<footer class="end">
+  <p><strong>Guía preparada el 5 de septiembre de 2026</strong> para tres viajeros con base en SoHo, del miércoles 9 al lunes 14 de septiembre de 2026. Los precios son estimaciones por persona en dólares e incluyen impuestos y propina donde corresponde.</p>
+  <p>Todo lo marcado con fechas y horarios concretos —el cierre del Memorial el viernes, Broadway Week, el calendario de los Yankees, Smorgasburg, los horarios de otoño de Governors Island, las franjas gratuitas de los museos— está verificado a fecha de hoy, pero <strong>confirmadlo en la web oficial antes de cada visita</strong>. Es lo único que ninguna guía impresa aguanta.</p>
+  <p>Buen viaje.</p>
+</footer>
+
+</div>
