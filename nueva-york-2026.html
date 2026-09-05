@@ -220,7 +220,6 @@ td.n,th.n{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-nu
 .tl .ev > span{color:var(--ink-soft);font-size:.93rem;display:block;max-width:64ch}
 .tl li.hi .hr{color:var(--ln,var(--accent))}
 .tl li.hi .ev b{color:var(--ln,var(--accent))}
-.tl li.hi::before{content:"";position:absolute;left:-26px;top:0;bottom:0;width:3px;background:var(--ln,var(--accent))}
 
 .dayfoot{padding:2px 26px 20px;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(232px,1fr))}
 .dayfoot > div{border-top:2px solid var(--rule);padding-top:10px}
@@ -249,11 +248,85 @@ ul.plain li::marker{color:var(--ink-faint)}
 footer.end{margin-top:70px;border-top:2.5px solid var(--ink);padding-top:22px;font-size:.9rem;color:var(--ink-soft)}
 footer.end p{max-width:74ch}
 
+
+/* ---------- franja de los seis días ---------- */
+.strip{padding:26px 0 0}
+.days6{list-style:none;margin:0;padding:0;display:grid;gap:9px;
+  grid-template-columns:repeat(auto-fit,minmax(148px,1fr))}
+.days6 > li{display:flex}
+.days6 a{flex:1;display:flex;flex-direction:column;gap:3px;text-decoration:none;color:inherit;
+  background:var(--surface);border:1px solid var(--rule);border-left:5px solid var(--dc,var(--rule));
+  padding:11px 13px;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+.days6 a:hover{transform:translateY(-2px);box-shadow:var(--lift);border-color:var(--dc,var(--rule))}
+.days6 .dnum{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--dc,var(--ink-faint));font-weight:600}
+.days6 .dttl{font-family:Archivo,sans-serif;font-size:.94rem;font-weight:600;line-height:1.22;letter-spacing:-.01em}
+.days6 .dmeta{font-size:.79rem;color:var(--ink-soft);line-height:1.3}
+.days6 .kind{font-family:"IBM Plex Mono",monospace;font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-faint);margin-top:3px}
+.days6 li.today a{background:var(--dc);border-color:var(--dc)}
+.days6 li.today .dnum,.days6 li.today .dttl,.days6 li.today .dmeta,.days6 li.today .kind{color:var(--paper)}
+.days6 .now{display:none}
+.days6 li.today .now{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.58rem;
+  letter-spacing:.14em;text-transform:uppercase;font-weight:600;background:var(--paper);color:var(--dc);
+  padding:2px 6px;border-radius:3px;align-self:flex-start;margin-top:4px}
+.countdown{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-faint);margin:12px 0 0;display:block}
+.countdown b{color:var(--accent);font-size:1.05rem;letter-spacing:0}
+
+/* ---------- regla de las siete líneas ---------- */
+.seven{display:flex;height:6px;margin:24px 0 0;gap:2px}
+.seven span{flex:1;border-radius:1px}
+
+/* ---------- tinte por itinerario ---------- */
+.itin > header{background:var(--surface);background:color-mix(in oklab,var(--ln) 7%,var(--surface))}
+.day > h4{background:var(--surface-2);background:color-mix(in oklab,var(--ln) 5%,var(--surface-2))}
+.hop{background:var(--surface-2);background:color-mix(in oklab,var(--ln) 10%,var(--surface-2));
+  position:sticky;top:var(--nav-h);z-index:20}
+.chip{transition:color .12s,border-color .12s,background .12s}
+.chip[aria-current="true"]{color:var(--paper);background:var(--ln,var(--ink));border-color:var(--ln,var(--ink))}
+.pickcard{transition:transform .16s ease,box-shadow .16s ease}
+.pickcard:hover{transform:translateY(-3px)}
+.pickcard{background:var(--surface);background:color-mix(in oklab,var(--ln) 5%,var(--surface))}
+
+/* ---------- espina de la cronología ---------- */
+.tl{--spine:67px}
+.tl::before{content:"";position:absolute;left:calc(26px + var(--spine));top:24px;bottom:24px;width:2px;
+  background:var(--rule-soft);border-radius:1px}
+.tl li::after{content:"";position:absolute;left:calc(var(--spine) - 3px);top:1.15em;width:8px;height:8px;
+  border-radius:50%;background:var(--rule);box-shadow:0 0 0 3.5px var(--surface)}
+.tl li.hi::after{background:var(--ln,var(--accent));width:11px;height:11px;left:calc(var(--spine) - 4.5px);
+  top:1.05em;box-shadow:0 0 0 3.5px color-mix(in oklab,var(--ln) 4%,var(--surface))}
+.tl li.hi{background:var(--surface);background:color-mix(in oklab,var(--ln) 4%,var(--surface))}
+
+/* ---------- barras de presupuesto ---------- */
+.bar{position:relative;height:22px;min-width:150px;background:var(--surface-2);border-radius:3px;overflow:hidden}
+.bar i{position:absolute;top:3px;bottom:3px;left:var(--a);width:var(--w);background:var(--accent);
+  border-radius:4px;display:block}
+.bar.reco{box-shadow:inset 0 0 0 1.5px var(--accent)}
+.bar::before,.bar::after{content:"";position:absolute;top:0;bottom:0;width:1px;background:var(--rule)}
+.bar::before{left:50%} .bar::after{left:99%}
+.scale{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:.62rem;
+  color:var(--ink-faint);letter-spacing:.06em;margin-top:5px}
+td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--ink-soft);
+  display:block;margin-top:4px;font-variant-numeric:tabular-nums}
+
+/* ---------- calendario con color ---------- */
+.cal td:first-child{border-left:5px solid var(--dc,var(--rule));font-weight:600}
+.cal tr.today td{background:var(--accent-bg)}
+.cal tr.today td:first-child::after{content:" · hoy";font-family:"IBM Plex Mono",monospace;font-size:.6rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+
+@media (max-width:600px){
+  .tl{--spine:56px}
+  .tl::before{left:calc(16px + var(--spine))}
+  .hop{position:static}
+}
+
 @media (max-width:600px){
   body{font-size:16.5px}
   .wrap{padding:0 16px 110px}
   .tl li{grid-template-columns:50px 1fr;gap:0 13px}
-  .tl li.hi::before{left:-16px}
   .itin > header,.tl,.dayfoot,.day > h4,.hop{padding-left:16px;padding-right:16px}
   .mastgrid{grid-template-columns:repeat(2,1fr)}
 }
@@ -284,7 +357,43 @@ footer.end p{max-width:74ch}
     <div><dt>Metro</dt><dd>3,00 $<br>tope 35 $/sem</dd></div>
     <div><dt>Objetivo</dt><dd>85 – 120 $<br>persona y día</dd></div>
   </dl>
+  <div class="seven" aria-hidden="true">
+    <span style="background:var(--l-ace)"></span><span style="background:var(--l-7)"></span>
+    <span style="background:var(--l-123)"></span><span style="background:var(--l-bdfm)"></span>
+    <span style="background:var(--l-456)"></span><span style="background:var(--l-nqrw)"></span>
+    <span style="background:var(--l-l)"></span>
+  </div>
 </header>
+
+<section class="strip" aria-label="Los seis días de un vistazo">
+  <ol class="days6" id="franja">
+    <li data-fecha="2026-09-09" style="--dc:var(--l-l)"><a href="#calendario">
+      <span class="dnum">Mié 9</span><span class="dttl">Aterrizaje</span>
+      <span class="dmeta">SoHo, Chinatown y el Lower East Side, todo a pie.</span>
+      <span class="kind">Medio día</span><span class="now">Hoy</span></a></li>
+    <li data-fecha="2026-09-10" style="--dc:var(--accent)"><a href="#calendario">
+      <span class="dnum">Jue 10</span><span class="dttl">Village y jazz</span>
+      <span class="dmeta">High Line, Chelsea y un sótano de jazz para cerrar.</span>
+      <span class="kind">Día completo</span><span class="now">Hoy</span></a></li>
+    <li data-fecha="2026-09-11" style="--dc:var(--l-123)"><a href="#calendario">
+      <span class="dnum">Vie 11</span><span class="dttl">25º aniversario</span>
+      <span class="dmeta">La plaza abierta hasta medianoche y el Tribute in Light.</span>
+      <span class="kind">Irrepetible</span><span class="now">Hoy</span></a></li>
+    <li data-fecha="2026-09-12" style="--dc:var(--accent)"><a href="#calendario">
+      <span class="dnum">Sáb 12</span><span class="dttl">Brooklyn</span>
+      <span class="dmeta">Puente al amanecer, Smorgasburg y noche en Bushwick.</span>
+      <span class="kind">Día completo</span><span class="now">Hoy</span></a></li>
+    <li data-fecha="2026-09-13" style="--dc:var(--l-123)"><a href="#calendario">
+      <span class="dnum">Dom 13</span><span class="dttl">Góspel y parque</span>
+      <span class="dmeta">Harlem por la mañana y Central Park de norte a sur.</span>
+      <span class="kind">Irrepetible</span><span class="now">Hoy</span></a></li>
+    <li data-fecha="2026-09-14" style="--dc:var(--l-l)"><a href="#calendario">
+      <span class="dnum">Lun 14</span><span class="dttl">Agua y salida</span>
+      <span class="dmeta">Ferry, Governors Island y JFK a las 20:00.</span>
+      <span class="kind">Medio día</span><span class="now">Hoy</span></a></li>
+  </ol>
+  <span class="countdown" id="cuenta"></span>
+</section>
 
 <div class="navwrap">
   <nav class="toc" aria-label="Índice de la guía">
@@ -529,41 +638,41 @@ footer.end p{max-width:74ch}
   <p class="lede">Esto es lo fijo: no depende del itinerario que elijáis, y cualquier plan que hagáis tiene que respetarlo. Es la rejilla sobre la que están construidos los siete itinerarios de más abajo.</p>
 
   <div class="tw">
-    <table>
+    <table class="cal">
       <caption>Rejilla fija · 9 – 14 de septiembre de 2026</caption>
       <thead><tr><th>Día</th><th>Lo que condiciona</th><th>Oportunidad del día</th><th class="n">Ocaso</th></tr></thead>
       <tbody>
-        <tr>
+        <tr data-fecha="2026-09-09" style="--dc:var(--l-l)">
           <td><strong>Mié 9</strong></td>
           <td>Llegada 12:00. Medio día útil. Jet lag.</td>
           <td>Yankees–Rockies 19:05 si llegáis enteros. Barrio propio a pie.</td>
           <td class="n">19:16</td>
         </tr>
-        <tr>
+        <tr data-fecha="2026-09-10" style="--dc:var(--accent)">
           <td><strong>Jue 10</strong></td>
           <td>Arranca Fashion Week. Cenas más llenas.</td>
           <td>Yankees–Rockies 19:05, el partido barato. Jazz en el Village.</td>
           <td class="n">19:14</td>
         </tr>
-        <tr>
+        <tr data-fecha="2026-09-11" style="--dc:var(--l-123)">
           <td><strong>Vie 11</strong></td>
           <td><strong>25º aniversario del 11-S.</strong> Financial District cerrado y con seguridad reforzada hasta las 15:00. Museo solo familiares.</td>
           <td>Plaza abierta 15:00 → medianoche. <strong>Tribute in Light</strong> del anochecer al amanecer. Whitney PWYW 19:00-22:00. Yankees–Mets 19:05.</td>
           <td class="n">19:13</td>
         </tr>
-        <tr>
+        <tr data-fecha="2026-09-12" style="--dc:var(--accent)">
           <td><strong>Sáb 12</strong></td>
           <td>Sábado de septiembre: la ciudad entera en la calle. Final femenina del US Open.</td>
           <td><strong>Smorgasburg</strong> 11:00-18:00. Yankees–Mets 13:35. Mercadillos de Williamsburg.</td>
           <td class="n">19:11</td>
         </tr>
-        <tr>
+        <tr data-fecha="2026-09-13" style="--dc:var(--l-123)">
           <td><strong>Dom 13</strong></td>
           <td>Final masculina del US Open, primera hora de la tarde. Giants–Cowboys 20:20 en el MetLife: bares deportivos imposibles de noche.</td>
           <td><strong>Whitney gratis</strong> (segundo domingo). Guggenheim PWYW 16:00-17:30. Góspel en Harlem. Yankees–Mets 13:35.</td>
           <td class="n">19:09</td>
         </tr>
-        <tr>
+        <tr data-fecha="2026-09-14" style="--dc:var(--l-l)">
           <td><strong>Lun 14</strong></td>
           <td>Salida del hotel 15:40. Vuelo JFK 20:00. Semana nueva de tarifa de metro.</td>
           <td>Mañana entera libre. Ferry gratis, Governors Island, última comida en Chinatown.</td>
@@ -1665,18 +1774,19 @@ footer.end p{max-width:74ch}
 
   <div class="tw">
     <table>
-      <caption>Comparativa · por persona y para los seis días</caption>
-      <thead><tr><th>Itinerario</th><th class="n">Transporte</th><th class="n">Comida</th><th class="n">Actividad</th><th class="n">Total</th><th class="n">Media/día</th></tr></thead>
+      <caption>Comparativa · por persona y para los seis días, sin alojamiento ni vuelos</caption>
+      <thead><tr><th>Itinerario</th><th>Rango de gasto</th><th class="n">Media/día</th><th class="n">Transporte</th><th class="n">Comida</th><th class="n">Actividad</th></tr></thead>
       <tbody>
-        <tr><td><strong>1 · La ciudad a pie</strong></td><td class="n">45 $</td><td class="n">250 $</td><td class="n">145 $</td><td class="n">440 – 620 $</td><td class="n">73 – 103 $</td></tr>
-        <tr><td><strong>2 · Los otros distritos</strong></td><td class="n">55 $</td><td class="n">215 $</td><td class="n">90 $</td><td class="n">360 – 500 $</td><td class="n">60 – 83 $</td></tr>
-        <tr><td><strong>3 · Butacas y gradas</strong></td><td class="n">50 $</td><td class="n">300 $</td><td class="n">400 $</td><td class="n">700 – 1.000 $</td><td class="n">117 – 167 $</td></tr>
-        <tr><td><strong>4 · Rodado aquí</strong></td><td class="n">50 $</td><td class="n">255 $</td><td class="n">195 $</td><td class="n">480 – 700 $</td><td class="n">80 – 117 $</td></tr>
-        <tr><td><strong>5 · Puentes y ferris</strong></td><td class="n">60 $</td><td class="n">240 $</td><td class="n">70 $</td><td class="n">390 – 560 $</td><td class="n">65 – 93 $</td></tr>
-        <tr><td><strong>6 · Comer Nueva York</strong></td><td class="n">50 $</td><td class="n">340 $</td><td class="n">50 $</td><td class="n">430 – 620 $</td><td class="n">72 – 103 $</td></tr>
-        <tr><td><strong>7 · Bajo techo</strong></td><td class="n">45 $</td><td class="n">250 $</td><td class="n">235 $</td><td class="n">520 – 720 $</td><td class="n">87 – 120 $</td></tr>
+        <tr><td><strong>1 · La ciudad a pie</strong></td><td><div class="bar reco" role="img" aria-label="De 440 a 620 $ por persona en seis días"><i style="--a:44%;--w:18%"></i></div><span class="lab">440 – 620 $</span></td><td class="n">73 – 103 $</td><td class="n">45 $</td><td class="n">250 $</td><td class="n">145 $</td></tr>
+        <tr><td><strong>2 · Los otros distritos</strong></td><td><div class="bar" role="img" aria-label="De 360 a 500 $ por persona en seis días"><i style="--a:36%;--w:14%"></i></div><span class="lab">360 – 500 $</span></td><td class="n">60 – 83 $</td><td class="n">55 $</td><td class="n">215 $</td><td class="n">90 $</td></tr>
+        <tr><td><strong>3 · Butacas y gradas</strong></td><td><div class="bar" role="img" aria-label="De 700 a 1000 $ por persona en seis días"><i style="--a:70%;--w:30%"></i></div><span class="lab">700 – 1.000 $</span></td><td class="n">117 – 167 $</td><td class="n">50 $</td><td class="n">300 $</td><td class="n">400 $</td></tr>
+        <tr><td><strong>4 · Rodado aquí</strong></td><td><div class="bar" role="img" aria-label="De 480 a 700 $ por persona en seis días"><i style="--a:48%;--w:22%"></i></div><span class="lab">480 – 700 $</span></td><td class="n">80 – 117 $</td><td class="n">50 $</td><td class="n">255 $</td><td class="n">195 $</td></tr>
+        <tr><td><strong>5 · Puentes y ferris</strong></td><td><div class="bar" role="img" aria-label="De 390 a 560 $ por persona en seis días"><i style="--a:39%;--w:17%"></i></div><span class="lab">390 – 560 $</span></td><td class="n">65 – 93 $</td><td class="n">60 $</td><td class="n">240 $</td><td class="n">70 $</td></tr>
+        <tr><td><strong>6 · Comer Nueva York</strong></td><td><div class="bar" role="img" aria-label="De 430 a 620 $ por persona en seis días"><i style="--a:43%;--w:19%"></i></div><span class="lab">430 – 620 $</span></td><td class="n">72 – 103 $</td><td class="n">50 $</td><td class="n">340 $</td><td class="n">50 $</td></tr>
+        <tr><td><strong>7 · Bajo techo</strong></td><td><div class="bar" role="img" aria-label="De 520 a 720 $ por persona en seis días"><i style="--a:52%;--w:20%"></i></div><span class="lab">520 – 720 $</span></td><td class="n">87 – 120 $</td><td class="n">45 $</td><td class="n">250 $</td><td class="n">235 $</td></tr>
       </tbody>
     </table>
+    <div class="scale" style="padding:0 15px 12px"><span>0 $</span><span>500 $</span><span>1.000 $</span></div>
   </div>
 
   <div class="tw">
@@ -1804,6 +1914,57 @@ footer.end p{max-width:74ch}
       window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
     });
   }
+
+  // ---- día de hoy: marca la franja, el calendario y el día de cada itinerario ----
+  var HOY = new Date();
+  var iso = HOY.getFullYear() + '-' + String(HOY.getMonth() + 1).padStart(2, '0') +
+            '-' + String(HOY.getDate()).padStart(2, '0');
+  var FECHAS = ['2026-09-09','2026-09-10','2026-09-11','2026-09-12','2026-09-13','2026-09-14'];
+  var idx = FECHAS.indexOf(iso);
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-fecha]'), function (el) {
+    if (el.getAttribute('data-fecha') === iso) el.classList.add('today');
+  });
+
+  if (idx > -1) {
+    Array.prototype.forEach.call(document.querySelectorAll('.day'), function (d) {
+      if (/-d(\d)$/.test(d.id) && Number(RegExp.$1) === idx + 1) {
+        var h = d.querySelector('h4 .dd');
+        if (h && h.textContent.indexOf('hoy') === -1) h.textContent = h.textContent + ' · hoy';
+      }
+    });
+  }
+
+  var cd = document.getElementById('cuenta');
+  if (cd) {
+    var salida = new Date('2026-09-09T00:00:00');
+    var dias = Math.ceil((salida - new Date(HOY.getFullYear(), HOY.getMonth(), HOY.getDate())) / 86400000);
+    if (dias > 1) cd.innerHTML = 'Faltan <b>' + dias + '</b> días para salir';
+    else if (dias === 1) cd.innerHTML = 'Salís <b>mañana</b>';
+    else if (idx > -1) cd.innerHTML = 'Día <b>' + (idx + 1) + '</b> de 6 · estáis allí';
+    else cd.textContent = '';
+  }
+
+  // ---- día activo dentro de cada itinerario ----
+  Array.prototype.forEach.call(document.querySelectorAll('.itin'), function (it) {
+    var chips = Array.prototype.slice.call(it.querySelectorAll('.hop .chip'));
+    var days = chips.map(function (c) { return document.querySelector(c.getAttribute('href')); });
+    if (!chips.length) return;
+    it._sync = function () {
+      var line = document.documentElement.scrollTop + (nav ? nav.offsetHeight : 0) + 70;
+      var k = -1;
+      for (var i = 0; i < days.length; i++) {
+        if (days[i] && days[i].getBoundingClientRect().top + document.documentElement.scrollTop <= line) k = i;
+      }
+      chips.forEach(function (c, i) {
+        if (i === k) c.setAttribute('aria-current', 'true');
+        else c.removeAttribute('aria-current');
+      });
+    };
+  });
+  var itins = Array.prototype.slice.call(document.querySelectorAll('.itin'));
+  var baseScroll = onScroll;
+  onScroll = function () { baseScroll(); itins.forEach(function (i) { if (i._sync) i._sync(); }); };
 
   window.addEventListener('scroll', schedule, { passive: true });
   window.addEventListener('resize', function () { measure(); schedule(); });
