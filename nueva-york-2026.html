@@ -52,6 +52,7 @@ body{
   font-family:"Source Serif 4",Georgia,"Times New Roman",serif;
   font-size:17.5px; line-height:1.64; margin:0;
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  overflow-wrap:break-word;
 }
 .wrap{max-width:1000px;margin:0 auto;padding:0 24px 110px}
 h1,h2,h3,h4,h5,.ui,.mono{font-family:Archivo,"Helvetica Neue",Helvetica,Arial,sans-serif}
@@ -144,7 +145,7 @@ section{padding:56px 0 0;scroll-margin-top:calc(var(--nav-h) + 8px)}
 .when.now{background:var(--alert-bg);color:var(--alert);box-shadow:inset 0 0 0 1px currentColor}
 .when.soon{background:var(--warn-bg);color:var(--warn);box-shadow:inset 0 0 0 1px currentColor}
 .when.easy{background:var(--good-bg);color:var(--good);box-shadow:inset 0 0 0 1px currentColor}
-.check .how{grid-column:2/-1;font-size:.93rem;color:var(--ink-soft);margin:0}
+.check .how{grid-column:2/-1;font-size:.93rem;color:var(--ink-soft);margin:0;overflow-wrap:anywhere}
 
 /* ---------- tablas ---------- */
 .tw{overflow-x:auto;margin:24px 0;border:1px solid var(--rule);background:var(--surface)}
@@ -170,7 +171,7 @@ td.n,th.n{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-nu
 .pick{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));margin-top:24px}
 .pickcard{background:var(--surface);border:1px solid var(--rule);border-top:5px solid var(--ln,var(--accent));
   padding:16px 17px;display:flex;flex-direction:column;gap:9px;box-shadow:var(--lift)}
-.pickcard .top{display:flex;align-items:center;gap:9px}
+.pickcard .top{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
 .pickcard .no{font-family:Archivo,sans-serif;font-size:1.5rem;font-weight:700;line-height:1;color:var(--ln,var(--accent));letter-spacing:-.03em}
 .pickcard h4{font-size:1.06rem;letter-spacing:-.01em}
 .pickcard .for{font-size:.93rem;color:var(--ink-soft);margin:0;flex:1}
@@ -239,15 +240,38 @@ ul.plain li{margin-bottom:.42em}
 ul.plain li::marker{color:var(--ink-faint)}
 
 /* ---------- volver arriba ---------- */
-.top{position:fixed;right:18px;bottom:18px;z-index:45;width:46px;height:46px;border-radius:50%;
+.gotop{position:fixed;right:18px;bottom:18px;z-index:45;width:46px;height:46px;border-radius:50%;
   background:var(--ink);color:var(--paper);border:0;cursor:pointer;font-size:1.1rem;line-height:1;
   box-shadow:0 6px 20px -6px rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;
   transform:translateY(8px);display:grid;place-items:center}
-.top.on{opacity:1;pointer-events:auto;transform:none}
+.gotop.on{opacity:1;pointer-events:auto;transform:none}
 
 footer.end{margin-top:70px;border-top:2.5px solid var(--ink);padding-top:22px;font-size:.9rem;color:var(--ink-soft)}
 footer.end p{max-width:74ch}
 
+
+/* ---------- tablas apiladas en móvil ---------- */
+@media (max-width:640px){
+  .tw{border:0;background:transparent;overflow-x:visible}
+  .tw caption{padding:0 0 10px}
+  table[data-stack]{min-width:0;display:block}
+  table[data-stack] thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  table[data-stack] tbody,table[data-stack] tr,table[data-stack] td{display:block}
+  table[data-stack] tr{background:var(--surface);border:1px solid var(--rule);
+    border-left:5px solid var(--dc,var(--rule));padding:13px 15px;margin-bottom:-1px}
+  table[data-stack] tbody tr:nth-child(even) td{background:transparent}
+  table[data-stack] td{border:0;padding:7px 0 0;display:block;font-size:.93rem}
+  table[data-stack] td::before{content:attr(data-l);display:block;font-family:"IBM Plex Mono",monospace;
+    font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:3px}
+  table[data-stack] td:first-child{display:block;font-size:1.04rem;padding:0 0 7px;
+    border-bottom:1px solid var(--rule-soft);margin-bottom:4px}
+  table[data-stack] td:first-child::before{display:none}
+  table[data-stack] td.n{text-align:left;font-size:.98rem;font-weight:600}
+  table[data-stack] caption{display:block;padding:0 0 10px;white-space:normal}
+  .scale{padding:6px 0 0!important}
+  .cal td:first-child{border-left:0}
+  .bar{min-width:0}
+}
 
 /* ---------- filtros del directorio ---------- */
 .filters{margin:22px 0 0;display:grid;gap:9px}
@@ -271,6 +295,8 @@ footer.end p{max-width:74ch}
 .fig svg{display:block;width:100%;max-width:100%;height:auto;color:var(--ink);
   background:var(--surface);border:1px solid var(--rule);padding:14px 10px}
 .sm{font-size:.82rem;color:var(--ink-faint);display:inline-block;margin-top:2px}
+.fig .tall{display:none}
+@media (max-width:640px){.fig .wide{display:none}.fig .tall{display:block}}
 .fig figcaption{font-size:.87rem;color:var(--ink-soft);margin-top:9px;max-width:66ch}
 
 /* ---------- franja de los seis días ---------- */
@@ -342,7 +368,7 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
   letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
 
 @media (max-width:600px){
-  .tl{--spine:56px}
+  .tl{--spine:57px}
   .tl::before{left:calc(16px + var(--spine))}
   .hop{position:static}
 }
@@ -350,12 +376,20 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
 @media (max-width:600px){
   body{font-size:16.5px}
   .wrap{padding:0 16px 110px}
-  .tl li{grid-template-columns:50px 1fr;gap:0 13px}
+  .tl li{grid-template-columns:48px 1fr;gap:0 20px}
   .itin > header,.tl,.dayfoot,.day > h4,.hop{padding-left:16px;padding-right:16px}
   .mastgrid{grid-template-columns:repeat(2,1fr)}
+  .check li{grid-template-columns:auto 1fr}
+  .check li > *,.check li::before{min-width:0}
+  .tl li > *{min-width:0}
+  table[data-stack] td > *{min-width:0}
+  .check .when{grid-column:2;justify-self:start;margin-top:3px}
+  .check .how{grid-column:2}
+  .flab{width:100%}
+  .pickcard .rb{margin-left:0}
 }
 @media print{
-  .navwrap,.top,.skip,.hop{display:none}
+  .navwrap,.gotop,.skip,.hop{display:none}
   body{background:#fff;color:#000;font-size:11pt}
   .itin,.pickcard{box-shadow:none;break-inside:auto}
   .day,.fix,.pickcard{break-inside:avoid}
@@ -588,7 +622,7 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
   <h2>Cómo funciona esta ciudad</h2>
 
   <figure class="fig">
-    <svg viewBox="0 0 880 268" role="img"
+    <svg class="wide" viewBox="0 0 880 268" role="img"
          aria-label="Manhattan de sur a norte con las zonas de cada día, la posición del hotel en Watts Street y el tiempo de metro desde él hasta cada zona."
          xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -661,6 +695,73 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
 
       <text x="60" y="256" font-size="11" fill="currentColor" opacity=".75">20 manzanas norte-sur = 1 milla = unos 20 minutos andando · las manzanas este-oeste son mucho más largas</text>
     </svg>
+    <svg class="tall" viewBox="0 0 340 556" role="img"
+         aria-label="Manhattan de sur a norte: las zonas de cada día, la posición del hotel en Watts Street y el tiempo de metro desde él."
+         xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arv" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,1 L9,5 L0,9 z" fill="currentColor"/>
+        </marker>
+      </defs>
+
+      <text x="8" y="22" font-size="11" font-weight="700" fill="currentColor">SUR</text>
+      <text x="8" y="548" font-size="11" font-weight="700" fill="currentColor">NORTE</text>
+      <line x1="62" y1="34" x2="62" y2="512" stroke="currentColor" stroke-width="1.6" opacity=".45" marker-end="url(#arv)"/>
+
+      <g opacity=".13" fill="currentColor">
+        <rect x="96" y="40"  width="238" height="49"  rx="3"/>
+        <rect x="96" y="93"  width="238" height="64"  rx="3"/>
+        <rect x="96" y="161" width="238" height="45"  rx="3"/>
+        <rect x="96" y="210" width="238" height="56"  rx="3"/>
+        <rect x="96" y="270" width="238" height="117" rx="3"/>
+        <rect x="96" y="391" width="238" height="105" rx="3"/>
+      </g>
+
+      <g fill="currentColor">
+        <text x="106" y="60"  font-size="12" font-weight="700">Financial District</text>
+        <text x="106" y="77"  font-size="10.5" opacity=".72">Días 1 y 6 · 6 min de metro</text>
+
+        <text x="106" y="117" font-size="12" font-weight="700">SoHo · Chinatown</text>
+        <text x="106" y="133" font-size="12" font-weight="700">Lower East Side</text>
+        <text x="106" y="149" font-size="10.5" opacity=".72">Días 1 y 6 · andando</text>
+
+        <text x="106" y="181" font-size="12" font-weight="700">Village · Chelsea</text>
+        <text x="106" y="197" font-size="10.5" opacity=".72">Día 2 · andando</text>
+
+        <text x="106" y="232" font-size="12" font-weight="700">Midtown</text>
+        <text x="106" y="248" font-size="10.5" opacity=".72">Día 3 · 15 min de metro</text>
+
+        <text x="106" y="300" font-size="12" font-weight="700">Central Park</text>
+        <text x="106" y="316" font-size="12" font-weight="700">Upper West · Upper East</text>
+        <text x="106" y="332" font-size="10.5" opacity=".72">Días 3 y 5 · 20 min de metro</text>
+
+        <text x="106" y="418" font-size="12" font-weight="700">Harlem</text>
+        <text x="106" y="434" font-size="12" font-weight="700">Washington Heights</text>
+        <text x="106" y="450" font-size="10.5" opacity=".72">Día 5 · 30 min de metro</text>
+      </g>
+
+      <g stroke="currentColor" stroke-width="1.4" opacity=".5">
+        <line x1="56" y1="161" x2="68" y2="161"/><line x1="56" y1="210" x2="68" y2="210"/>
+        <line x1="56" y1="270" x2="68" y2="270"/><line x1="56" y1="301" x2="68" y2="301"/>
+        <line x1="56" y1="358" x2="68" y2="358"/><line x1="56" y1="391" x2="68" y2="391"/>
+        <line x1="56" y1="428" x2="68" y2="428"/><line x1="56" y1="496" x2="68" y2="496"/>
+      </g>
+      <g font-size="10" fill="currentColor" opacity=".78" text-anchor="end">
+        <text x="50" y="44">Battery</text><text x="50" y="165">c. 14</text><text x="50" y="214">c. 34</text>
+        <text x="50" y="274">c. 59</text><text x="50" y="305">c. 72</text><text x="50" y="362">c. 96</text>
+        <text x="50" y="395">c. 110</text><text x="50" y="432">c. 125</text><text x="50" y="500">c. 155</text>
+      </g>
+
+      <g>
+        <circle cx="62" cy="119" r="7" fill="#C6241D"/>
+        <circle cx="62" cy="119" r="2.6" fill="#fff"/>
+        <line x1="69" y1="119" x2="92" y2="119" stroke="#C6241D" stroke-width="2.2"/>
+        <text x="8" y="106" font-size="11" font-weight="700" fill="#C6241D">SoHo 54</text>
+        <text x="8" y="94" font-size="9.5" fill="currentColor" opacity=".75">54 Watts St</text>
+      </g>
+
+      <text x="8" y="530" font-size="10" fill="currentColor" opacity=".72">20 manzanas = 1 milla = 20 min andando</text>
+    </svg>
     <figcaption>La isla de sur a norte. Estáis casi abajo del todo: al sur solo os queda el Financial District, y todo lo demás son minutos de metro hacia arriba.</figcaption>
   </figure>
 
@@ -732,45 +833,45 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
   <p class="lede">Esto es lo fijo: no depende del itinerario que elijáis, y cualquier plan que hagáis tiene que respetarlo. Es la rejilla sobre la que están construidos los siete itinerarios de más abajo.</p>
 
   <div class="tw">
-    <table class="cal">
+    <table data-stack="1" class="cal">
       <caption>Rejilla fija · 9 – 14 de septiembre de 2026</caption>
       <thead><tr><th>Día</th><th>Lo que condiciona</th><th>Oportunidad del día</th><th class="n">Ocaso</th></tr></thead>
       <tbody>
         <tr data-fecha="2026-09-09" style="--dc:var(--l-l)">
           <td><strong>Mié 9</strong></td>
-          <td>Llegada 12:00. Medio día útil. Jet lag.</td>
-          <td>Yankees–Rockies 19:05 si llegáis enteros. Barrio propio a pie.</td>
-          <td class="n">19:16</td>
+          <td data-l="Lo que condiciona">Llegada 12:00. Medio día útil. Jet lag.</td>
+          <td data-l="Oportunidad del día">Yankees–Rockies 19:05 si llegáis enteros. Barrio propio a pie.</td>
+          <td class="n" data-l="Ocaso">19:16</td>
         </tr>
         <tr data-fecha="2026-09-10" style="--dc:var(--accent)">
           <td><strong>Jue 10</strong></td>
-          <td>Arranca Fashion Week. Cenas más llenas.</td>
-          <td>Yankees–Rockies 19:05, el partido barato. Jazz en el Village.</td>
-          <td class="n">19:14</td>
+          <td data-l="Lo que condiciona">Arranca Fashion Week. Cenas más llenas.</td>
+          <td data-l="Oportunidad del día">Yankees–Rockies 19:05, el partido barato. Jazz en el Village.</td>
+          <td class="n" data-l="Ocaso">19:14</td>
         </tr>
         <tr data-fecha="2026-09-11" style="--dc:var(--l-123)">
           <td><strong>Vie 11</strong></td>
-          <td><strong>25º aniversario del 11-S.</strong> Financial District cerrado y con seguridad reforzada hasta las 15:00. Museo solo familiares.</td>
-          <td>Plaza abierta 15:00 → medianoche. <strong>Tribute in Light</strong> del anochecer al amanecer. Whitney PWYW 19:00-22:00. Yankees–Mets 19:05.</td>
-          <td class="n">19:13</td>
+          <td data-l="Lo que condiciona"><strong>25º aniversario del 11-S.</strong> Financial District cerrado y con seguridad reforzada hasta las 15:00. Museo solo familiares.</td>
+          <td data-l="Oportunidad del día">Plaza abierta 15:00 → medianoche. <strong>Tribute in Light</strong> del anochecer al amanecer. Whitney PWYW 19:00-22:00. Yankees–Mets 19:05.</td>
+          <td class="n" data-l="Ocaso">19:13</td>
         </tr>
         <tr data-fecha="2026-09-12" style="--dc:var(--accent)">
           <td><strong>Sáb 12</strong></td>
-          <td>Sábado de septiembre: la ciudad entera en la calle. Final femenina del US Open.</td>
-          <td><strong>Smorgasburg</strong> 11:00-18:00. Yankees–Mets 13:35. Mercadillos de Williamsburg.</td>
-          <td class="n">19:11</td>
+          <td data-l="Lo que condiciona">Sábado de septiembre: la ciudad entera en la calle. Final femenina del US Open.</td>
+          <td data-l="Oportunidad del día"><strong>Smorgasburg</strong> 11:00-18:00. Yankees–Mets 13:35. Mercadillos de Williamsburg.</td>
+          <td class="n" data-l="Ocaso">19:11</td>
         </tr>
         <tr data-fecha="2026-09-13" style="--dc:var(--l-123)">
           <td><strong>Dom 13</strong></td>
-          <td>Final masculina del US Open, primera hora de la tarde. Giants–Cowboys 20:20 en el MetLife: bares deportivos imposibles de noche.</td>
-          <td><strong>Whitney gratis</strong> (segundo domingo). Guggenheim PWYW 16:00-17:30. Góspel en Harlem. Yankees–Mets 13:35.</td>
-          <td class="n">19:09</td>
+          <td data-l="Lo que condiciona">Final masculina del US Open, primera hora de la tarde. Giants–Cowboys 20:20 en el MetLife: bares deportivos imposibles de noche.</td>
+          <td data-l="Oportunidad del día"><strong>Whitney gratis</strong> (segundo domingo). Guggenheim PWYW 16:00-17:30. Góspel en Harlem. Yankees–Mets 13:35.</td>
+          <td class="n" data-l="Ocaso">19:09</td>
         </tr>
         <tr data-fecha="2026-09-14" style="--dc:var(--l-l)">
           <td><strong>Lun 14</strong></td>
-          <td>Salida del hotel 15:40. Vuelo JFK 20:00. Semana nueva de tarifa de metro.</td>
-          <td>Mañana entera libre. Ferry gratis, Governors Island, última comida en Chinatown.</td>
-          <td class="n">19:07</td>
+          <td data-l="Lo que condiciona">Salida del hotel 15:40. Vuelo JFK 20:00. Semana nueva de tarifa de metro.</td>
+          <td data-l="Oportunidad del día">Mañana entera libre. Ferry gratis, Governors Island, última comida en Chinatown.</td>
+          <td class="n" data-l="Ocaso">19:07</td>
         </tr>
       </tbody>
     </table>
@@ -1791,81 +1892,81 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
   </div>
 
   <div class="tw">
-    <table id="tablacomer">
+    <table data-stack="1" id="tablacomer">
       <caption>Precio por persona antes de impuestos y propina</caption>
       <thead><tr><th>Sitio</th><th>Zona</th><th>Qu&eacute; pedir</th><th class="n">Precio</th></tr></thead>
       <tbody>
-        <tr data-z="sur" data-p="barato"><td><strong>Prince Street Pizza</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Nolita</span></td><td>Nolita</td><td>Porción cuadrada de pepperoni picante, con los bordes curvados y quemados</td><td class="n">5 $</td></tr>
-        <tr data-z="village" data-p="barato"><td><strong>Joe’s Pizza</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Carmine St</span></td><td>Village</td><td>La porción de queso. Es la porción de referencia de la ciudad</td><td class="n">4 $</td></tr>
-        <tr data-z="midtown" data-p="barato"><td><strong>The Halal Guys</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">53 con 6ª Ave</span></td><td>Midtown</td><td>Pollo con arroz del carrito original. Salsa blanca sí, roja con cuidado</td><td class="n">10 $</td></tr>
-        <tr data-z="sur" data-p="medio"><td><strong>Great NY Noodletown</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Bowery con Bayard</span></td><td>Chinatown</td><td>Pato asado y calamares al ajo con sal y pimienta. Abre hasta las 4:00</td><td class="n">20-25 $</td></tr>
-        <tr data-z="sur" data-p="medio"><td><strong>Katz’s Delicatessen</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Houston St</span></td><td>Lower East Side</td><td>Pastrami sobre centeno. Pedid dos entre tres y no perdáis el ticket</td><td class="n">28 $</td></tr>
-        <tr data-z="sur" data-p="medio"><td><strong>Russ &amp; Daughters</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Houston St, desde 1914</span></td><td>Lower East Side</td><td>Bagel con salmón curado y alcaparras. Pedid en el mostrador, no en el café</td><td class="n">18 $</td></tr>
-        <tr data-z="village" data-p="medio"><td><strong>John’s of Bleecker Street</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Village, desde 1929</span></td><td>Village</td><td>Pizza entera de horno de carbón. No venden porciones</td><td class="n">22 $ la pizza</td></tr>
-        <tr data-z="harlem" data-p="medio"><td><strong>Amy Ruth’s</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Harlem</span></td><td>Harlem</td><td>Pollo frito con gofre. Los platos llevan nombres del barrio</td><td class="n">22 $</td></tr>
-        <tr data-z="sur" data-p="barato"><td><strong>Xi’an Famous Foods</strong><br><span class="sm">Chinatown y más</span></td><td>Chinatown</td><td>Fideos de cordero al comino, tirados a mano. Pican de verdad</td><td class="n">12 $</td></tr>
-        <tr data-z="sur" data-p="barato"><td><strong>La Esquina</strong><br><span class="sm">Kenmare St</span></td><td>Nolita</td><td>Tacos en la ventanilla de la esquina. Tres por cabeza</td><td class="n">13 $</td></tr>
-        <tr data-z="sur" data-p="barato"><td><strong>Vanessa’s Dumpling House</strong><br><span class="sm">Chinatown y LES</span></td><td>Chinatown</td><td>Cinco dumplings fritos por cinco dólares</td><td class="n">5-8 $</td></tr>
-        <tr data-z="sur" data-p="medio"><td><strong>Nom Wah Tea Parlor</strong><br><span class="sm">Doyers St, desde 1920</span></td><td>Chinatown</td><td>Dim sum en la callejuela curva de Chinatown</td><td class="n">20 $</td></tr>
-        <tr data-z="sur" data-p="medio"><td><strong>Wo Hop</strong><br><span class="sm">17 Mott St, sótano</span></td><td>Chinatown</td><td>Chino-americano desde 1938. Feo, ruidoso y buenísimo</td><td class="n">18 $</td></tr>
-        <tr data-z="sur" data-p="medio"><td><strong>Lombardi’s</strong><br><span class="sm">Spring St, desde 1905</span></td><td>Nolita</td><td>La primera pizzería con licencia de Estados Unidos</td><td class="n">25 $ la pizza</td></tr>
-        <tr data-z="sur" data-p="medio"><td><strong>Rubirosa</strong><br><span class="sm">Mulberry St</span></td><td>Nolita</td><td>Pizza de masa fina y vodka sauce. Reservad por Resy</td><td class="n">30 $</td></tr>
-        <tr data-z="sur" data-p="medio"><td><strong>Ear Inn</strong><br><span class="sm">Spring con Greenwich, 1817</span></td><td>SoHo</td><td>Una casa de 1817 con el suelo torcido. A cinco minutos del hotel</td><td class="n">18 $</td></tr>
-        <tr data-z="sur" data-p="capricho"><td><strong>Balthazar</strong><br><span class="sm">SoHo</span></td><td>SoHo</td><td>Brasserie francesa de decorado impecable. Desayuno sí, cena no</td><td class="n">25 $ desayuno</td></tr>
-        <tr data-z="sur" data-p="capricho"><td><strong>Frenchette</strong><br><span class="sm">Tribeca</span></td><td>Tribeca</td><td>Si gastáis bien una vez en todo el viaje, aquí</td><td class="n">65 $</td></tr>
-        <tr data-z="sur" data-p="barato"><td><strong>Essex Market</strong><br><span class="sm">Lower East Side</span></td><td>Lower East Side</td><td>Mercado cubierto con puestos de medio mundo. Refugio de lluvia</td><td class="n">12-18 $</td></tr>
-        <tr data-z="sur" data-p="barato"><td><strong>Economy Candy</strong><br><span class="sm">Rivington St, 1937</span></td><td>Lower East Side</td><td>Chuchería de 1937 que funciona como museo</td><td class="n">5 $</td></tr>
-        <tr data-z="village" data-p="medio"><td><strong>Veselka</strong><br><span class="sm">2ª con la 9, 24 horas</span></td><td>East Village</td><td>Pierogi y sopa de remolacha ucranianos desde 1954</td><td class="n">15-20 $</td></tr>
-        <tr data-z="village" data-p="barato"><td><strong>McSorley’s Old Ale House</strong><br><span class="sm">Calle 7, desde 1854</span></td><td>East Village</td><td>Solo cerveza clara u oscura, en pareja de vasos. Suelo de serrín</td><td class="n">9 $</td></tr>
-        <tr data-z="village" data-p="barato"><td><strong>Superiority Burger</strong><br><span class="sm">Calle 9</span></td><td>East Village</td><td>Vegetariano y de los mejores sitios baratos de la ciudad</td><td class="n">14 $</td></tr>
-        <tr data-z="village" data-p="barato"><td><strong>Faicco’s Italian Specialties</strong><br><span class="sm">Bleecker St</span></td><td>Village</td><td>Bocadillo italiano descomunal. Se come en el parque</td><td class="n">12 $</td></tr>
-        <tr data-z="village" data-p="barato"><td><strong>Mamoun’s Falafel</strong><br><span class="sm">MacDougal, desde 1971</span></td><td>Village</td><td>Falafel de seis dólares. Abre hasta muy tarde</td><td class="n">6 $</td></tr>
-        <tr data-z="village" data-p="medio"><td><strong>Corner Bistro</strong><br><span class="sm">Jane St</span></td><td>West Village</td><td>Hamburguesa histórica en un bar de siempre</td><td class="n">12 $</td></tr>
-        <tr data-z="village" data-p="capricho"><td><strong>Via Carota</strong><br><span class="sm">Village</span></td><td>West Village</td><td>No acepta reservas y hay que hacer cola. Merece la pena</td><td class="n">45 $</td></tr>
-        <tr data-z="village" data-p="medio"><td><strong>Arturo’s</strong><br><span class="sm">Houston St</span></td><td>Village</td><td>Pizzería con banda de jazz en directo y sin entrada</td><td class="n">20 $</td></tr>
-        <tr data-z="village" data-p="barato"><td><strong>Los Tacos No. 1</strong><br><span class="sm">Chelsea Market y más</span></td><td>Chelsea</td><td>Adobada y nopal. De los mejores tacos de la ciudad</td><td class="n">4-5 $ la unidad</td></tr>
-        <tr data-z="village" data-p="barato"><td><strong>Chelsea Market</strong><br><span class="sm">Antigua fábrica Nabisco</span></td><td>Chelsea</td><td>Pasillos de ladrillo y puestos. Media hora, no más</td><td class="n">12-18 $</td></tr>
-        <tr data-z="sur" data-p="barato"><td><strong>Morgenstern’s</strong><br><span class="sm">Bowery</span></td><td>Nolita</td><td>Heladería seria. El de aceite de oliva sorprende</td><td class="n">8 $</td></tr>
-        <tr data-z="sur" data-p="capricho"><td><strong>Attaboy</strong><br><span class="sm">Eldridge St</span></td><td>Lower East Side</td><td>Coctelería sin carta: dices lo que te gusta y te lo inventan</td><td class="n">20 $ la copa</td></tr>
-        <tr data-z="midtown" data-p="medio"><td><strong>Koreatown</strong><br><span class="sm">Calle 32 entre 5ª y Broadway</span></td><td>Midtown</td><td>Bibimbap o barbacoa coreana. Jongro BBQ, Miss Korea</td><td class="n">18-25 $</td></tr>
-        <tr data-z="midtown" data-p="barato"><td><strong>Grand Central Market</strong><br><span class="sm">Dentro de la estación</span></td><td>Midtown</td><td>Desayuno decente sin salir de Grand Central</td><td class="n">10 $</td></tr>
-        <tr data-z="midtown" data-p="medio"><td><strong>Totto Ramen</strong><br><span class="sm">Hell’s Kitchen</span></td><td>Hell’s Kitchen</td><td>Ramen en un local diminuto. Cola de veinte minutos</td><td class="n">18 $</td></tr>
-        <tr data-z="midtown" data-p="barato"><td><strong>Empanada Mama</strong><br><span class="sm">Hell’s Kitchen</span></td><td>Hell’s Kitchen</td><td>Veinte empanadas distintas antes del teatro</td><td class="n">10 $</td></tr>
-        <tr data-z="midtown" data-p="capricho"><td><strong>Keens Steakhouse</strong><br><span class="sm">Desde 1885</span></td><td>Midtown</td><td>El mutton chop, y a mediodía sale bien de precio</td><td class="n">60 $</td></tr>
-        <tr data-z="midtown" data-p="medio"><td><strong>Ellen’s Stardust Diner</strong><br><span class="sm">Times Square</span></td><td>Midtown</td><td>Camareros que cantan Broadway. Turístico y divertido</td><td class="n">30 $</td></tr>
-        <tr data-z="harlem" data-p="medio"><td><strong>Sylvia’s</strong><br><span class="sm">Harlem, desde 1962</span></td><td>Harlem</td><td>Soul food. Brunch dominical con góspel en directo</td><td class="n">28 $</td></tr>
-        <tr data-z="harlem" data-p="medio"><td><strong>Charles’ Pan Fried Chicken</strong><br><span class="sm">Harlem</span></td><td>Harlem</td><td>Sin decorado y con el mejor pollo frito de la ciudad</td><td class="n">20 $</td></tr>
-        <tr data-z="harlem" data-p="barato"><td><strong>Levain Bakery</strong><br><span class="sm">Upper West Side</span></td><td>Upper West</td><td>La galleta de 170 gramos. Pedid una entre dos</td><td class="n">6 $</td></tr>
-        <tr data-z="harlem" data-p="barato"><td><strong>Zabar’s</strong><br><span class="sm">80 con Broadway, 1934</span></td><td>Upper West</td><td>Colmado judío. Entrad aunque no compréis nada</td><td class="n">8 $</td></tr>
-        <tr data-z="harlem" data-p="barato"><td><strong>Gray’s Papaya</strong><br><span class="sm">72 con Broadway</span></td><td>Upper West</td><td>Perrito legendario con zumo de papaya</td><td class="n">3 $</td></tr>
-        <tr data-z="harlem" data-p="barato"><td><strong>Absolute Bagels</strong><br><span class="sm">Upper West Side</span></td><td>Upper West</td><td>Bagel hervido antes de hornear, como debe ser</td><td class="n">6 $</td></tr>
-        <tr data-z="harlem" data-p="medio"><td><strong>Barney Greengrass</strong><br><span class="sm">Upper West, 1908</span></td><td>Upper West</td><td>El desayuno judío del Upper West hecho bien</td><td class="n">24 $</td></tr>
-        <tr data-z="harlem" data-p="barato"><td><strong>Malecón</strong><br><span class="sm">Broadway con la 175</span></td><td>Washington Heights</td><td>Pollo asado dominicano legendario</td><td class="n">14 $</td></tr>
-        <tr data-z="brooklyn" data-p="medio"><td><strong>Smorgasburg</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Sábado 12, Williamsburg</span></td><td>Williamsburg</td><td>Setenta puestos. Un plato cada uno y todo compartido</td><td class="n">20-25 $</td></tr>
-        <tr data-z="brooklyn" data-p="medio"><td><strong>Roberta’s</strong><br><span class="sm">Bushwick</span></td><td>Bushwick</td><td>Pizza de leña en un almacén con patio y caravanas</td><td class="n">20 $</td></tr>
-        <tr data-z="brooklyn" data-p="medio"><td><strong>Radegast Hall</strong><br><span class="sm">Williamsburg</span></td><td>Williamsburg</td><td>Cervecería austríaca con mesas corridas y banda</td><td class="n">25 $</td></tr>
-        <tr data-z="brooklyn" data-p="medio"><td><strong>Time Out Market</strong><br><span class="sm">DUMBO</span></td><td>DUMBO</td><td>Food hall con la vista de postal desde dentro</td><td class="n">18 $</td></tr>
-        <tr data-z="brooklyn" data-p="capricho"><td><strong>Westlight</strong><br><span class="sm">Azotea del Wythe Hotel</span></td><td>Williamsburg</td><td>Una copa y la mejor vista de Manhattan desde el otro lado</td><td class="n">22 $ la copa</td></tr>
-        <tr data-z="brooklyn" data-p="capricho"><td><strong>Peter Luger</strong><br><span class="sm">Williamsburg</span></td><td>Williamsburg</td><td>El chuletón mítico. Descartadlo conscientemente</td><td class="n">110 $+</td></tr>
-        <tr data-z="brooklyn" data-p="medio"><td><strong>Bernie’s</strong><br><span class="sm">Greenpoint</span></td><td>Greenpoint</td><td>Comida americana de tasca con raciones enormes</td><td class="n">22 $</td></tr>
-        <tr data-z="brooklyn" data-p="medio"><td><strong>L&amp;B Spumoni Gardens</strong><br><span class="sm">Bensonhurst, 1939</span></td><td>Bensonhurst</td><td>La pizza cuadrada siciliana canónica</td><td class="n">15 $</td></tr>
-        <tr data-z="brooklyn" data-p="medio"><td><strong>Totonno’s</strong><br><span class="sm">Coney Island, 1924</span></td><td>Coney Island</td><td>Horno de carbón. Mejor que casi todas las de Manhattan</td><td class="n">22 $</td></tr>
-        <tr data-z="brooklyn" data-p="barato"><td><strong>Nathan’s Famous</strong><br><span class="sm">Coney Island, 1916</span></td><td>Coney Island</td><td>El perrito original, en el sitio donde se inventó</td><td class="n">6 $</td></tr>
-        <tr data-z="brooklyn" data-p="barato"><td><strong>Ali’s Roti Shop</strong><br><span class="sm">Crown Heights</span></td><td>Crown Heights</td><td>Roti trinitense y doubles. Caribe puro</td><td class="n">12 $</td></tr>
-        <tr data-z="brooklyn" data-p="barato"><td><strong>Tacos Matamoros</strong><br><span class="sm">5ª Av, Sunset Park</span></td><td>Sunset Park</td><td>Tacos mexicanos de barrio, sin concesiones</td><td class="n">10 $</td></tr>
-        <tr data-z="brooklyn" data-p="medio"><td><strong>Industry City</strong><br><span class="sm">Sunset Park</span></td><td>Sunset Park</td><td>Naves portuarias con food hall y patios cubiertos</td><td class="n">12-18 $</td></tr>
-        <tr data-z="brooklyn" data-p="medio"><td><strong>Defonte’s</strong><br><span class="sm">Red Hook, desde 1922</span></td><td>Red Hook</td><td>Bocadillos italianos enormes en el barrio sin metro</td><td class="n">16 $</td></tr>
-        <tr data-z="brooklyn" data-p="barato"><td><strong>Steve’s Key Lime Pie</strong><br><span class="sm">Red Hook</span></td><td>Red Hook</td><td>Tarta de lima en un cobertizo al final del muelle</td><td class="n">7 $</td></tr>
-        <tr data-z="queens" data-p="barato"><td><strong>New World Mall food court</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Flushing</span></td><td>Flushing</td><td>Veinte puestos regionales chinos. Pedid de cuatro distintos</td><td class="n">8-12 $</td></tr>
-        <tr data-z="queens" data-p="barato"><td><strong>Lhasa Fast Food</strong><br><span class="sm">Jackson Heights</span></td><td>Jackson Heights</td><td>Momos tibetanos detrás de una tienda de móviles</td><td class="n">8 $</td></tr>
-        <tr data-z="queens" data-p="barato"><td><strong>Roosevelt Avenue</strong><br><span class="sm">Bajo el tren elevado</span></td><td>Jackson Heights</td><td>Arepas, llapingachos y tacos de canasta de puesto en puesto</td><td class="n">4-6 $ parada</td></tr>
-        <tr data-z="queens" data-p="medio"><td><strong>Taverna Kyclades</strong><br><span class="sm">Astoria</span></td><td>Astoria</td><td>Pescado griego a la brasa</td><td class="n">25-30 $</td></tr>
-        <tr data-z="queens" data-p="medio"><td><strong>Bohemian Hall</strong><br><span class="sm">Astoria, desde 1910</span></td><td>Astoria</td><td>La cervecería al aire libre más antigua de la ciudad</td><td class="n">20 $</td></tr>
-        <tr data-z="queens" data-p="capricho"><td><strong>Casa Enrique</strong><br><span class="sm">Long Island City</span></td><td>Long Island City</td><td>Mexicano con estrella. A mediodía sale a cuenta</td><td class="n">30 $</td></tr>
-        <tr data-z="queens" data-p="medio"><td><strong>Arthur Avenue Retail Market</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">El Bronx</span></td><td>Bronx</td><td>Charcuterías, pasta fresca y un señor liando puros</td><td class="n">15-20 $</td></tr>
-        <tr data-z="queens" data-p="medio"><td><strong>Zero Otto Nove</strong><br><span class="sm">Arthur Ave, Bronx</span></td><td>Bronx</td><td>Pizza napolitana de verdad en la Little Italy real</td><td class="n">20 $</td></tr>
-        <tr data-z="queens" data-p="barato"><td><strong>Madonia Brothers</strong><br><span class="sm">Arthur Ave, Bronx</span></td><td>Bronx</td><td>Cannoli rellenos al momento para el camino</td><td class="n">5 $</td></tr>
-        <tr data-z="sur" data-p="barato"><td><strong>Bodega de esquina</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">En todas partes</span></td><td>Toda la ciudad</td><td>Bacon, egg &amp; cheese en papel de aluminio. El desayuno real</td><td class="n">6-8 $</td></tr>
+        <tr data-z="sur" data-p="barato"><td><strong>Prince Street Pizza</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Nolita</span></td><td data-l="Zona">Nolita</td><td data-l="Qu&eacute; pedir">Porción cuadrada de pepperoni picante, con los bordes curvados y quemados</td><td class="n" data-l="Precio">5 $</td></tr>
+        <tr data-z="village" data-p="barato"><td><strong>Joe’s Pizza</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Carmine St</span></td><td data-l="Zona">Village</td><td data-l="Qu&eacute; pedir">La porción de queso. Es la porción de referencia de la ciudad</td><td class="n" data-l="Precio">4 $</td></tr>
+        <tr data-z="midtown" data-p="barato"><td><strong>The Halal Guys</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">53 con 6ª Ave</span></td><td data-l="Zona">Midtown</td><td data-l="Qu&eacute; pedir">Pollo con arroz del carrito original. Salsa blanca sí, roja con cuidado</td><td class="n" data-l="Precio">10 $</td></tr>
+        <tr data-z="sur" data-p="medio"><td><strong>Great NY Noodletown</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Bowery con Bayard</span></td><td data-l="Zona">Chinatown</td><td data-l="Qu&eacute; pedir">Pato asado y calamares al ajo con sal y pimienta. Abre hasta las 4:00</td><td class="n" data-l="Precio">20-25 $</td></tr>
+        <tr data-z="sur" data-p="medio"><td><strong>Katz’s Delicatessen</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Houston St</span></td><td data-l="Zona">Lower East Side</td><td data-l="Qu&eacute; pedir">Pastrami sobre centeno. Pedid dos entre tres y no perdáis el ticket</td><td class="n" data-l="Precio">28 $</td></tr>
+        <tr data-z="sur" data-p="medio"><td><strong>Russ &amp; Daughters</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Houston St, desde 1914</span></td><td data-l="Zona">Lower East Side</td><td data-l="Qu&eacute; pedir">Bagel con salmón curado y alcaparras. Pedid en el mostrador, no en el café</td><td class="n" data-l="Precio">18 $</td></tr>
+        <tr data-z="village" data-p="medio"><td><strong>John’s of Bleecker Street</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Village, desde 1929</span></td><td data-l="Zona">Village</td><td data-l="Qu&eacute; pedir">Pizza entera de horno de carbón. No venden porciones</td><td class="n" data-l="Precio">22 $ la pizza</td></tr>
+        <tr data-z="harlem" data-p="medio"><td><strong>Amy Ruth’s</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Harlem</span></td><td data-l="Zona">Harlem</td><td data-l="Qu&eacute; pedir">Pollo frito con gofre. Los platos llevan nombres del barrio</td><td class="n" data-l="Precio">22 $</td></tr>
+        <tr data-z="sur" data-p="barato"><td><strong>Xi’an Famous Foods</strong><br><span class="sm">Chinatown y más</span></td><td data-l="Zona">Chinatown</td><td data-l="Qu&eacute; pedir">Fideos de cordero al comino, tirados a mano. Pican de verdad</td><td class="n" data-l="Precio">12 $</td></tr>
+        <tr data-z="sur" data-p="barato"><td><strong>La Esquina</strong><br><span class="sm">Kenmare St</span></td><td data-l="Zona">Nolita</td><td data-l="Qu&eacute; pedir">Tacos en la ventanilla de la esquina. Tres por cabeza</td><td class="n" data-l="Precio">13 $</td></tr>
+        <tr data-z="sur" data-p="barato"><td><strong>Vanessa’s Dumpling House</strong><br><span class="sm">Chinatown y LES</span></td><td data-l="Zona">Chinatown</td><td data-l="Qu&eacute; pedir">Cinco dumplings fritos por cinco dólares</td><td class="n" data-l="Precio">5-8 $</td></tr>
+        <tr data-z="sur" data-p="medio"><td><strong>Nom Wah Tea Parlor</strong><br><span class="sm">Doyers St, desde 1920</span></td><td data-l="Zona">Chinatown</td><td data-l="Qu&eacute; pedir">Dim sum en la callejuela curva de Chinatown</td><td class="n" data-l="Precio">20 $</td></tr>
+        <tr data-z="sur" data-p="medio"><td><strong>Wo Hop</strong><br><span class="sm">17 Mott St, sótano</span></td><td data-l="Zona">Chinatown</td><td data-l="Qu&eacute; pedir">Chino-americano desde 1938. Feo, ruidoso y buenísimo</td><td class="n" data-l="Precio">18 $</td></tr>
+        <tr data-z="sur" data-p="medio"><td><strong>Lombardi’s</strong><br><span class="sm">Spring St, desde 1905</span></td><td data-l="Zona">Nolita</td><td data-l="Qu&eacute; pedir">La primera pizzería con licencia de Estados Unidos</td><td class="n" data-l="Precio">25 $ la pizza</td></tr>
+        <tr data-z="sur" data-p="medio"><td><strong>Rubirosa</strong><br><span class="sm">Mulberry St</span></td><td data-l="Zona">Nolita</td><td data-l="Qu&eacute; pedir">Pizza de masa fina y vodka sauce. Reservad por Resy</td><td class="n" data-l="Precio">30 $</td></tr>
+        <tr data-z="sur" data-p="medio"><td><strong>Ear Inn</strong><br><span class="sm">Spring con Greenwich, 1817</span></td><td data-l="Zona">SoHo</td><td data-l="Qu&eacute; pedir">Una casa de 1817 con el suelo torcido. A cinco minutos del hotel</td><td class="n" data-l="Precio">18 $</td></tr>
+        <tr data-z="sur" data-p="capricho"><td><strong>Balthazar</strong><br><span class="sm">SoHo</span></td><td data-l="Zona">SoHo</td><td data-l="Qu&eacute; pedir">Brasserie francesa de decorado impecable. Desayuno sí, cena no</td><td class="n" data-l="Precio">25 $ desayuno</td></tr>
+        <tr data-z="sur" data-p="capricho"><td><strong>Frenchette</strong><br><span class="sm">Tribeca</span></td><td data-l="Zona">Tribeca</td><td data-l="Qu&eacute; pedir">Si gastáis bien una vez en todo el viaje, aquí</td><td class="n" data-l="Precio">65 $</td></tr>
+        <tr data-z="sur" data-p="barato"><td><strong>Essex Market</strong><br><span class="sm">Lower East Side</span></td><td data-l="Zona">Lower East Side</td><td data-l="Qu&eacute; pedir">Mercado cubierto con puestos de medio mundo. Refugio de lluvia</td><td class="n" data-l="Precio">12-18 $</td></tr>
+        <tr data-z="sur" data-p="barato"><td><strong>Economy Candy</strong><br><span class="sm">Rivington St, 1937</span></td><td data-l="Zona">Lower East Side</td><td data-l="Qu&eacute; pedir">Chuchería de 1937 que funciona como museo</td><td class="n" data-l="Precio">5 $</td></tr>
+        <tr data-z="village" data-p="medio"><td><strong>Veselka</strong><br><span class="sm">2ª con la 9, 24 horas</span></td><td data-l="Zona">East Village</td><td data-l="Qu&eacute; pedir">Pierogi y sopa de remolacha ucranianos desde 1954</td><td class="n" data-l="Precio">15-20 $</td></tr>
+        <tr data-z="village" data-p="barato"><td><strong>McSorley’s Old Ale House</strong><br><span class="sm">Calle 7, desde 1854</span></td><td data-l="Zona">East Village</td><td data-l="Qu&eacute; pedir">Solo cerveza clara u oscura, en pareja de vasos. Suelo de serrín</td><td class="n" data-l="Precio">9 $</td></tr>
+        <tr data-z="village" data-p="barato"><td><strong>Superiority Burger</strong><br><span class="sm">Calle 9</span></td><td data-l="Zona">East Village</td><td data-l="Qu&eacute; pedir">Vegetariano y de los mejores sitios baratos de la ciudad</td><td class="n" data-l="Precio">14 $</td></tr>
+        <tr data-z="village" data-p="barato"><td><strong>Faicco’s Italian Specialties</strong><br><span class="sm">Bleecker St</span></td><td data-l="Zona">Village</td><td data-l="Qu&eacute; pedir">Bocadillo italiano descomunal. Se come en el parque</td><td class="n" data-l="Precio">12 $</td></tr>
+        <tr data-z="village" data-p="barato"><td><strong>Mamoun’s Falafel</strong><br><span class="sm">MacDougal, desde 1971</span></td><td data-l="Zona">Village</td><td data-l="Qu&eacute; pedir">Falafel de seis dólares. Abre hasta muy tarde</td><td class="n" data-l="Precio">6 $</td></tr>
+        <tr data-z="village" data-p="medio"><td><strong>Corner Bistro</strong><br><span class="sm">Jane St</span></td><td data-l="Zona">West Village</td><td data-l="Qu&eacute; pedir">Hamburguesa histórica en un bar de siempre</td><td class="n" data-l="Precio">12 $</td></tr>
+        <tr data-z="village" data-p="capricho"><td><strong>Via Carota</strong><br><span class="sm">Village</span></td><td data-l="Zona">West Village</td><td data-l="Qu&eacute; pedir">No acepta reservas y hay que hacer cola. Merece la pena</td><td class="n" data-l="Precio">45 $</td></tr>
+        <tr data-z="village" data-p="medio"><td><strong>Arturo’s</strong><br><span class="sm">Houston St</span></td><td data-l="Zona">Village</td><td data-l="Qu&eacute; pedir">Pizzería con banda de jazz en directo y sin entrada</td><td class="n" data-l="Precio">20 $</td></tr>
+        <tr data-z="village" data-p="barato"><td><strong>Los Tacos No. 1</strong><br><span class="sm">Chelsea Market y más</span></td><td data-l="Zona">Chelsea</td><td data-l="Qu&eacute; pedir">Adobada y nopal. De los mejores tacos de la ciudad</td><td class="n" data-l="Precio">4-5 $ la unidad</td></tr>
+        <tr data-z="village" data-p="barato"><td><strong>Chelsea Market</strong><br><span class="sm">Antigua fábrica Nabisco</span></td><td data-l="Zona">Chelsea</td><td data-l="Qu&eacute; pedir">Pasillos de ladrillo y puestos. Media hora, no más</td><td class="n" data-l="Precio">12-18 $</td></tr>
+        <tr data-z="sur" data-p="barato"><td><strong>Morgenstern’s</strong><br><span class="sm">Bowery</span></td><td data-l="Zona">Nolita</td><td data-l="Qu&eacute; pedir">Heladería seria. El de aceite de oliva sorprende</td><td class="n" data-l="Precio">8 $</td></tr>
+        <tr data-z="sur" data-p="capricho"><td><strong>Attaboy</strong><br><span class="sm">Eldridge St</span></td><td data-l="Zona">Lower East Side</td><td data-l="Qu&eacute; pedir">Coctelería sin carta: dices lo que te gusta y te lo inventan</td><td class="n" data-l="Precio">20 $ la copa</td></tr>
+        <tr data-z="midtown" data-p="medio"><td><strong>Koreatown</strong><br><span class="sm">Calle 32 entre 5ª y Broadway</span></td><td data-l="Zona">Midtown</td><td data-l="Qu&eacute; pedir">Bibimbap o barbacoa coreana. Jongro BBQ, Miss Korea</td><td class="n" data-l="Precio">18-25 $</td></tr>
+        <tr data-z="midtown" data-p="barato"><td><strong>Grand Central Market</strong><br><span class="sm">Dentro de la estación</span></td><td data-l="Zona">Midtown</td><td data-l="Qu&eacute; pedir">Desayuno decente sin salir de Grand Central</td><td class="n" data-l="Precio">10 $</td></tr>
+        <tr data-z="midtown" data-p="medio"><td><strong>Totto Ramen</strong><br><span class="sm">Hell’s Kitchen</span></td><td data-l="Zona">Hell’s Kitchen</td><td data-l="Qu&eacute; pedir">Ramen en un local diminuto. Cola de veinte minutos</td><td class="n" data-l="Precio">18 $</td></tr>
+        <tr data-z="midtown" data-p="barato"><td><strong>Empanada Mama</strong><br><span class="sm">Hell’s Kitchen</span></td><td data-l="Zona">Hell’s Kitchen</td><td data-l="Qu&eacute; pedir">Veinte empanadas distintas antes del teatro</td><td class="n" data-l="Precio">10 $</td></tr>
+        <tr data-z="midtown" data-p="capricho"><td><strong>Keens Steakhouse</strong><br><span class="sm">Desde 1885</span></td><td data-l="Zona">Midtown</td><td data-l="Qu&eacute; pedir">El mutton chop, y a mediodía sale bien de precio</td><td class="n" data-l="Precio">60 $</td></tr>
+        <tr data-z="midtown" data-p="medio"><td><strong>Ellen’s Stardust Diner</strong><br><span class="sm">Times Square</span></td><td data-l="Zona">Midtown</td><td data-l="Qu&eacute; pedir">Camareros que cantan Broadway. Turístico y divertido</td><td class="n" data-l="Precio">30 $</td></tr>
+        <tr data-z="harlem" data-p="medio"><td><strong>Sylvia’s</strong><br><span class="sm">Harlem, desde 1962</span></td><td data-l="Zona">Harlem</td><td data-l="Qu&eacute; pedir">Soul food. Brunch dominical con góspel en directo</td><td class="n" data-l="Precio">28 $</td></tr>
+        <tr data-z="harlem" data-p="medio"><td><strong>Charles’ Pan Fried Chicken</strong><br><span class="sm">Harlem</span></td><td data-l="Zona">Harlem</td><td data-l="Qu&eacute; pedir">Sin decorado y con el mejor pollo frito de la ciudad</td><td class="n" data-l="Precio">20 $</td></tr>
+        <tr data-z="harlem" data-p="barato"><td><strong>Levain Bakery</strong><br><span class="sm">Upper West Side</span></td><td data-l="Zona">Upper West</td><td data-l="Qu&eacute; pedir">La galleta de 170 gramos. Pedid una entre dos</td><td class="n" data-l="Precio">6 $</td></tr>
+        <tr data-z="harlem" data-p="barato"><td><strong>Zabar’s</strong><br><span class="sm">80 con Broadway, 1934</span></td><td data-l="Zona">Upper West</td><td data-l="Qu&eacute; pedir">Colmado judío. Entrad aunque no compréis nada</td><td class="n" data-l="Precio">8 $</td></tr>
+        <tr data-z="harlem" data-p="barato"><td><strong>Gray’s Papaya</strong><br><span class="sm">72 con Broadway</span></td><td data-l="Zona">Upper West</td><td data-l="Qu&eacute; pedir">Perrito legendario con zumo de papaya</td><td class="n" data-l="Precio">3 $</td></tr>
+        <tr data-z="harlem" data-p="barato"><td><strong>Absolute Bagels</strong><br><span class="sm">Upper West Side</span></td><td data-l="Zona">Upper West</td><td data-l="Qu&eacute; pedir">Bagel hervido antes de hornear, como debe ser</td><td class="n" data-l="Precio">6 $</td></tr>
+        <tr data-z="harlem" data-p="medio"><td><strong>Barney Greengrass</strong><br><span class="sm">Upper West, 1908</span></td><td data-l="Zona">Upper West</td><td data-l="Qu&eacute; pedir">El desayuno judío del Upper West hecho bien</td><td class="n" data-l="Precio">24 $</td></tr>
+        <tr data-z="harlem" data-p="barato"><td><strong>Malecón</strong><br><span class="sm">Broadway con la 175</span></td><td data-l="Zona">Washington Heights</td><td data-l="Qu&eacute; pedir">Pollo asado dominicano legendario</td><td class="n" data-l="Precio">14 $</td></tr>
+        <tr data-z="brooklyn" data-p="medio"><td><strong>Smorgasburg</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Sábado 12, Williamsburg</span></td><td data-l="Zona">Williamsburg</td><td data-l="Qu&eacute; pedir">Setenta puestos. Un plato cada uno y todo compartido</td><td class="n" data-l="Precio">20-25 $</td></tr>
+        <tr data-z="brooklyn" data-p="medio"><td><strong>Roberta’s</strong><br><span class="sm">Bushwick</span></td><td data-l="Zona">Bushwick</td><td data-l="Qu&eacute; pedir">Pizza de leña en un almacén con patio y caravanas</td><td class="n" data-l="Precio">20 $</td></tr>
+        <tr data-z="brooklyn" data-p="medio"><td><strong>Radegast Hall</strong><br><span class="sm">Williamsburg</span></td><td data-l="Zona">Williamsburg</td><td data-l="Qu&eacute; pedir">Cervecería austríaca con mesas corridas y banda</td><td class="n" data-l="Precio">25 $</td></tr>
+        <tr data-z="brooklyn" data-p="medio"><td><strong>Time Out Market</strong><br><span class="sm">DUMBO</span></td><td data-l="Zona">DUMBO</td><td data-l="Qu&eacute; pedir">Food hall con la vista de postal desde dentro</td><td class="n" data-l="Precio">18 $</td></tr>
+        <tr data-z="brooklyn" data-p="capricho"><td><strong>Westlight</strong><br><span class="sm">Azotea del Wythe Hotel</span></td><td data-l="Zona">Williamsburg</td><td data-l="Qu&eacute; pedir">Una copa y la mejor vista de Manhattan desde el otro lado</td><td class="n" data-l="Precio">22 $ la copa</td></tr>
+        <tr data-z="brooklyn" data-p="capricho"><td><strong>Peter Luger</strong><br><span class="sm">Williamsburg</span></td><td data-l="Zona">Williamsburg</td><td data-l="Qu&eacute; pedir">El chuletón mítico. Descartadlo conscientemente</td><td class="n" data-l="Precio">110 $+</td></tr>
+        <tr data-z="brooklyn" data-p="medio"><td><strong>Bernie’s</strong><br><span class="sm">Greenpoint</span></td><td data-l="Zona">Greenpoint</td><td data-l="Qu&eacute; pedir">Comida americana de tasca con raciones enormes</td><td class="n" data-l="Precio">22 $</td></tr>
+        <tr data-z="brooklyn" data-p="medio"><td><strong>L&amp;B Spumoni Gardens</strong><br><span class="sm">Bensonhurst, 1939</span></td><td data-l="Zona">Bensonhurst</td><td data-l="Qu&eacute; pedir">La pizza cuadrada siciliana canónica</td><td class="n" data-l="Precio">15 $</td></tr>
+        <tr data-z="brooklyn" data-p="medio"><td><strong>Totonno’s</strong><br><span class="sm">Coney Island, 1924</span></td><td data-l="Zona">Coney Island</td><td data-l="Qu&eacute; pedir">Horno de carbón. Mejor que casi todas las de Manhattan</td><td class="n" data-l="Precio">22 $</td></tr>
+        <tr data-z="brooklyn" data-p="barato"><td><strong>Nathan’s Famous</strong><br><span class="sm">Coney Island, 1916</span></td><td data-l="Zona">Coney Island</td><td data-l="Qu&eacute; pedir">El perrito original, en el sitio donde se inventó</td><td class="n" data-l="Precio">6 $</td></tr>
+        <tr data-z="brooklyn" data-p="barato"><td><strong>Ali’s Roti Shop</strong><br><span class="sm">Crown Heights</span></td><td data-l="Zona">Crown Heights</td><td data-l="Qu&eacute; pedir">Roti trinitense y doubles. Caribe puro</td><td class="n" data-l="Precio">12 $</td></tr>
+        <tr data-z="brooklyn" data-p="barato"><td><strong>Tacos Matamoros</strong><br><span class="sm">5ª Av, Sunset Park</span></td><td data-l="Zona">Sunset Park</td><td data-l="Qu&eacute; pedir">Tacos mexicanos de barrio, sin concesiones</td><td class="n" data-l="Precio">10 $</td></tr>
+        <tr data-z="brooklyn" data-p="medio"><td><strong>Industry City</strong><br><span class="sm">Sunset Park</span></td><td data-l="Zona">Sunset Park</td><td data-l="Qu&eacute; pedir">Naves portuarias con food hall y patios cubiertos</td><td class="n" data-l="Precio">12-18 $</td></tr>
+        <tr data-z="brooklyn" data-p="medio"><td><strong>Defonte’s</strong><br><span class="sm">Red Hook, desde 1922</span></td><td data-l="Zona">Red Hook</td><td data-l="Qu&eacute; pedir">Bocadillos italianos enormes en el barrio sin metro</td><td class="n" data-l="Precio">16 $</td></tr>
+        <tr data-z="brooklyn" data-p="barato"><td><strong>Steve’s Key Lime Pie</strong><br><span class="sm">Red Hook</span></td><td data-l="Zona">Red Hook</td><td data-l="Qu&eacute; pedir">Tarta de lima en un cobertizo al final del muelle</td><td class="n" data-l="Precio">7 $</td></tr>
+        <tr data-z="queens" data-p="barato"><td><strong>New World Mall food court</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">Flushing</span></td><td data-l="Zona">Flushing</td><td data-l="Qu&eacute; pedir">Veinte puestos regionales chinos. Pedid de cuatro distintos</td><td class="n" data-l="Precio">8-12 $</td></tr>
+        <tr data-z="queens" data-p="barato"><td><strong>Lhasa Fast Food</strong><br><span class="sm">Jackson Heights</span></td><td data-l="Zona">Jackson Heights</td><td data-l="Qu&eacute; pedir">Momos tibetanos detrás de una tienda de móviles</td><td class="n" data-l="Precio">8 $</td></tr>
+        <tr data-z="queens" data-p="barato"><td><strong>Roosevelt Avenue</strong><br><span class="sm">Bajo el tren elevado</span></td><td data-l="Zona">Jackson Heights</td><td data-l="Qu&eacute; pedir">Arepas, llapingachos y tacos de canasta de puesto en puesto</td><td class="n" data-l="Precio">4-6 $ parada</td></tr>
+        <tr data-z="queens" data-p="medio"><td><strong>Taverna Kyclades</strong><br><span class="sm">Astoria</span></td><td data-l="Zona">Astoria</td><td data-l="Qu&eacute; pedir">Pescado griego a la brasa</td><td class="n" data-l="Precio">25-30 $</td></tr>
+        <tr data-z="queens" data-p="medio"><td><strong>Bohemian Hall</strong><br><span class="sm">Astoria, desde 1910</span></td><td data-l="Zona">Astoria</td><td data-l="Qu&eacute; pedir">La cervecería al aire libre más antigua de la ciudad</td><td class="n" data-l="Precio">20 $</td></tr>
+        <tr data-z="queens" data-p="capricho"><td><strong>Casa Enrique</strong><br><span class="sm">Long Island City</span></td><td data-l="Zona">Long Island City</td><td data-l="Qu&eacute; pedir">Mexicano con estrella. A mediodía sale a cuenta</td><td class="n" data-l="Precio">30 $</td></tr>
+        <tr data-z="queens" data-p="medio"><td><strong>Arthur Avenue Retail Market</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">El Bronx</span></td><td data-l="Zona">Bronx</td><td data-l="Qu&eacute; pedir">Charcuterías, pasta fresca y un señor liando puros</td><td class="n" data-l="Precio">15-20 $</td></tr>
+        <tr data-z="queens" data-p="medio"><td><strong>Zero Otto Nove</strong><br><span class="sm">Arthur Ave, Bronx</span></td><td data-l="Zona">Bronx</td><td data-l="Qu&eacute; pedir">Pizza napolitana de verdad en la Little Italy real</td><td class="n" data-l="Precio">20 $</td></tr>
+        <tr data-z="queens" data-p="barato"><td><strong>Madonia Brothers</strong><br><span class="sm">Arthur Ave, Bronx</span></td><td data-l="Zona">Bronx</td><td data-l="Qu&eacute; pedir">Cannoli rellenos al momento para el camino</td><td class="n" data-l="Precio">5 $</td></tr>
+        <tr data-z="sur" data-p="barato"><td><strong>Bodega de esquina</strong> <span class="canon" title="Imprescindible">&#9733;</span><br><span class="sm">En todas partes</span></td><td data-l="Zona">Toda la ciudad</td><td data-l="Qu&eacute; pedir">Bacon, egg &amp; cheese en papel de aluminio. El desayuno real</td><td class="n" data-l="Precio">6-8 $</td></tr>
       </tbody>
     </table>
     <p class="nores" id="nada" hidden>No hay nada con esos filtros. Probad a quitar uno.</p>
@@ -1888,76 +1989,76 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
   <p class="lede">Todo lo que se paga en esta guía, en una tabla, con lo que cuesta y cuándo sale gratis. La regla de fondo: no habéis venido a hacer museos, la ciudad es el plan. Pero hay cinco o seis cosas que valen cada dólar y conviene saber cuáles son.</p>
 
   <div class="tw">
-    <table>
+    <table data-stack="1">
       <caption>Precios por persona · verificadlo en la web oficial antes de ir</caption>
       <thead><tr><th>Qué</th><th>Cuándo sale gratis o más barato</th><th class="n">Precio</th><th>Veredicto</th></tr></thead>
       <tbody>
         <tr><td><strong>Whitney Museum</strong><br><span class="sm">Arte americano del XX, Meatpacking</span></td>
-            <td><strong>Gratis el domingo 13</strong> (segundo domingo). Viernes 19:00-22:00 a voluntad, entradas el lunes a las 16:00 hora española. <strong>Gratis siempre para menores de 26.</strong></td>
-            <td class="n">30 $</td><td>El mejor plan de museo de la semana</td></tr>
+            <td data-l="Cuándo sale gratis o más barato"><strong>Gratis el domingo 13</strong> (segundo domingo). Viernes 19:00-22:00 a voluntad, entradas el lunes a las 16:00 hora española. <strong>Gratis siempre para menores de 26.</strong></td>
+            <td class="n" data-l="Precio">30 $</td><td data-l="Veredicto">El mejor plan de museo de la semana</td></tr>
         <tr><td><strong>Tenement Museum</strong><br><span class="sm">Lower East Side, solo visita guiada</span></td>
-            <td>No tiene franja gratuita. Hay que reservar y las plazas se agotan.</td>
-            <td class="n">30 $</td><td><strong>Si pagáis uno solo, este.</strong> Explica de dónde sale la ciudad</td></tr>
+            <td data-l="Cuándo sale gratis o más barato">No tiene franja gratuita. Hay que reservar y las plazas se agotan.</td>
+            <td class="n" data-l="Precio">30 $</td><td data-l="Veredicto"><strong>Si pagáis uno solo, este.</strong> Explica de dónde sale la ciudad</td></tr>
         <tr><td><strong>Museo del 9/11</strong><br><span class="sm">Financial District</span></td>
-            <td>Lunes por la tarde hay franja gratuita, pero cae después de vuestra hora de salida al aeropuerto. <strong>El viernes 11 abre solo para familiares.</strong></td>
-            <td class="n">21-33 $</td><td>Magnífico y durísimo. La plaza de fuera es gratis</td></tr>
+            <td data-l="Cuándo sale gratis o más barato">Lunes por la tarde hay franja gratuita, pero cae después de vuestra hora de salida al aeropuerto. <strong>El viernes 11 abre solo para familiares.</strong></td>
+            <td class="n" data-l="Precio">21-33 $</td><td data-l="Veredicto">Magnífico y durísimo. La plaza de fuera es gratis</td></tr>
         <tr><td><strong>MoMA</strong><br><span class="sm">Midtown</span></td>
-            <td>Los viernes gratis son solo para residentes de Nueva York.</td>
-            <td class="n">30 $</td><td>Solo si os va el arte moderno. Tres horas</td></tr>
+            <td data-l="Cuándo sale gratis o más barato">Los viernes gratis son solo para residentes de Nueva York.</td>
+            <td class="n" data-l="Precio">30 $</td><td data-l="Veredicto">Solo si os va el arte moderno. Tres horas</td></tr>
         <tr><td><strong>The Met</strong><br><span class="sm">Upper East Side</span></td>
-            <td>Donativo sugerido solo para residentes del estado. La entrada vale también para The Cloisters el mismo día.</td>
-            <td class="n">30 $</td><td>Si pagáis un museo grande, que sea este</td></tr>
+            <td data-l="Cuándo sale gratis o más barato">Donativo sugerido solo para residentes del estado. La entrada vale también para The Cloisters el mismo día.</td>
+            <td class="n" data-l="Precio">30 $</td><td data-l="Veredicto">Si pagáis un museo grande, que sea este</td></tr>
         <tr><td><strong>The Cloisters</strong><br><span class="sm">Fort Tryon Park, Washington Heights</span></td>
-            <td>Incluido con la entrada del Met del mismo día.</td>
-            <td class="n">30 $</td><td>Cuatro claustros medievales traídos de Europa. Silencio absoluto</td></tr>
+            <td data-l="Cuándo sale gratis o más barato">Incluido con la entrada del Met del mismo día.</td>
+            <td class="n" data-l="Precio">30 $</td><td data-l="Veredicto">Cuatro claustros medievales traídos de Europa. Silencio absoluto</td></tr>
         <tr><td><strong>Guggenheim</strong><br><span class="sm">Quinta Avenida</span></td>
-            <td>Domingos y martes de 16:00 a 17:30, a voluntad.</td>
-            <td class="n">30 $</td><td>Es más arquitectura que museo. Cuarenta minutos</td></tr>
+            <td data-l="Cuándo sale gratis o más barato">Domingos y martes de 16:00 a 17:30, a voluntad.</td>
+            <td class="n" data-l="Precio">30 $</td><td data-l="Veredicto">Es más arquitectura que museo. Cuarenta minutos</td></tr>
         <tr><td><strong>Brooklyn Museum</strong><br><span class="sm">Prospect Heights</span></td>
-            <td>Sin franja fija. Combinado con el Jardín Botánico.</td>
-            <td class="n">20 $</td><td>Egipcio de primer nivel y nunca hay cola</td></tr>
+            <td data-l="Cuándo sale gratis o más barato">Sin franja fija. Combinado con el Jardín Botánico.</td>
+            <td class="n" data-l="Precio">20 $</td><td data-l="Veredicto">Egipcio de primer nivel y nunca hay cola</td></tr>
         <tr><td><strong>Hispanic Society</strong><br><span class="sm">Washington Heights</span></td>
-            <td><strong>Gratis siempre.</strong></td>
-            <td class="n">0 $</td><td>Velázquez y Goya sin cola y sin pagar. No va nadie</td></tr>
+            <td data-l="Cuándo sale gratis o más barato"><strong>Gratis siempre.</strong></td>
+            <td class="n" data-l="Precio">0 $</td><td data-l="Veredicto">Velázquez y Goya sin cola y sin pagar. No va nadie</td></tr>
         <tr><td><strong>Bronx Museum</strong> · <strong>Schomburg Center</strong></td>
-            <td><strong>Gratis siempre</strong> los dos.</td>
-            <td class="n">0 $</td><td>Arte del Bronx y el archivo del Renacimiento de Harlem</td></tr>
+            <td data-l="Cuándo sale gratis o más barato"><strong>Gratis siempre</strong> los dos.</td>
+            <td class="n" data-l="Precio">0 $</td><td data-l="Veredicto">Arte del Bronx y el archivo del Renacimiento de Harlem</td></tr>
         <tr><td><strong>Galerías de Chelsea</strong><br><span class="sm">Calles 20 a 26, entre la 10ª y la 11ª</span></td>
-            <td><strong>Entrada libre en todas.</strong> Cerradas domingos y lunes.</td>
-            <td class="n">0 $</td><td>Diez galerías en dos horas. El mejor secreto barato</td></tr>
+            <td data-l="Cuándo sale gratis o más barato"><strong>Entrada libre en todas.</strong> Cerradas domingos y lunes.</td>
+            <td class="n" data-l="Precio">0 $</td><td data-l="Veredicto">Diez galerías en dos horas. El mejor secreto barato</td></tr>
         <tr><td><strong>Top of the Rock</strong><br><span class="sm">Rockefeller Center</span></td>
-            <td>Más barato a mediodía; más bonito 45 min antes del ocaso.</td>
-            <td class="n">40 $</td><td>El mejor de los miradores: desde aquí sí se ve el Empire State</td></tr>
+            <td data-l="Cuándo sale gratis o más barato">Más barato a mediodía; más bonito 45 min antes del ocaso.</td>
+            <td class="n" data-l="Precio">40 $</td><td data-l="Veredicto">El mejor de los miradores: desde aquí sí se ve el Empire State</td></tr>
         <tr><td><strong>Summit One Vanderbilt</strong><br><span class="sm">Junto a Grand Central</span></td>
-            <td>—</td>
-            <td class="n">49 $</td><td>El más espectacular y el más instagrameado</td></tr>
+            <td data-l="Cuándo sale gratis o más barato">—</td>
+            <td class="n" data-l="Precio">49 $</td><td data-l="Veredicto">El más espectacular y el más instagrameado</td></tr>
         <tr><td><strong>Broadway con Broadway Week</strong></td>
-            <td><strong>2×1 hasta el 20 de septiembre</strong> con el código 241BWSHOW.</td>
-            <td class="n">55-85 $</td><td>La mejor relación calidad-precio del viaje</td></tr>
+            <td data-l="Cuándo sale gratis o más barato"><strong>2×1 hasta el 20 de septiembre</strong> con el código 241BWSHOW.</td>
+            <td class="n" data-l="Precio">55-85 $</td><td data-l="Veredicto">La mejor relación calidad-precio del viaje</td></tr>
         <tr><td><strong>Broadway por lotería o rush</strong></td>
-            <td>broadwaydirect.com/lottery, luckyseat.com, TodayTix a las 9:00.</td>
-            <td class="n">39-55 $</td><td>Gratis apuntarse. Hacedlo igual todos los días</td></tr>
+            <td data-l="Cuándo sale gratis o más barato">broadwaydirect.com/lottery, luckyseat.com, TodayTix a las 9:00.</td>
+            <td class="n" data-l="Precio">39-55 $</td><td data-l="Veredicto">Gratis apuntarse. Hacedlo igual todos los días</td></tr>
         <tr><td><strong>Yankees – Rockies</strong> (mié 9 o jue 10)</td>
-            <td>Entre semana y rival flojo: es cuando está barato.</td>
-            <td class="n">30-60 $</td><td>La experiencia del estadio sin pagar el derbi</td></tr>
+            <td data-l="Cuándo sale gratis o más barato">Entre semana y rival flojo: es cuando está barato.</td>
+            <td class="n" data-l="Precio">30-60 $</td><td data-l="Veredicto">La experiencia del estadio sin pagar el derbi</td></tr>
         <tr><td><strong>Yankees – Mets</strong> (vie, sáb, dom)</td>
-            <td>Solo reventa. Sube cada día que pasa.</td>
-            <td class="n">70-200 $</td><td>El mejor ambiente deportivo de la semana</td></tr>
+            <td data-l="Cuándo sale gratis o más barato">Solo reventa. Sube cada día que pasa.</td>
+            <td class="n" data-l="Precio">70-200 $</td><td data-l="Veredicto">El mejor ambiente deportivo de la semana</td></tr>
         <tr><td><strong>Club de jazz</strong><br><span class="sm">Smalls · Mezzrow · Village Vanguard</span></td>
-            <td>Arturo’s toca gratis con la cena. El segundo pase suele estar menos lleno.</td>
-            <td class="n">25-40 $</td><td>Imprescindible una noche</td></tr>
+            <td data-l="Cuándo sale gratis o más barato">Arturo’s toca gratis con la cena. El segundo pase suele estar menos lleno.</td>
+            <td class="n" data-l="Precio">25-40 $</td><td data-l="Veredicto">Imprescindible una noche</td></tr>
         <tr><td><strong>Comedy Cellar</strong><br><span class="sm">MacDougal Street</span></td>
-            <td>Más consumición mínima de dos bebidas.</td>
-            <td class="n">24-30 $</td><td>Solo si vuestro inglés va rápido</td></tr>
+            <td data-l="Cuándo sale gratis o más barato">Más consumición mínima de dos bebidas.</td>
+            <td class="n" data-l="Precio">24-30 $</td><td data-l="Veredicto">Solo si vuestro inglés va rápido</td></tr>
         <tr><td><strong>House of Yes</strong><br><span class="sm">Bushwick</span></td>
-            <td>Bastante más caro en taquilla que online.</td>
-            <td class="n">20-30 $</td><td>Mirad el código de vestimenta de esa noche</td></tr>
+            <td data-l="Cuándo sale gratis o más barato">Bastante más caro en taquilla que online.</td>
+            <td class="n" data-l="Precio">20-30 $</td><td data-l="Veredicto">Mirad el código de vestimenta de esa noche</td></tr>
         <tr><td><strong>Baños rusos y turcos</strong><br><span class="sm">Calle 10 Este, desde 1892</span></td>
-            <td>Comprobad si el turno es mixto o de un solo género.</td>
-            <td class="n">55 $</td><td>La mejor inversión del quinto día, cuando ya no hay piernas</td></tr>
+            <td data-l="Cuándo sale gratis o más barato">Comprobad si el turno es mixto o de un solo género.</td>
+            <td class="n" data-l="Precio">55 $</td><td data-l="Veredicto">La mejor inversión del quinto día, cuando ya no hay piernas</td></tr>
         <tr><td><strong>Museum of the Moving Image</strong><br><span class="sm">Astoria, Queens</span></td>
-            <td>—</td>
-            <td class="n">20 $</td><td>De los museos más divertidos de la ciudad</td></tr>
+            <td data-l="Cuándo sale gratis o más barato">—</td>
+            <td class="n" data-l="Precio">20 $</td><td data-l="Veredicto">De los museos más divertidos de la ciudad</td></tr>
       </tbody>
     </table>
   </div>
@@ -1974,42 +2075,42 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
   <p class="lede">Por persona, en dólares, seis días completos, con impuestos y propina ya calculados. No incluye alojamiento, vuelos ni seguro. La columna de actividad es la que más varía y la que decide en qué liga jugáis.</p>
 
   <div class="tw">
-    <table>
+    <table data-stack="1">
       <caption>Comparativa · por persona y para los seis días, sin alojamiento ni vuelos</caption>
       <thead><tr><th>Itinerario</th><th>Rango de gasto</th><th class="n">Media/día</th><th class="n">Transporte</th><th class="n">Comida</th><th class="n">Actividad</th></tr></thead>
       <tbody>
-        <tr><td><strong>1 · La ciudad a pie</strong></td><td><div class="bar reco" role="img" aria-label="De 440 a 620 $ por persona en seis días"><i style="--a:44%;--w:18%"></i></div><span class="lab">440 – 620 $</span></td><td class="n">73 – 103 $</td><td class="n">45 $</td><td class="n">250 $</td><td class="n">145 $</td></tr>
-        <tr><td><strong>2 · Los otros distritos</strong></td><td><div class="bar" role="img" aria-label="De 360 a 500 $ por persona en seis días"><i style="--a:36%;--w:14%"></i></div><span class="lab">360 – 500 $</span></td><td class="n">60 – 83 $</td><td class="n">55 $</td><td class="n">215 $</td><td class="n">90 $</td></tr>
-        <tr><td><strong>3 · Butacas y gradas</strong></td><td><div class="bar" role="img" aria-label="De 700 a 1000 $ por persona en seis días"><i style="--a:70%;--w:30%"></i></div><span class="lab">700 – 1.000 $</span></td><td class="n">117 – 167 $</td><td class="n">50 $</td><td class="n">300 $</td><td class="n">400 $</td></tr>
-        <tr><td><strong>4 · Rodado aquí</strong></td><td><div class="bar" role="img" aria-label="De 480 a 700 $ por persona en seis días"><i style="--a:48%;--w:22%"></i></div><span class="lab">480 – 700 $</span></td><td class="n">80 – 117 $</td><td class="n">50 $</td><td class="n">255 $</td><td class="n">195 $</td></tr>
-        <tr><td><strong>5 · Puentes y ferris</strong></td><td><div class="bar" role="img" aria-label="De 390 a 560 $ por persona en seis días"><i style="--a:39%;--w:17%"></i></div><span class="lab">390 – 560 $</span></td><td class="n">65 – 93 $</td><td class="n">60 $</td><td class="n">240 $</td><td class="n">70 $</td></tr>
-        <tr><td><strong>6 · Comer Nueva York</strong></td><td><div class="bar" role="img" aria-label="De 430 a 620 $ por persona en seis días"><i style="--a:43%;--w:19%"></i></div><span class="lab">430 – 620 $</span></td><td class="n">72 – 103 $</td><td class="n">50 $</td><td class="n">340 $</td><td class="n">50 $</td></tr>
-        <tr><td><strong>7 · Bajo techo</strong></td><td><div class="bar" role="img" aria-label="De 520 a 720 $ por persona en seis días"><i style="--a:52%;--w:20%"></i></div><span class="lab">520 – 720 $</span></td><td class="n">87 – 120 $</td><td class="n">45 $</td><td class="n">250 $</td><td class="n">235 $</td></tr>
+        <tr><td><strong>1 · La ciudad a pie</strong></td><td data-l="Rango de gasto"><div class="bar reco" role="img" aria-label="De 440 a 620 $ por persona en seis días"><i style="--a:44%;--w:18%"></i></div><span class="lab">440 – 620 $</span></td><td class="n" data-l="Media/día">73 – 103 $</td><td class="n" data-l="Transporte">45 $</td><td class="n" data-l="Comida">250 $</td><td class="n" data-l="Actividad">145 $</td></tr>
+        <tr><td><strong>2 · Los otros distritos</strong></td><td data-l="Rango de gasto"><div class="bar" role="img" aria-label="De 360 a 500 $ por persona en seis días"><i style="--a:36%;--w:14%"></i></div><span class="lab">360 – 500 $</span></td><td class="n" data-l="Media/día">60 – 83 $</td><td class="n" data-l="Transporte">55 $</td><td class="n" data-l="Comida">215 $</td><td class="n" data-l="Actividad">90 $</td></tr>
+        <tr><td><strong>3 · Butacas y gradas</strong></td><td data-l="Rango de gasto"><div class="bar" role="img" aria-label="De 700 a 1000 $ por persona en seis días"><i style="--a:70%;--w:30%"></i></div><span class="lab">700 – 1.000 $</span></td><td class="n" data-l="Media/día">117 – 167 $</td><td class="n" data-l="Transporte">50 $</td><td class="n" data-l="Comida">300 $</td><td class="n" data-l="Actividad">400 $</td></tr>
+        <tr><td><strong>4 · Rodado aquí</strong></td><td data-l="Rango de gasto"><div class="bar" role="img" aria-label="De 480 a 700 $ por persona en seis días"><i style="--a:48%;--w:22%"></i></div><span class="lab">480 – 700 $</span></td><td class="n" data-l="Media/día">80 – 117 $</td><td class="n" data-l="Transporte">50 $</td><td class="n" data-l="Comida">255 $</td><td class="n" data-l="Actividad">195 $</td></tr>
+        <tr><td><strong>5 · Puentes y ferris</strong></td><td data-l="Rango de gasto"><div class="bar" role="img" aria-label="De 390 a 560 $ por persona en seis días"><i style="--a:39%;--w:17%"></i></div><span class="lab">390 – 560 $</span></td><td class="n" data-l="Media/día">65 – 93 $</td><td class="n" data-l="Transporte">60 $</td><td class="n" data-l="Comida">240 $</td><td class="n" data-l="Actividad">70 $</td></tr>
+        <tr><td><strong>6 · Comer Nueva York</strong></td><td data-l="Rango de gasto"><div class="bar" role="img" aria-label="De 430 a 620 $ por persona en seis días"><i style="--a:43%;--w:19%"></i></div><span class="lab">430 – 620 $</span></td><td class="n" data-l="Media/día">72 – 103 $</td><td class="n" data-l="Transporte">50 $</td><td class="n" data-l="Comida">340 $</td><td class="n" data-l="Actividad">50 $</td></tr>
+        <tr><td><strong>7 · Bajo techo</strong></td><td data-l="Rango de gasto"><div class="bar" role="img" aria-label="De 520 a 720 $ por persona en seis días"><i style="--a:52%;--w:20%"></i></div><span class="lab">520 – 720 $</span></td><td class="n" data-l="Media/día">87 – 120 $</td><td class="n" data-l="Transporte">45 $</td><td class="n" data-l="Comida">250 $</td><td class="n" data-l="Actividad">235 $</td></tr>
       </tbody>
     </table>
     <div class="scale" style="padding:0 15px 12px"><span>0 $</span><span>500 $</span><span>1.000 $</span></div>
   </div>
 
   <div class="tw">
-    <table>
+    <table data-stack="1">
       <caption>Caprichos opcionales · precios de referencia por persona</caption>
       <thead><tr><th>Qué</th><th>Dónde y cuándo</th><th class="n">Precio</th></tr></thead>
       <tbody>
-        <tr><td>Broadway con el 2×1 de Broadway Week</td><td>Código 241BWSHOW, hasta el 20 de septiembre</td><td class="n">55 – 85 $</td></tr>
-        <tr><td>Broadway por lotería o rush digital</td><td>broadwaydirect, luckyseat, TodayTix</td><td class="n">39 – 55 $</td></tr>
-        <tr><td>Yankees – Rockies (mié 9 o jue 10)</td><td>Gradas altas, entre semana</td><td class="n">30 – 60 $</td></tr>
-        <tr><td>Yankees – Mets, Subway Series (vie/sáb/dom)</td><td>Reventa. Sube cada día que pasa</td><td class="n">70 – 200 $</td></tr>
-        <tr><td>Club de jazz</td><td>Smalls y Mezzrow 25-35 $, Vanguard 40 $</td><td class="n">25 – 40 $</td></tr>
-        <tr><td>Comedy Cellar</td><td>Más consumición mínima de dos bebidas</td><td class="n">24 – 30 $</td></tr>
-        <tr><td>House of Yes</td><td>Bushwick, comprando online</td><td class="n">20 – 30 $</td></tr>
-        <tr><td>Top of the Rock</td><td>El mejor mirador si solo subís a uno</td><td class="n">40 $</td></tr>
-        <tr><td>Summit One Vanderbilt</td><td>El más espectacular de los cuatro</td><td class="n">49 $</td></tr>
-        <tr><td>Museo del 9/11</td><td>Cerrado al público el viernes 11</td><td class="n">21 – 33 $</td></tr>
-        <tr><td>Tenement Museum</td><td>Solo con visita guiada, hay que reservar</td><td class="n">30 $</td></tr>
-        <tr><td>Whitney · MoMA · Brooklyn Museum</td><td>Whitney gratis el domingo 13</td><td class="n">20 – 30 $</td></tr>
-        <tr><td>Baños rusos y turcos</td><td>Calle 10 Este, desde 1892</td><td class="n">55 $</td></tr>
-        <tr><td>Cóctel de azotea</td><td>Westlight, Overstory, Manhatta</td><td class="n">20 – 26 $</td></tr>
-        <tr><td>Barca de remos en Central Park</td><td>Por barca y hora, entre tres</td><td class="n">8 $</td></tr>
+        <tr><td>Broadway con el 2×1 de Broadway Week</td><td data-l="Dónde y cuándo">Código 241BWSHOW, hasta el 20 de septiembre</td><td class="n" data-l="Precio">55 – 85 $</td></tr>
+        <tr><td>Broadway por lotería o rush digital</td><td data-l="Dónde y cuándo">broadwaydirect, luckyseat, TodayTix</td><td class="n" data-l="Precio">39 – 55 $</td></tr>
+        <tr><td>Yankees – Rockies (mié 9 o jue 10)</td><td data-l="Dónde y cuándo">Gradas altas, entre semana</td><td class="n" data-l="Precio">30 – 60 $</td></tr>
+        <tr><td>Yankees – Mets, Subway Series (vie/sáb/dom)</td><td data-l="Dónde y cuándo">Reventa. Sube cada día que pasa</td><td class="n" data-l="Precio">70 – 200 $</td></tr>
+        <tr><td>Club de jazz</td><td data-l="Dónde y cuándo">Smalls y Mezzrow 25-35 $, Vanguard 40 $</td><td class="n" data-l="Precio">25 – 40 $</td></tr>
+        <tr><td>Comedy Cellar</td><td data-l="Dónde y cuándo">Más consumición mínima de dos bebidas</td><td class="n" data-l="Precio">24 – 30 $</td></tr>
+        <tr><td>House of Yes</td><td data-l="Dónde y cuándo">Bushwick, comprando online</td><td class="n" data-l="Precio">20 – 30 $</td></tr>
+        <tr><td>Top of the Rock</td><td data-l="Dónde y cuándo">El mejor mirador si solo subís a uno</td><td class="n" data-l="Precio">40 $</td></tr>
+        <tr><td>Summit One Vanderbilt</td><td data-l="Dónde y cuándo">El más espectacular de los cuatro</td><td class="n" data-l="Precio">49 $</td></tr>
+        <tr><td>Museo del 9/11</td><td data-l="Dónde y cuándo">Cerrado al público el viernes 11</td><td class="n" data-l="Precio">21 – 33 $</td></tr>
+        <tr><td>Tenement Museum</td><td data-l="Dónde y cuándo">Solo con visita guiada, hay que reservar</td><td class="n" data-l="Precio">30 $</td></tr>
+        <tr><td>Whitney · MoMA · Brooklyn Museum</td><td data-l="Dónde y cuándo">Whitney gratis el domingo 13</td><td class="n" data-l="Precio">20 – 30 $</td></tr>
+        <tr><td>Baños rusos y turcos</td><td data-l="Dónde y cuándo">Calle 10 Este, desde 1892</td><td class="n" data-l="Precio">55 $</td></tr>
+        <tr><td>Cóctel de azotea</td><td data-l="Dónde y cuándo">Westlight, Overstory, Manhatta</td><td class="n" data-l="Precio">20 – 26 $</td></tr>
+        <tr><td>Barca de remos en Central Park</td><td data-l="Dónde y cuándo">Por barca y hora, entre tres</td><td class="n" data-l="Precio">8 $</td></tr>
       </tbody>
     </table>
   </div>
@@ -2059,7 +2160,7 @@ td .bar + .lab{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(
 </footer>
 
 
-<button class="top" id="volver" type="button" aria-label="Volver arriba">↑</button>
+<button class="gotop" id="volver" type="button" aria-label="Volver arriba">↑</button>
 
 <script>
 (function () {
